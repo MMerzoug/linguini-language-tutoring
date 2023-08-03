@@ -4,7 +4,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Database Name, Username, and Password: Make sure to replace 'database_name', 'username', and 'password' with your actual MySQL database name, username, and password, respectively.
-const sequelize = new Sequelize('database_name', 'username', 'password', {
+const sequelize = new Sequelize('onlineLanguage_db', 'username', 'password', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -63,6 +63,7 @@ const Language = sequelize.define('Language', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  
 });
 
 // Define the associations between the tables
