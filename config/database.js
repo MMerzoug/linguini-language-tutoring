@@ -1,3 +1,5 @@
+// Migrating code to define tables to where it belongs
+
 // Import Sequelize and the database connection
 const { Sequelize, DataTypes } = require('sequelize');
 
