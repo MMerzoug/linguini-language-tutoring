@@ -1,6 +1,7 @@
-const User = require ('./User');
-const Tutor = require ('./Tutor');
-const Language = require ('./Language');
+const User = require ('./Users');
+const Tutor = require ('./Tutors');
+const Language = require ('./Languages');
+const Rating = require ('./Ratings');
 
 // A user can have many languages
 User.hasOne(Language, {
@@ -33,6 +34,7 @@ module.exports = {
     User,
     Tutor,
     Language,
+    Rating,
   };
   
 
