@@ -57,17 +57,13 @@ Message.init(
     },
 
     hooks: {
-    beforeCreate: async (message, options) => {
-        message.sent = Date.now();
+        beforeCreate: async (message, options) => {
+            message.sent = Date.now();
+        },
+        afterCreate: async (message, options) => {
+            await createNotification(message.id, message.to_id);
+        },
     },
-    afterCREATE: async (message, options) => {
-        await message.create({
-            message_id: message.id,
-            to_id: message.to_id,
-            message_type: 'message',
-        });
-    },
-},
     {
         sequelize,
         timestamps: true,
@@ -76,5 +72,13 @@ Message.init(
         modelName: 'message',
     }
 );
+const createNotification = async (messageId, toId) => {
+    const notification = await Message.create({
+        message_id: messageId,
+        to_id: toId,
+        message_type: 'message',
+    });
+    return notification;
+};
 
 module.exports = Message;
