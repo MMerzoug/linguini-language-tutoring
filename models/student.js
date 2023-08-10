@@ -20,7 +20,7 @@ Student.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'users',
+                model: 'user',
                 key: 'id',
             },
             onUpdate: 'CASCADE',
