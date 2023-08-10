@@ -1,4 +1,4 @@
-// ScheduledSessions
+// ScheduledSession
 // Id
 // Student_id (FK to Students.id)
 // Tutor_id (FK to Tutors.id)
@@ -9,9 +9,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class ScheduledSessions extends Model {}
+class ScheduledSession extends Model {}
 
-ScheduledSessions.init(
+ScheduledSession.init(
     {
         id: {
             type: DataTypes.STRING,
@@ -73,7 +73,7 @@ ScheduledSessions.init(
             allowNull: false,
         },
     },
-    ScheduledSessions.beforeSave(function(model) {
+    ScheduledSession.beforeSave(function(model) {
         // Checks that the session_begin and session_end timestamps are valid dates.
         if (!moment(model.session_begin).isValid() || !moment(model.session_end).isValid()) {
           throw new Error('Invalid session dates');
@@ -87,8 +87,8 @@ ScheduledSessions.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'scheduledSessions',
+        modelName: 'scheduledSession',
     }
 );
 
-module.exports = ScheduledSessions;
+module.exports = ScheduledSession;

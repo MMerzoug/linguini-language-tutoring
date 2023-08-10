@@ -1,4 +1,4 @@
-// Messages
+// Message
 // Id
 // From_id (FK to users.id)
 // To_id (FK to users.id)
