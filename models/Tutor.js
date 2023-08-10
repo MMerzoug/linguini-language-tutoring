@@ -1,3 +1,8 @@
+// Tutor
+// id
+// user_id(FK to Users.id)
+// rating
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./User');
