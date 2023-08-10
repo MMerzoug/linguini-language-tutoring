@@ -54,7 +54,6 @@ User.init(
             },
         },
     },
-
     {
         hooks: {
             beforeCreate: async (user) => {
