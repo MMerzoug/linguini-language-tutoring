@@ -1,4 +1,4 @@
-const { User } = require('../models'); // Assuming you've defined the User model in models/user.js
+const { User } = require('../../models'); // Assuming you've defined the User model in models/user.js
 
 // Signup: Create a new user account
 exports.signup = async (req, res) => {

@@ -1,10 +1,10 @@
 const express = require('express');
-const app = express();
 const authRoutes = require('./routes/authRoutes');
 const sequelize = require('./config/connection');
 
-// Other middleware and configuration
+const app = express();
 
+// Other middleware and configuration
 app.use('/api/auth', authRoutes);
 
 // Start the server
