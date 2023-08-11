@@ -25,7 +25,7 @@ Language.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'painting', 
+    modelName: 'language', 
 }
 );
 

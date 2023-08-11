@@ -15,7 +15,6 @@ class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
-
 }
 
 User.init(
@@ -40,7 +39,6 @@ User.init(
             unique: true,
             validate: {
                 isEmail: true,
-
             }
         },
         password: {

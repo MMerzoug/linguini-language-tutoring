@@ -2,8 +2,6 @@
 // id
 // Lang_id (FK to Language.id)
 // level
-
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -21,7 +19,7 @@ LanguageLevel.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'language',
+                model: '',
                 key: 'id',
             },
             onUpdate: 'CASCADE',
