@@ -55,16 +55,15 @@ Message.init(
             },
         },
     },
-
-    hooks: {
-        beforeCreate: async (message, options) => {
-            message.sent = Date.now();
-        },
-        afterCreate: async (message, options) => {
-            await createNotification(message.id, message.to_id);
-        },
-    },
     {
+        hooks: {
+            beforeCreate: async (message, options) => {
+                message.sent = Date.now();
+            },
+            afterCreate: async (message, options) => {
+                await createNotification(message.id, message.to_id);
+            },
+        },
         sequelize,
         timestamps: true,
         freezeTableName: true,
