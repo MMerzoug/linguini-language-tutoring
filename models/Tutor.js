@@ -5,9 +5,8 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./User');
 
-class Tutor extends User { }
+class Tutor extends Model { }
 
 Tutor.init(
     {
@@ -27,29 +26,29 @@ Tutor.init(
             onUpdate: 'CASCADE',
             onDelete: 'CASCADE',
         },
-        rating: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-               min: 1,
-               max: 5
-            },
-        },
-        language_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'language',
-                key: 'id',
-            },
-        },
+        // rating: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     validate: {
+        //         min: 1,
+        //         max: 5
+        //     },
+        // },
+        // language_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'language',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
         modelName: 'tutor',
-      }
-    );
+    }
+);
 
-    module.exports = Tutor;
+module.exports = Tutor;

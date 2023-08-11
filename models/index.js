@@ -1,5 +1,5 @@
 const User = require('./User');
-// const Tutor = require ('./Tutor');
+const Tutor = require ('./Tutor');
 // const Language = require ('./Language');
 // const TutorRating = require ('./TutorRating');
 const Student = require('./Student');
@@ -35,7 +35,7 @@ Student.belongsTo(User, {
 // Export the models for use in other parts of the app
 module.exports = {
   User,
-  // Tutor,
+  Tutor,
   // Language,
   // TutorRating,
   Student,
