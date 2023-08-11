@@ -48,11 +48,11 @@ User.init(
                 len: [8],
             },
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
+        // username: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     unique: true,
+        // },
         type: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -61,23 +61,13 @@ User.init(
     {
         hooks: {
             beforeCreate: async (user) => {
-                try {
-                    newUser.password = await bcrypt.hash(user.password, 10);
-                    return user;
-                } catch (err) {
-                    console.log(err);
-                    return err;
-                }
-            },
-            beforeUpdate: async (updatedUser) => {
-                try {
-                    updatedUser.password = await bcrypt.hash(updatedUser.password, 10);
-                    return updatedUser;
-                } catch (err) {
-                    console.log(err);
-                    return err;
-                }
-            },
+                user.password = await bcrypt.hash(user.password, 10);
+                return user;
+              },
+            beforeUpdate: async (user) => {
+        user.password = await bcrypt.hash(user.password, 10);
+        return user;
+      },
         },
         sequelize,
         timestamps: false,
