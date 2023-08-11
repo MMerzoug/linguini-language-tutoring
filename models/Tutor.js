@@ -31,8 +31,16 @@ Tutor.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                isNumeric: true,
-                len: [1, 5],
+               min: 1,
+               max: 5
+            },
+        },
+        language_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'language',
+                key: 'id',
             },
         },
     },

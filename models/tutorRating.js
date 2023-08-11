@@ -32,7 +32,7 @@ TutorRating.init(
         },
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 isNumeric: true,
                 len: [1, 5],
@@ -42,9 +42,15 @@ TutorRating.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        submitted_by: {
-            type: DataTypes.STRING,
+        student_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'student',
+                key: 'id',
+            },
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE',
         },
     },
     {
