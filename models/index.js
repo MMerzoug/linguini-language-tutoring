@@ -1,9 +1,12 @@
-const User = require ('./User');
+const User = require('./User');
 // const Tutor = require ('./Tutor');
 // const Language = require ('./Language');
 // const TutorRating = require ('./TutorRating');
-// const Student = require('./Student');
+const Student = require('./Student');
 
+Student.belongsTo(User, {
+  foreignKey: 'user_id',
+});
 // A user can have many languages
 // User.hasOne(Language, {
 //   foreignKey: 'user_id',
@@ -26,14 +29,14 @@ const User = require ('./User');
 // });
 
 // User.belongsTo(Tutor,{
-//     foreignKey: 'tutor_id',  
+//     foreignKey: 'tutor_id',
 // });
 
 // Export the models for use in other parts of the app
 module.exports = {
-    User,
-    // Tutor,
-    // Language,
-    // TutorRating,
-    // Student
-  };
+  User,
+  // Tutor,
+  // Language,
+  // TutorRating,
+  Student,
+};

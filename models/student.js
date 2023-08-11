@@ -4,52 +4,54 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Student = require('./User');
 
-class Student extends Model { }
+class Student extends Model {}
 
 Student.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
-        },
-        language_level: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                max: 3,
-                min: 1,
-            },
-        },
-        language_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'language',
-                key: 'id',
-            },
-        },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'student',
-    }
-),
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    },
+    language_level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'languageLevel',
+        key: 'id',
+      },
+      validate: {
+        max: 3,
+        min: 1,
+      },
+    },
+    language_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'language',
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'student',
+  }
+);
 
-    module.exports = Student;
-
+module.exports = Student;
