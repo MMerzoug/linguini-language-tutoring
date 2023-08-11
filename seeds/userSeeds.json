@@ -1,0 +1,52 @@
+[
+    {
+        "first_name": "Jack",
+        "last_name": "Sparrow",
+        "type": "TUTOR",
+        "email": "jsparrow@piratesotc.com",
+        "password": "changeme1234"
+    },
+    {
+        "first_name": "Sal",
+        "last_name": "Kona",
+        "type": "STUDENT",
+        "email": "sal@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "first_name": "Mike",
+        "last_name": "Winston",
+        "type": "TUTOR",
+        "email": "mwinston@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "first_name": "Cathy",
+        "last_name": "Reed",
+        "type": "STUDENT",
+        "email": "creed@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "first_name": "David",
+        "last_name": "Parker",
+        "type": "TUTOR",
+        "email": "dparker@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "first_name": "Vivek",
+        "last_name": "Ramsey",
+        "type": "STUDENT",
+        "email": "vramsey@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "first_name": "Smith",
+        "last_name": "John",
+        "type": "STUDENT",
+        "email": "sjohn@hotmail.com",
+        "password": "password12345"
+    }
+
+]
