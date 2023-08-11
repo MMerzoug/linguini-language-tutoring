@@ -25,26 +25,26 @@ Student.init(
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
-    language_level: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'languageLevel',
-        key: 'id',
-      },
-      validate: {
-        max: 3,
-        min: 1,
-      },
-    },
-    language_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'language',
-        key: 'id',
-      },
-    },
+    // language_level: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'languageLevel',
+    //     key: 'id',
+    //   },
+    //   validate: {
+    //     max: 3,
+    //     min: 1,
+    //   },
+    // },
+    // language_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'language',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
