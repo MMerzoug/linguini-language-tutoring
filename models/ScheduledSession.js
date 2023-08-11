@@ -14,7 +14,7 @@ class ScheduledSession extends Model {}
 ScheduledSession.init(
     {
         id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
@@ -73,16 +73,17 @@ ScheduledSession.init(
             allowNull: false,
         },
     },
-    ScheduledSession.beforeSave(function(model) {
-        // Checks that the session_begin and session_end timestamps are valid dates.
-        if (!moment(model.session_begin).isValid() || !moment(model.session_end).isValid()) {
-          throw new Error('Invalid session dates');
-        }
-      
-        // Generates a unique meeting link for the session.
-        model.meeting_link = uuid.v4();
-      }),
     {
+hooks: {
+      beforeSave:function(model) {
+        // Checks that the session_begin and session_end timestamps are valid dates.
+        // if (!moment(model.session_begin).isValid() || !moment(model.session_end).isValid()) {
+        //   throw new Error('Invalid session dates');
+        // }
+        // Generates a unique meeting link for the session.
+        // model.meeting_link = uuid.v4();
+      },
+},
         sequelize,
         timestamps: true,
         freezeTableName: true,
