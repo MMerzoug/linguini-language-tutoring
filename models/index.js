@@ -1,5 +1,5 @@
 const User = require('./User');
-const Tutor = require ('./Tutor');
+const Tutor = require('./Tutor');
 // const Language = require ('./Language');
 // const TutorRating = require ('./TutorRating');
 const Student = require('./Student');
@@ -45,7 +45,7 @@ ScheduledSession.belongsTo(Tutor, {
 module.exports = {
   User,
   Tutor,
-  Language,
+  // Language,
   // TutorRating,
   Student,
   ScheduledSession,
