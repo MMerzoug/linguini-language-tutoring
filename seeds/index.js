@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection.js');
 const {
   User,
-  // Language,
+  Language,
   // Message,
   ScheduledSession,
   Student,
@@ -12,7 +12,7 @@ const {
 } = require('../models');
 
 const userData = require('./userSeeds.json');
-// const languageData = require('./languageSeeds.json');
+const languageData = require('./languageSeeds.json');
 // const messageData = require('./messageSeeds.json');
 const scheduledSessionData = require('./scheduledSessionSeeds.json');
 const studentData = require('./studentSeeds.json');
@@ -29,10 +29,10 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // await Language.bulkCreate(languageData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
+  await Language.bulkCreate(languageData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   // await Message.bulkCreate(messageData, {
   //   individualHooks: true,
