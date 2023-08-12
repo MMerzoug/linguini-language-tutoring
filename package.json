@@ -12,7 +12,9 @@
     "sequelize": "^6.32.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js",
+    "devStart": "nodemon server.js"
   },
   "name": "online-language-tutoring",
   "description": "To run the \"Online Language Tutoring\" app, you need to set up a MySQL database and configure access controls. Follow these steps to get started:",
@@ -33,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/MMerzoug/Online-Language-Tutoring/issues"
   },
-  "homepage": "https://github.com/MMerzoug/Online-Language-Tutoring#readme"
+  "homepage": "https://github.com/MMerzoug/Online-Language-Tutoring#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }

@@ -1,10 +1,14 @@
 const User = require('./User');
-const Tutor = require ('./Tutor');
+const Tutor = require('./Tutor');
 // const Language = require ('./Language');
 // const TutorRating = require ('./TutorRating');
 const Student = require('./Student');
 
 Student.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+Tutor.belongsTo(User, {
   foreignKey: 'user_id',
 });
 // A user can have many languages
