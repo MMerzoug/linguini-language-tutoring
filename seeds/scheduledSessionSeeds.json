@@ -1,7 +1,21 @@
 [
     {
-        "student_id": 2 ,
+        "student_id": 3 ,
         "tutor_id": 1,
+        "session_begin": "",
+        "session_end": "",
+        "meeting_link": "zoom.com"
+    },
+    {
+        "student_id": 2 ,
+        "tutor_id": 2,
+        "session_begin": "8/20/2023",
+        "session_end": "8/20/2023",
+        "meeting_link": "zoom.com"
+    },
+    {
+        "student_id": 1 ,
+        "tutor_id": 2,
         "session_begin": "",
         "session_end": "",
         "meeting_link": "zoom.com"
@@ -9,20 +23,6 @@
     {
         "student_id": 4 ,
         "tutor_id": 3,
-        "session_begin": "8/20/2023",
-        "session_end": "8/20/2023",
-        "meeting_link": "zoom.com"
-    },
-    {
-        "student_id": 6 ,
-        "tutor_id": 5,
-        "session_begin": "",
-        "session_end": "",
-        "meeting_link": "zoom.com"
-    },
-    {
-        "student_id": 7 ,
-        "tutor_id": 5,
         "session_begin": "",
         "session_end": "",
         "meeting_link": "zoom.com"
