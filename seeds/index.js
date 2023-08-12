@@ -1,24 +1,26 @@
 const sequelize = require('../config/connection.js');
 const {
   User,
-  // Language,
+  Language,
+  LanguageLevel,
   // Message,
-  ScheduledSession,
+  // ScheduledSession,
   Student,
   // StudentLanguageLevel,
   // StudentTutorPivot,
-  // Tutor,
+  Tutor,
   // TutorRating
 } = require('../models');
 
 const userData = require('./userSeeds.json');
-// const languageData = require('./languageSeeds.json');
+const languageData = require('./languageSeeds.json');
+const languageLevelData = require('./languageLevelSeeds.json');
 // const messageData = require('./messageSeeds.json');
-const scheduledSessionData = require('./scheduledSessionSeeds.json');
+// const scheduledSessionData = require('./scheduledSessionSeeds.json');
 const studentData = require('./studentSeeds.json');
 // const studentLanguageLevelData = require('./studentLanguageLevelSeeds.json');
 // const studentTutorPivotData = require('./studentTutorPivotSeeds.json');
-// const tutorData = require('./tutorSeeds.json');
+const tutorData = require('./tutorSeeds.json');
 // const tutorRatingData = require('./tutorRatingSeeds.json');
 
 const seedDatabase = async () => {
@@ -29,20 +31,25 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // await Language.bulkCreate(languageData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
+  await Language.bulkCreate(languageData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  await LanguageLevel.bulkCreate(languageLevelData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   // await Message.bulkCreate(messageData, {
   //   individualHooks: true,
   //   returning: true,
   // });
 
-  await ScheduledSession.bulkCreate (scheduledSessionData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await ScheduledSession.bulkCreate (scheduledSessionData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   await Student.bulkCreate(studentData, {
     individualHooks: true,
@@ -59,10 +66,10 @@ const seedDatabase = async () => {
   //   returning: true,
   // });
 
-  // await Tutor.bulkCreate(tutorData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
+  await Tutor.bulkCreate(tutorData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   // await TutorRating.bulkCreate(tutorRatingData, {
   //   individualHooks: true,
