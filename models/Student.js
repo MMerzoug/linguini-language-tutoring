@@ -25,18 +25,18 @@ Student.init(
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
-    // language_level: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: 'languageLevel',
-    //     key: 'id',
-    //   },
-    //   validate: {
-    //     max: 3,
-    //     min: 1,
-    //   },
-    // },
+    language_level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'language_level',
+        key: 'id',
+      },
+      validate: {
+        max: 3,
+        min: 1,
+      },
+    },
     // language_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,

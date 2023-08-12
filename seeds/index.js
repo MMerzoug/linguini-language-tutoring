@@ -2,6 +2,7 @@ const sequelize = require('../config/connection.js');
 const {
   User,
   Language,
+  LanguageLevel,
   // Message,
   // ScheduledSession,
   Student,
@@ -13,6 +14,7 @@ const {
 
 const userData = require('./userSeeds.json');
 const languageData = require('./languageSeeds.json');
+const languageLevelData = require('./languageLevelSeeds.json');
 // const messageData = require('./messageSeeds.json');
 // const scheduledSessionData = require('./scheduledSessionSeeds.json');
 const studentData = require('./studentSeeds.json');
@@ -30,6 +32,11 @@ const seedDatabase = async () => {
   });
 
   await Language.bulkCreate(languageData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  await LanguageLevel.bulkCreate(languageLevelData, {
     individualHooks: true,
     returning: true,
   });
