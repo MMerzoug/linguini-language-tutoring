@@ -25,8 +25,9 @@ StudentTutorPivot.init(
                 model: 'tutor',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            defaultValue: 1
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
         student_id: {
             type: DataTypes.INTEGER,
@@ -35,28 +36,28 @@ StudentTutorPivot.init(
                 model: 'student',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
-        Language_id: {
+        language_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'language',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
         Languagelevel_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: 'languagelevel',
-                key: 'id',
-            },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            // references: {
+            //     model: 'languagelevel',
+            //     key: 'id',
+            // },
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
     },
 

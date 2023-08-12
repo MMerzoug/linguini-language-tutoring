@@ -33,8 +33,8 @@ Message.init(
                 model: 'user',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
         message_text: {
             type: DataTypes.TEXT,

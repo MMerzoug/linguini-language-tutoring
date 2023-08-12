@@ -24,12 +24,13 @@ Tutor.init(
                 model: 'user',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            // onUpdate: 'CASCADE',
+            // onDelete: 'CASCADE',
         },
         rating: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            defaultValue: 0,
             validate: {
                min: 1,
                max: 5

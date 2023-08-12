@@ -26,8 +26,8 @@ ScheduledSession.init(
                 model: 'student',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            //onUpdate: 'CASCADE',
+            //onDelete: 'CASCADE',
         },
         tutor_id: {
             type: DataTypes.INTEGER,
@@ -36,16 +36,16 @@ ScheduledSession.init(
                 model: 'tutor',
                 key: 'id',
             },
-            onUpdate: 'CASCADE',
-            onDelete: 'CASCADE',
+            //onUpdate: 'CASCADE',
+            //onDelete: 'CASCADE',
         },
         session_begin: {
             type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
-            validate: {
-                isDate: true,
-            },
+            // allowNull: false,
+            // defaultValue: DataTypes.NOW,
+            // validate: {
+            //     isDate: true,
+            // },
             get() {
                 return new Date(this.getDataValue('sent')).toDateString();
             },
@@ -56,11 +56,11 @@ ScheduledSession.init(
         },
         session_end: {
             type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
-            validate: {
-                isDate: true,
-            },
+            // allowNull: false,
+            // defaultValue: DataTypes.NOW,
+            // validate: {
+            //     isDate: true,
+            // },
             get() {
                 return new Date(this.getDataValue('sent')).toDateString();
             },

@@ -4,6 +4,7 @@ const Language = require ('./Language');
 // const TutorRating = require ('./TutorRating');
 const Student = require('./Student');
 const ScheduledSession = require('./ScheduledSession');
+const StudentTutorPivot = require('./StudentTutorPivot');
 
 Student.belongsTo(User, {
   foreignKey: 'user_id',
@@ -25,17 +26,28 @@ Student.belongsTo(User, {
 //     foreignKey: 'tutor_id',
 // });
 
-// Tutor.hasMany(User, {
-//     foreignKey: 'tutor_id'
-// });
-
-// User.belongsTo(Tutor,{
-//     foreignKey: 'tutor_id',
-// });
-
-ScheduledSession.belongsTo(Tutor, {
-  foreignKey: 'tutor_id',
+Tutor.hasMany(User, {
+    foreignKey: 'tutor_id'
 });
+
+User.belongsTo(Tutor,{
+    foreignKey: 'tutor_id',
+});
+
+// ScheduledSession.belongsTo(Tutor, {
+//   foreignKey: 'tutor_id',
+//  });
+
+
+ScheduledSession.belongsTo(Student,{
+  foreignKey: 'student_id',
+ 
+})
+
+Student.hasMany(ScheduledSession,{
+  foreignKey: 'student_id',
+})
+
 
 // Export the models for use in other parts of the app
 module.exports = {
@@ -45,4 +57,5 @@ module.exports = {
   // TutorRating,
   Student,
   ScheduledSession,
+  StudentTutorPivot,
 };

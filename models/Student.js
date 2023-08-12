@@ -22,11 +22,11 @@ Student.init(
         model: 'user',
         key: 'id',
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      // onUpdate: 'CASCADE',
+      // onDelete: 'CASCADE',
     },
-    // language_level: {
-    //   type: DataTypes.INTEGER,
+     //language_level: {
+     //type: DataTypes.INTEGER,
     //   allowNull: false,
     //   references: {
     //     model: 'languageLevel',
@@ -36,7 +36,7 @@ Student.init(
     //     max: 3,
     //     min: 1,
     //   },
-    // },
+    //},
     // language_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
