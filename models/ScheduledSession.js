@@ -41,7 +41,7 @@ ScheduledSession.init(
         },
         session_begin: {
             type: DataTypes.DATE,
-            allowNull: false,
+            // allowNull: false,
             defaultValue: DataTypes.NOW,
             validate: {
                 isDate: true,
@@ -56,7 +56,7 @@ ScheduledSession.init(
         },
         session_end: {
             type: DataTypes.DATE,
-            allowNull: false,
+            // allowNull: false,
             defaultValue: DataTypes.NOW,
             validate: {
                 isDate: true,

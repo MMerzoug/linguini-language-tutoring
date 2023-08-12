@@ -4,7 +4,7 @@ const {
   Language,
   LanguageLevel,
   // Message,
-  // ScheduledSession,
+  ScheduledSession,
   Student,
   // StudentLanguageLevel,
   // StudentTutorPivot,
@@ -16,7 +16,7 @@ const userData = require('./userSeeds.json');
 const languageData = require('./languageSeeds.json');
 const languageLevelData = require('./languageLevelSeeds.json');
 // const messageData = require('./messageSeeds.json');
-// const scheduledSessionData = require('./scheduledSessionSeeds.json');
+const scheduledSessionData = require('./scheduledSessionSeeds.json');
 const studentData = require('./studentSeeds.json');
 // const studentLanguageLevelData = require('./studentLanguageLevelSeeds.json');
 // const studentTutorPivotData = require('./studentTutorPivotSeeds.json');
@@ -46,11 +46,6 @@ const seedDatabase = async () => {
   //   returning: true,
   // });
 
-  // await ScheduledSession.bulkCreate (scheduledSessionData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
-
   await Student.bulkCreate(studentData, {
     individualHooks: true,
     returning: true,
@@ -75,6 +70,11 @@ const seedDatabase = async () => {
   //   individualHooks: true,
   //   returning: true,
   // });
+
+  await ScheduledSession.bulkCreate (scheduledSessionData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
