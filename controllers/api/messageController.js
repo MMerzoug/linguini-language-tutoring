@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Tutor, Student, ScheduledSession } = require('../../models');
+const { Tutor, Student, Message } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const scheduledSessionData = await ScheduledSession.findAll({
+    const messageData = await Message.findAll({
       include: [
         {
           model: Student, 
@@ -13,12 +13,10 @@ router.get('/', async (req, res) => {
         }
       ],
     });
-    res.status(200).json(scheduledSessionData);
+    res.status(200).json(messageData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
-
 
 module.exports = router;

@@ -5,6 +5,7 @@ const LanguageLevel = require('./LanguageLevel');
 // const TutorRating = require ('./TutorRating');
 const Student = require('./Student');
 const ScheduledSession = require('./ScheduledSession');
+const Message = require('./Message');
 
 Student.belongsTo(User, {
   foreignKey: 'user_id',
@@ -51,6 +52,14 @@ LanguageLevel.belongsTo(Student, {
 //     foreignKey: 'tutor_id',
 // });
 
+Message.belongsTo(Student, {
+  foreignKey: 'student_id',
+});
+
+Message.belongsTo(Tutor, {
+  foreignKey: 'tutor_id',
+});
+
 ScheduledSession.belongsTo(Tutor, {
   foreignKey: 'tutor_id',
 });
@@ -68,4 +77,5 @@ module.exports = {
   // TutorRating,
   Student,
   ScheduledSession,
+  Message,
 };
