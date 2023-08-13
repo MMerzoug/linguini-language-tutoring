@@ -10,4 +10,6 @@ router.get('/', async (req, res) => {
   }
 });
 
+//no post needed unless we want to be able to add additional options on the front end. Otherwise complete
+
 module.exports = router;
