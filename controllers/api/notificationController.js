@@ -2,9 +2,6 @@ const router = require('express').Router();
 const { Message, Notification } = require('../../models');
 
 router.get('/:userID', async (req, res) => {
-// const notificationController = {
-//     // Retrieve all notifications for a specific user
-//     getAllUserNotifications: async (req, res) => {
         try {
             const userID = parseInt(req.params.userID,10);
             console.log("Fetching notifications for User ID:", userID); // logging for debugging
@@ -29,10 +26,9 @@ router.get('/:userID', async (req, res) => {
         }
     }
 );
-/*
+
     router.put('/:notificationId', async (req, res) => {
     // Mark a notification as read
-    // markAsRead: async (req, res) => {
         try {
             const notification = await Notification.findByPk(req.params.notificationId);
             if (!notification) {
@@ -46,11 +42,10 @@ router.get('/:userID', async (req, res) => {
         } catch (error) {
             res.status(500).json(error);
         }
-    },
+    }),
 
     router.delete('/:notificationId', async (req, res) => {
     // Delete a notification
-    // deleteNotification: async (req, res) => {
         try {
             const notification = await Notification.findByPk(req.params.notificationId);
             if (!notification) {
@@ -62,7 +57,6 @@ router.get('/:userID', async (req, res) => {
         } catch (error) {
             res.status(500).json(error);
         }
-    };
+    });
 
-*/
 module.exports = router;
