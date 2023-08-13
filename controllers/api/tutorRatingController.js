@@ -16,4 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//get by tutor not just all users
+//post a new tutor rating
+
 module.exports = router;

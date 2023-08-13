@@ -16,4 +16,6 @@ router.get('/', async (req, res) => {
   }
 });
 
+//post route separate from the user
+
 module.exports = router;

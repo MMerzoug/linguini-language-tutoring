@@ -10,4 +10,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+//get by id as a single language... Add this.
+
+//no post needed unless we want to be able to add additional languages on the front end. Otherwise complete
+
 module.exports = router;
