@@ -1,14 +1,17 @@
 [
     {
        "user_id": 1,
+       "rating" : 3,
        "language_id": 4
     },
     {
         "user_id": 3,
+        "rating" : 2,
         "language_id": 3
      },
      {
         "user_id": 5,
+        "rating" : 4,
         "language_id": 2
      }
 ]
