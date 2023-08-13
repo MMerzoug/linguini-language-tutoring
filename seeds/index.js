@@ -9,7 +9,7 @@ const {
   // StudentLanguageLevel,
   // StudentTutorPivot,
   Tutor,
-  // TutorRating
+  TutorRating,
 } = require('../models');
 
 const userData = require('./userSeeds.json');
@@ -21,7 +21,7 @@ const studentData = require('./studentSeeds.json');
 // const studentLanguageLevelData = require('./studentLanguageLevelSeeds.json');
 // const studentTutorPivotData = require('./studentTutorPivotSeeds.json');
 const tutorData = require('./tutorSeeds.json');
-// const tutorRatingData = require('./tutorRatingSeeds.json');
+const tutorRatingData = require('./tutorRatingSeeds.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -66,12 +66,12 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // await TutorRating.bulkCreate(tutorRatingData, {
-  //   individualHooks: true,
-  //   returning: true,
-  // });
+  await TutorRating.bulkCreate(tutorRatingData, {
+    individualHooks: true,
+    returning: true,
+  });
 
-  await ScheduledSession.bulkCreate (scheduledSessionData, {
+  await ScheduledSession.bulkCreate(scheduledSessionData, {
     individualHooks: true,
     returning: true,
   });
