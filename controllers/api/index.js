@@ -5,6 +5,7 @@ const languageController = require('./languageController');
 const languageLevelController = require('./languageLevelController');
 const scheduledSessionController = require('./scheduledSessionController');
 const messageController = require('./messageController');
+const notificationController = require('./notificationController');
 
 router.use('/students', studentController);
 router.use('/tutors', tutorController);
@@ -12,6 +13,7 @@ router.use('/languages', languageController);
 router.use('/language_level', languageLevelController);
 router.use('/scheduledSession', scheduledSessionController);
 router.use('/message', messageController);
+router.use('/notification', notificationController);
 
 
 module.exports = router;
