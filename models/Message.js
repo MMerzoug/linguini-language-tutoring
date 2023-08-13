@@ -54,15 +54,23 @@ Message.init(
                 this.setDataValue('sent', value);
             },
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            default: DataTypes.NOW,
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            default: DataTypes.NOW,
+        },
     },
     {
         hooks: {
             beforeCreate: async (message, options) => {
                 message.sent = Date.now();
             },
-            afterCreate: async (message, options) => {
-                await createNotification(message.id, message.to_id);
-            },
+            // afterCreate: async (message, options) => {
+            //     await createNotification(message.id, message.to_id);
+            // },
         },
         sequelize,
         timestamps: true,
@@ -71,13 +79,13 @@ Message.init(
         modelName: 'message',
     }
 );
-const createNotification = async (messageId, toId) => {
-    const notification = await Message.create({
-        message_id: messageId,
-        to_id: toId,
-        message_type: 'message',
-    });
-    return notification;
-};
+// const createNotification = async (messageId, toId) => {
+//     const notification = await Message.create({
+//         message_id: messageId,
+//         to_id: toId,
+//         message_type: 'message',
+//     });
+//     return notification;
+// };
 
 module.exports = Message;
