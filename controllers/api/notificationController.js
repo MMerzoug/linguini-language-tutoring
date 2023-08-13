@@ -1,29 +1,29 @@
 const router = require('express').Router();
 const { Message, Notification } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/:userID', async (req, res) => {
 // const notificationController = {
 //     // Retrieve all notifications for a specific user
 //     getAllUserNotifications: async (req, res) => {
         try {
+            const userID = parseInt(req.params.userID,10);
+            console.log("Fetching notifications for User ID:", userID); // logging for debugging
+
             const notifications = await Notification.findAll({
-                include: [
-                    {
+                include: [{
                       model: Message, 
-                    },
-                ],
-                // where: {
-                //     to_id: req.params.userId
-                // },
-                // order: [['createdAt', 'DESC']]
+                    }],
+                where: {
+                    to_id: userID
+                },
+                order: [['createdAt', 'DESC']]
             });
 
-            // if (!notifications.length) {
-            //     return res.status(404).json({ message: 'No notifications found for this user.' });
-            // }
+            if (!notifications.length) {
+                return res.status(404).json({ message: 'No notifications found for this user.' });
+            }
 
-            res.status(200).json(notifications);
-            // res.json(notifications);
+            res.json(notifications);
         } catch (error) {
             res.status(500).json(error);
         }
