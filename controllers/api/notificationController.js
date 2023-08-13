@@ -12,17 +12,18 @@ router.get('/', async (req, res) => {
                       model: Message, 
                     },
                 ],
-                where: {
-                    to_id: req.params.userId
-                },
-                order: [['createdAt', 'DESC']]
+                // where: {
+                //     to_id: req.params.userId
+                // },
+                // order: [['createdAt', 'DESC']]
             });
 
-            if (!notifications.length) {
-                return res.status(404).json({ message: 'No notifications found for this user.' });
-            }
+            // if (!notifications.length) {
+            //     return res.status(404).json({ message: 'No notifications found for this user.' });
+            // }
 
-            res.json(notifications);
+            res.status(200).json(notifications);
+            // res.json(notifications);
         } catch (error) {
             res.status(500).json(error);
         }
