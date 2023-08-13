@@ -26,22 +26,22 @@ Tutor.init(
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
-    // rating: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     validate: {
-    //         min: 1,
-    //         max: 5
-    //     },
-    // },
-    // language_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     references: {
-    //         model: 'language',
-    //         key: 'id',
-    //     },
-    // },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 5,
+      },
+    },
+    language_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'language',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
