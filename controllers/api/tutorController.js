@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Tutor, Language, TutorRating } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [
@@ -12,12 +12,27 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(tutorData);
   } catch (err) {
-    res.status(400).json(err);
+   next(err);
+  }
+});
+
+router.get('/', async (req, res, next) => {
+  try {
+    const tutorData = await Tutor.findOne({
+      include: [
+        {
+          model: User,
+        },
+      ],
+  });
+  res.status(200).json(tutorData);
+  } catch (err) {
+   next(err);
   }
 });
 
 // get all tutors that teach a language 
-router.get("/:language", async (req, res) => {
+router.get("/:language", async (req, res, next) => {
   console.log(req);
   try {
     const LanguageData = await Language.findOne({
@@ -39,39 +54,40 @@ router.get("/:language", async (req, res) => {
     }
     res.status(200).json(tutors);
   } catch (err) {
-    res.status(400).json(err);
+  next(err);
   }
 });
 
 //post route separate from the user
-router.post('/create', async (req, res) => {
+router.post('/create', async (req, res, next) => {
   try {
-    const userData = await User.create({
-      // ...req.body,
+    const userData = await User.Create ({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
     });
-    const LanguagelevelData = await LanguageLevel.findOne({
+    const tutorRatingData = await TutorRating.findOne({
       where: {
-        label: req.body.language_level,
-      }
+        id: req.params.id,
+        tutor_id: req.session.user_id,
+      },
     });
-    const languageData = await Language.findOne({
+     const languageData = await Language.findOne({
       where: {
         name: req.body.language,
       }
     });
     const tutorData = await Tutor.create({
+      // user_id: req.session.user_id,
       user_id: userData.id,
-      rating: ratingData.id,
+      rating: tutorRatingData.id,
       language_id: languageData.id,
     });
-    res.status(200).json(studentData);
+    res.status(200).json(tutorData);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
-});
+  });
 
 module.exports = router;
