@@ -9,6 +9,8 @@ const {
   // StudentLanguageLevel,
   // StudentTutorPivot,
   Tutor,
+  // TutorRating,
+  Notification,
   TutorRating,
 } = require('../models');
 
@@ -21,6 +23,8 @@ const studentData = require('./studentSeeds.json');
 // const studentLanguageLevelData = require('./studentLanguageLevelSeeds.json');
 // const studentTutorPivotData = require('./studentTutorPivotSeeds.json');
 const tutorData = require('./tutorSeeds.json');
+// const tutorRatingData = require('./tutorRatingSeeds.json');
+const notificationData = require('./notificationSeeds.json');
 const tutorRatingData = require('./tutorRatingSeeds.json');
 
 const seedDatabase = async () => {
@@ -46,6 +50,11 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  await Notification.bulkCreate(notificationData, {
+    individualHooks: true,
+    returning: true,
+  });
+  
   await Student.bulkCreate(studentData, {
     individualHooks: true,
     returning: true,

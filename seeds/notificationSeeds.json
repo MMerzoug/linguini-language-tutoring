@@ -1,0 +1,30 @@
+[
+    {
+        "message_id": 1,
+        "to_id": 2,
+        "type": "message",
+        "content": "You have a new message from user 1.",
+        "read": false
+    },
+    {
+        "message_id": null,
+        "to_id": 3,
+        "type": "alert",
+        "content": "Your subscription will expire in 3 days.",
+        "read": false
+    },
+    {
+        "message_id": 2,
+        "to_id": 4,
+        "type": "message",
+        "content": "You have a new message from user 2.",
+        "read": true
+    },
+    {
+        "message_id": null,
+        "to_id": 3,
+        "type": "reminder",
+        "content": "Remember to update your profile.",
+        "read": false
+    }
+]
