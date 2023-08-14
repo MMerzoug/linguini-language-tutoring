@@ -18,6 +18,10 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+
+//no post needed unless we want to be able to add additional options on the front end. Otherwise complete
+
 module.exports = router;
 
 // Post only needed if we want to be able to add additional options on the front end. We do want that ability, so post was added.
