@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const { Language, Tutor } = require("../../models");
+const router = require('express').Router();
+const { Language, Tutor } = require('../../models');
 
-router.get("/findAll", async (req, res) => {
+router.get('/findAll', async (req, res) => {
   try {
     const LanguageData = await Language.findAll();
 
@@ -11,15 +11,14 @@ router.get("/findAll", async (req, res) => {
   }
 });
 
-
-
-// Below here are easy routes
-
-//get by id as a single language... Add this.
-
-//no post needed unless we want to be able to add additional languages on the front end. Otherwise complete
-
+// Allows new languages to be added to be able to add additional languages on the front end.
+router.post('/', async (req, res) => {
+  try {
+    const newLanguage = await Language.create(req.body);
+    res.status(200).json(newLanguage);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
-
-// const test = await Language.findOne()
