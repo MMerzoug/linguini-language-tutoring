@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Tutor, Language, TutorRating } = require('../../models');
-
+// base url is /api/tutors/
 router.get('/', async (req, res, next) => {
   try {
     const tutorData = await Tutor.findAll({
@@ -16,9 +16,10 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/', async (req, res, next) => {
+router.get('/:tutor_id', async (req, res, next) => {
   try {
     const tutorData = await Tutor.findOne({
+      where: { id: req.params.tutor_id },
       include: [
         {
           model: User,
@@ -61,7 +62,7 @@ router.get("/:language", async (req, res, next) => {
 //post route separate from the user
 router.post('/create', async (req, res, next) => {
   try {
-    const userData = await User.Create ({
+    const userData = await User.create ({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
@@ -69,9 +70,8 @@ router.post('/create', async (req, res, next) => {
     });
     const tutorRatingData = await TutorRating.findOne({
       where: {
-        id: req.params.id,
-        tutor_id: req.session.user_id,
-      },
+        rating: req.body.rating,
+      }
     });
      const languageData = await Language.findOne({
       where: {

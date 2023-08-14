@@ -40,6 +40,7 @@ TutorRating.belongsTo(Tutor, {
 Tutor.hasMany(TutorRating, {
   foreignKey: 'tutor_id',
 });
+
 // Student.hasOne(LanguageLevel, {
 //     foreignKey: 'id',
 // });
