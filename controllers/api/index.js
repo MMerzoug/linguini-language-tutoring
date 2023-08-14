@@ -7,6 +7,7 @@ const scheduledSessionController = require('./scheduledSessionController');
 const messageController = require('./messageController');
 const notificationController = require('./notificationController');
 const tutorRatingController = require('./tutorRatingController');
+const userController = require('./userController');
 
 router.use('/students', studentController);
 router.use('/tutors', tutorController);
@@ -16,5 +17,6 @@ router.use('/scheduledSession', scheduledSessionController);
 router.use('/message', messageController);
 router.use('/notification', notificationController);
 router.use('/tutor_ratings', tutorRatingController);
+router.use('/users', userController);
 
 module.exports = router;
