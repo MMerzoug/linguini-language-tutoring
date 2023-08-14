@@ -53,10 +53,10 @@ User.init(
         //     allowNull: false,
         //     unique: true,
         // },
-        type: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // type: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
     },
     {
         hooks: {
