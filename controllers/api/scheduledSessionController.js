@@ -6,10 +6,10 @@ router.get('/', async (req, res) => {
     const scheduledSessionData = await ScheduledSession.findAll({
       include: [
         {
-          model: Student, 
+          model: Student,
         },
         {
-            model: Tutor,
+          model: Tutor,
         }
       ],
     });
@@ -20,5 +20,25 @@ router.get('/', async (req, res) => {
 });
 
 //post new session
+router.post('/', async (req, res) => {
+  try {
+    const { student_id, tutor_id, scheduled_time } = req.body;
+
+    if(!student_id || !tutor_id || !scheduled_time ) {
+      return res.status(400).json({ message: 'Please provide studentId, tutorId, and scheduledTime for the session.' });
+    }
+
+    const newScheduledSession = await ScheduledSession.create({
+      student_id,
+      tutor_id,
+      scheduled_time
+    });
+
+    res.status(201).json(newScheduledSession);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message:'Failed to schedule a new session', error: err});
+  }
+});
 
 module.exports = router;
