@@ -54,14 +54,14 @@ Message.init(
                 this.setDataValue('sent', value);
             },
         },
-        createdAt: {
-            type: DataTypes.DATE,
-            default: DataTypes.NOW,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            default: DataTypes.NOW,
-        },
+        // createdAt: {
+        //     type: DataTypes.DATE,
+        //     default: DataTypes.NOW,
+        // },
+        // updatedAt: {
+        //     type: DataTypes.DATE,
+        //     default: DataTypes.NOW,
+        // },
     },
     {
         hooks: {
