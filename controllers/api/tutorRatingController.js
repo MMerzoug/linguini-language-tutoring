@@ -80,13 +80,23 @@ router.post('/', async (req, res) => {
       rating: req.body.rating,
       tutor_id: req.body.tutor_id,
     });
+
+    res.status(201).json(tutorRatingData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/avg_rating/:tutor_id', async (req, res, next) => {
+  console.log(req);
+  try {
     // calculate the average rating
     const result = await TutorRating.findAll({
-      where: { tutor_id: req.body.tutor_id },
+      where: { tutor_id: req.params.tutor_id },
       attributes: [[sequelize.fn('AVG', sequelize.col('tutorRating.rating')), 'avgRatings']],
     });
-
-    res.status(201).json(result);
+    res.status(200).json(result);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
