@@ -28,43 +28,67 @@ router.get('/', async (req, res) => {
 }
 
 */
-router.post("/", async (req, res) => {
+// router.post('/', async (req, res) => {
+//   try {
+// create
+// const tutorRatingData = await TutorRating.create({
+//   rating: req.body.rating,
+//   tutor_id: req.body.tutor_id,
+// });
+
+// calculate the average ratign
+// const result = await TutorRating.findAll({
+// include: {
+//   model: TutorRating,
+//   as: 'ratings',
+//   attributes: [],
+// },
+// attributes: {
+//   include: [[sequelize.fn('AVG', sequelize.col('ratings.rating')), 'avgRatings']],
+// },
+// group: ['TutorRating.id'],
+// raw: true,
+// where: {
+//   tutor_id: req.body.tutor_id,
+// },
+// include: [
+//   {
+//     model: Tutor,
+//   },
+// ],
+// });
+
+// get average rating from result
+// const avg = result['AVG(`rating`)'];
+
+// do the update (not sure if this is accurate)
+// await Tutor.update(
+//   {
+//     rating: avg,
+//   },
+//   {
+//     where: {
+//       id: req.body.tutor_id,
+//     },
+//   }
+// );
+
+router.post('/', async (req, res) => {
   try {
     // create
     const tutorRatingData = await TutorRating.create({
       rating: req.body.rating,
       tutor_id: req.body.tutor_id,
     });
-
-    // calculate the average ratign
+    // calculate the average rating
     const result = await TutorRating.findAll({
-      attributes: [sequelize.fn('AVG', sequelize.col('rating'))],
-      raw: true,
-      where: {
-        tutor_id: req.body.tutor_id,
-      },
-      include: [
-        {
-          model: Tutor,
-        },
-      ],
+      where: { tutor_id: req.body.tutor_id },
+      attributes: [[sequelize.fn('AVG', sequelize.col('tutorRating.rating')), 'avgRatings']],
     });
 
-    // get average rating from result
-    const avg = result['AVG(`rating`)'];
-
-    // do the update (not sure if this is accurate)
-    await Tutor.update(
-      {
-        rating: avg,
-      },
-      {
-        where: {
-          id: req.body.tutor_id,
-        },
-      }
-    );
+    res.status(201).json(result);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
