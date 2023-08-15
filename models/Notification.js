@@ -49,14 +49,14 @@ Notification.init(
             allowNull: false,
             defaultValue: false,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-            default: DataTypes.NOW,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            default: DataTypes.NOW,
-        },
+        // createdAt: {
+        //     type: DataTypes.DATE,
+        //     default: DataTypes.NOW,
+        // },
+        // updatedAt: {
+        //     type: DataTypes.DATE,
+        //     default: DataTypes.NOW,
+        // },
     },
     {
         sequelize,
