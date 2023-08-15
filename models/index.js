@@ -40,25 +40,26 @@ TutorRating.belongsTo(Tutor, {
 Tutor.hasMany(TutorRating, {
   foreignKey: 'tutor_id',
 });
+
 // Student.hasOne(LanguageLevel, {
 //     foreignKey: 'id',
 // });
 
-// Tutor.hasOne(Language, {
-//     foreignKey: 'tutor_id',
-// });
+Tutor.hasOne(Language, {
+    foreignKey: 'tutor_id',
+});
 
-// Language.belongsTo(Tutor,{
-//     foreignKey: 'tutor_id',
-// });
+Language.belongsTo(Tutor,{
+    foreignKey: 'tutor_id',
+});
 
-// Tutor.hasMany(User, {
-//     foreignKey: 'tutor_id'
-// });
+Tutor.hasMany(User, {
+    foreignKey: 'tutor_id'
+});
 
-// User.belongsTo(Tutor,{
-//     foreignKey: 'tutor_id',
-// });
+User.belongsTo(Tutor,{
+    foreignKey: 'tutor_id',
+});
 
 Message.belongsTo(Student, {
   foreignKey: 'student_id',
