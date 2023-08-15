@@ -37,20 +37,20 @@ TutorRating.init(
         len: [1, 5],
       },
     },
-    review: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    student_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'student',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-    },
+    // review: {
+    //   type: DataTypes.TEXT,
+    //   // allowNull: false,
+    // },
+    // student_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'student',
+    //     key: 'id',
+    //   },
+      // onUpdate: 'CASCADE',
+      // onDelete: 'CASCADE',
+    // },
   },
   {
     sequelize,
