@@ -12,10 +12,10 @@ const userController = require('./userController');
 router.use('/students', studentController);
 router.use('/tutors', tutorController);
 router.use('/languages', languageController);
-router.use('/language_level', languageLevelController);
-router.use('/scheduledSession', scheduledSessionController);
-router.use('/message', messageController);
-router.use('/notification', notificationController);
+router.use('/language_levels', languageLevelController);
+router.use('/scheduledSessions', scheduledSessionController);
+router.use('/messages', messageController);
+router.use('/notifications', notificationController);
 router.use('/tutor_ratings', tutorRatingController);
 router.use('/users', userController);
 

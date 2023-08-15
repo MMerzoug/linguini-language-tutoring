@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get all notifications for a specific user
 router.get('/:userID', async (req, res) => {
     try {
         const userID = parseInt(req.params.userID, 10);
@@ -37,8 +38,8 @@ router.get('/:userID', async (req, res) => {
 }
 );
 
+// Mark a notification as read
 router.put('/:notificationId', async (req, res) => {
-    // Mark a notification as read
     try {
         const notification = await Notification.findByPk(req.params.notificationId);
         if (!notification) {
@@ -52,22 +53,23 @@ router.put('/:notificationId', async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-}),
+});
 
-    router.delete('/:notificationId', async (req, res) => {
-        // Delete a notification
-        try {
-            const notification = await Notification.findByPk(req.params.notificationId);
-            if (!notification) {
-                return res.status(404).json({ message: 'Notification to delete not found.' });
-            }
-
-            await notification.destroy();
-            res.json({ message: 'Notification deleted.' });
-        } catch (error) {
-            res.status(500).json(error);
+// Delete a notification
+router.delete('/:notificationId', async (req, res) => {
+    // Delete a notification
+    try {
+        const notification = await Notification.findByPk(req.params.notificationId);
+        if (!notification) {
+            return res.status(404).json({ message: 'Notification to delete not found.' });
         }
-    });
+
+        await notification.destroy();
+        res.json({ message: 'Notification deleted.' });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
 
 module.exports = router;
 

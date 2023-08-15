@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 router.post("/", async (req, res) => {
   try {
     const newLanguageLevel = await LanguageLevel.create(req.body);
@@ -19,10 +20,24 @@ router.post("/", async (req, res) => {
 });
 
 
-
-//no post needed unless we want to be able to add additional options on the front end. Otherwise complete
+// Future feature update language level
+// router.put('/:label', async (req, res) => {
+//   try {
+//     const langData = await LanguageLevel.update(req.body, {
+//       where: {
+//         label: req.params.label,
+//       },
+//     });
+//     if (!langData[0]) {
+//       res.status(404).json({ message: 'No language level with this label!' });
+//       return;
+//     }
+//     res.status(200).json(langData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
 
-// Post only needed if we want to be able to add additional options on the front end. We do want that ability, so post was added.
 // This is complete.
