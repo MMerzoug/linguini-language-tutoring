@@ -21,6 +21,14 @@ router.get('/', async (req, res) => {
 //get by tutor not just all users
 //post a new tutor rating and recalculate tutor's rating from all rating records for the tutor
 /* check this out from special knowledge source */
+/* put this in the body of the request 
+
+{
+ "rating": 4,
+ "tutor_id": 2
+}
+
+*/
 router.post("/", async (req, res) => {
   try {
     // create
