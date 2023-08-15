@@ -2,22 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>linguini</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linguini</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+<body class="hero">
+    <header class="header">
+        <img src="images/linguini_cartoon_logo.png" class="logo-image">
+        <nav>
+            <ul>
+                <a href="./homepage." class="home" id="headerEl">home</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="log-in">log In</a>
+                </button>
+                <button class="follow-us" id="headerEl">
+                    <a href="sign-up">sign up</a>
+                </button>
+            </ul>
+        </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+        {{{ body }}}
+    </main>
+    <footer>
+        <div class="icon-bar">
+            <button class="follow-us">
+                <a href="sign-up">follow us!</a>
+            </button>
+            <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa fa-linkedin"></i></a>
+            <a href="mailto:linguini.tutoring@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="https:www.instagram.com/linguini.tutors/"><i class="fa fa-instagram"></i></a>
+            <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa fa-github"></i></a>
+        </div>
+    </footer>
 </body>
