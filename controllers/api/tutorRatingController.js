@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 //get by tutor not just all users
 //post a new tutor rating and recalculate tutor's rating from all rating records for the tutor
 /* check this out from special knowledge source */
@@ -39,7 +38,7 @@ router.post("/", async (req, res) => {
 
     // calculate the average ratign
     const result = await TutorRating.findAll({
-      attributes: [sequelize.fn("AVG", sequelize.col("rating"))],
+      attributes: [sequelize.fn('AVG', sequelize.col('rating'))],
       raw: true,
       where: {
         tutor_id: req.body.tutor_id,
@@ -47,24 +46,28 @@ router.post("/", async (req, res) => {
       include: [
         {
           model: Tutor,
-        }
-      ]
+        },
+      ],
     });
 
     // get average rating from result
     const avg = result['AVG(`rating`)'];
 
     // do the update (not sure if this is accurate)
-    await Tutor.update({
-      rating: avg,
-    },{ where: {
-      id: req.body.tutor_id,
-    }});
+    await Tutor.update(
+      {
+        rating: avg,
+      },
+      {
+        where: {
+          id: req.body.tutor_id,
+        },
+      }
+    );
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
 

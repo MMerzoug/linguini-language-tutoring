@@ -26,8 +26,8 @@ TutorRating.init(
         model: 'tutor',
         key: 'id',
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      // onUpdate: 'CASCADE',
+      // onDelete: 'CASCADE',
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -48,8 +48,8 @@ TutorRating.init(
     //     model: 'student',
     //     key: 'id',
     //   },
-      // onUpdate: 'CASCADE',
-      // onDelete: 'CASCADE',
+    // onUpdate: 'CASCADE',
+    // onDelete: 'CASCADE',
     // },
   },
   {
