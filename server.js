@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const sequelize = require('./config/connection');
 const routes = require('./controllers');
-tutorRatingCOntroller
+
 const exphbs = require('express-handlebars');
 const path = require('path');
 
