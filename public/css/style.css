@@ -16,6 +16,7 @@ body {
 .header {
   position: relative;
 }
+
 .header ul {
     list-style-type: none;
     display: flex;
@@ -157,10 +158,10 @@ body {
 }
 
 .icon-bar a {
-    color: #454847;
+    color: #454847 ;
   }
   
-  .icon-bar a:hover {
+.icon-bar a:hover {
     color: #6873bb;
   }
 
