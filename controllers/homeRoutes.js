@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student } = require('../models');
+const { User, Tutor, Student, Message } = require('../models');
 
 // Render tutors on the homepage
 router.get('/', async (req, res) => {
@@ -73,6 +73,33 @@ router.get('/tutorProfile/:id', async (req, res) => {
     }
   });
 
-  //Add Messaging Get Route
+  // Add Messaging Get Routes
+  router.get('/messages', async (req, res) => {
+    try {
+      const messageData = await Message.findAll({
+        // include: [
+        //   {
+        //     model: Student,
+        //   },
+        //   {
+        //     model: Tutor,
+        //   }
+        // ],
+      });
+
+      // maps over messageData and simplifies it for handlebars use
+      // set in a variable called messages that gets passed to handlebars page
+      const messages = messageData.map(message => message.get({ plain: true }));
+      console.log(messages)
+     // 'messaging' is the name of the handlebars file 
+    res.render('messaging', { messages })  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
+
+
+
 
 module.exports = router;
