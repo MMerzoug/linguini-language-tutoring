@@ -27,7 +27,7 @@ Tutor.init(
       onDelete: 'CASCADE',
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         min: 1,

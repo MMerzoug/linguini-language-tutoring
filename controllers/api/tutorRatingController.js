@@ -39,32 +39,29 @@ router.post("/", async (req, res) => {
 
     // calculate the average ratign
     const result = await TutorRating.findAll({
-      attributes: [sequelize.fn("AVG", sequelize.col("rating"))],
-      raw: true,
+      attributes: [[sequelize.fn("AVG", sequelize.col("rating")), "averageRating"]],
+      // raw: true,
       where: {
         tutor_id: req.body.tutor_id,
-      },
-      include: [
-        {
-          model: Tutor,
-        }
-      ]
+      }
     });
 
     // get average rating from result
-    const avg = result['AVG(`rating`)'];
+    const avg = result[0].dataValues.averageRating;
 
     // do the update (not sure if this is accurate)
-    await Tutor.update({
+    const updateAverage = await Tutor.update({
       rating: avg,
-    },{ where: {
-      id: req.body.tutor_id,
-    }});
+    }, {
+      where: {
+        id: req.body.tutor_id,
+      }
+    });
+    res.status(200).end();
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
 
