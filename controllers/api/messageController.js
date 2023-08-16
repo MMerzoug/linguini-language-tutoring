@@ -1,7 +1,20 @@
+// Write the following code:
+
+// messages: This route should get all the messages for a particular user.
+// complete
+
+// /messages/new: This route should create a new message.
+// complete
+
+// /messages/:id: This route should get a particular message.
+// /messages/:id/edit: This route should edit a particular message.
+// /messages/:id/delete: This route should delete a particular message.
+
 const router = require('express').Router();
 const { Tutor, Student, Message, Notification } = require('../../models');
 const dayjs = require("dayjs");
 
+// This route gets all the messages for the current user
 router.get('/', async (req, res) => {
   try {
     const messageData = await Message.findAll({
@@ -20,6 +33,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// This route creates a new message
 router.post('/', async (req, res) => {
   let transaction;
   try {
@@ -31,7 +45,6 @@ router.post('/', async (req, res) => {
       from_id: req.body.from_id,
       to_id: req.body.to_id,
       message_text: req.body.message_text,
-
       sent: dayjs()
       
     }, { transaction });
@@ -57,6 +70,41 @@ router.post('/', async (req, res) => {
   }
 });
 
+// This route allows a sent message to be updated
+router.put('/:id', async (req, res) => {
+  try {
+    const messageData = await Message.update(
+      {
+        message_text: req.body.message_text,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(messageData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// This route allows a sent message to be deleted
+router.delete('/:id', async (req, res) => {
+  try {
+    const messageData = await Message.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+    res.status(200).json(messageData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;
 
 //both get and post routes work
+

@@ -1,0 +1,17 @@
+{{!-- 
+A list of all the messages for the current user
+A form to create a new message
+A link to edit a message
+A link to delete a message
+ --}}
+
+ <h2>Messaging Page</h2>
+ {{#each messages}}
+    <h2 class='message'>{{message_text}}</h2>
+    <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2>
+ {{/each}}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+{{!-- Script tag that connects to messaging.js which is responsible for taking in form and input values from handlebars and running event listeners that fetch specific api routes based on data values passed through form --}}
+ <script src="js/messaging.js"></script>
