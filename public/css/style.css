@@ -1,3 +1,92 @@
-.tutorName{
-    color: blueviolet
+body {
+    background-color: #efefef;
+  }
+/* logo styling */
+.logo-image {
+    display: block;
+    width: 20%;
+    height: 2.1in;
+    margin-top: 15px;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+/* header styling */
+
+.header {
+  position: relative;
 }
+.header ul {
+    list-style-type: none;
+    display: flex;
+    margin-right: 20px;
+    padding: 20px;
+    position: absolute; 
+    top: 0;
+    right: 0;
+
+  }
+
+  #headerEl{
+    margin-right: 40px;
+  }
+
+.home {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.logo {
+    width: 35%;
+    height: auto;
+    padding: 1%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+/* button styling */
+.follow-us a {
+    background-color: #6873bb;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    color: white !important;
+    text-decoration: none;
+  }
+
+  .follow-us {
+    background-color: #6873bb;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .follow-us a {
+    display:block;
+  }
+
+/* footer Icon Bar Styling */
+.icon-bar {
+    font-size: 2em; 
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.icon-bar a {
+    color: #454847;
+  }
+  
+  .icon-bar a:hover {
+    color: #6873bb;
+  }
+
+  
+
+/* .tutorName{
+    color: 
+} */
