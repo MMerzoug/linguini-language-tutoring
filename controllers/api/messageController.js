@@ -1,6 +1,6 @@
 // Write the following code:
 
-// /messages: This route should get all the messages for a particular user.
+// messages: This route should get all the messages for a particular user.
 // complete
 
 // /messages/new: This route should create a new message.
@@ -74,3 +74,6 @@ router.post('/', async (req, res) => {
 module.exports = router;
 
 //both get and post routes work
+
+
+// 
