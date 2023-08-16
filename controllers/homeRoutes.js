@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
         });
         const tutors = tutorData.map(tutor => tutor.get({ plain: true }));
         console.log(tutors);
+        
         res.render("homepage", { tutors }); 
     } catch (err) {
         console.error(err);
