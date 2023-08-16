@@ -58,3 +58,5 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+
+//both get and post routes work

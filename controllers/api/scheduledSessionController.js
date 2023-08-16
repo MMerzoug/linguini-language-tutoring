@@ -22,16 +22,18 @@ router.get('/', async (req, res) => {
 //post new session
 router.post('/', async (req, res) => {
   try {
-    const { student_id, tutor_id, scheduled_time } = req.body;
+    const { student_id, tutor_id, session_begin, session_end, meeting_link } = req.body;
 
-    if(!student_id || !tutor_id || !scheduled_time ) {
+    if(!student_id || !tutor_id || !session_begin ||!session_end ||!meeting_link) {
       return res.status(400).json({ message: 'Please provide studentId, tutorId, and scheduledTime for the session.' });
     }
 
     const newScheduledSession = await ScheduledSession.create({
       student_id,
       tutor_id,
-      scheduled_time
+      session_begin,
+      session_end,
+      meeting_link
     });
 
     res.status(201).json(newScheduledSession);
@@ -42,3 +44,5 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+
+//completed

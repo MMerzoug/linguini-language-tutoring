@@ -33,7 +33,7 @@ router.get('/:tutor_id', async (req, res, next) => {
 });
 
 // get all tutors that teach a language 
-router.get("/:language", async (req, res, next) => {
+router.get("/language/:language", async (req, res, next) => {
   console.log(req);
   try {
     const LanguageData = await Language.findOne({
@@ -91,3 +91,5 @@ router.post('/create', async (req, res, next) => {
   });
 
 module.exports = router;
+
+// complete
