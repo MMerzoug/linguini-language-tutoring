@@ -1,9 +1,4 @@
-// Message
-// Id
-// From_id (FK to users.id)
-// To_id (FK to users.id)
-// Message_text
-// Sent (timestamp)
+// Add message type field.This field could be used to indicate the type of message, such as a text message, a file message, or a voice message. This would be helpful for filtering and displaying messages in the UI. (Nice to do)
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
