@@ -1,11 +1,12 @@
 <h2>Tutor Listing</h2>
-
+<section></section>
 <section class="tutor-cards" id="ttrpg-cards">
-{{#each tutors}}
- <div class="tutor-card" id="tutorListing-card">
-<h2 class="tutorName">{{user.first_name}} {{user.last_name}}</h2>
-<h4 class="tutorEmail">{{user.email}}</h4>
-<h4 class="tutorLanguage">{{tutor.language_id}}</h4>
-<h4 class="tutorRating">{{tutor.rating}}</h4>
-{{/each}}
+    {{#each tutors}}
+    <div class="tutor-card" id="tutorListing-card">
+        <h2 class="tutorName">{{user.first_name}} {{user.last_name}}</h2>
+        <h4 class="tutorEmail">{{user.email}}</h4>
+        <h4 class="tutorLanguage">{{tutor.language_id}}</h4>
+        <h4 class="tutorRating">{{tutor.rating}}</h4>
+    </div>
+    {{/each}}
 </section>
