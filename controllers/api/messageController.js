@@ -45,7 +45,6 @@ router.post('/', async (req, res) => {
       from_id: req.body.from_id,
       to_id: req.body.to_id,
       message_text: req.body.message_text,
-
       sent: dayjs()
       
     }, { transaction });
