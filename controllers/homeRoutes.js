@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
             include: [User] 
         });
         const tutors = tutorData.map(tutor => tutor.get({ plain: true }));
+        console.log(tutors);
         res.render("homepage", { tutors }); 
     } catch (err) {
         console.error(err);
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Render user data on the tutorListing page 
+// Render tutor data on the tutorListing page 
 router.get('/tutorListing', async (req, res) => {
     try {
         const tutorData = await Tutor.findAll({
@@ -28,6 +29,11 @@ router.get('/tutorListing', async (req, res) => {
         res.status(500).send("An error occurred");
     }
 });
+
+// Render student profile on the studentListing page 
+
+// Render tutor profile on the tutorProfile page 
+
 
 router.get('/tutorProfile', async (req, res) => {
     res.render("tutorProfile.handlebars");  
