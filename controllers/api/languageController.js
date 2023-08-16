@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Language, Tutor } = require('../../models');
 
-router.get('/findAll', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const LanguageData = await Language.findAll();
 
@@ -14,7 +14,9 @@ router.get('/findAll', async (req, res) => {
 // Allows new languages to be added to be able to add additional languages on the front end.
 router.post('/', async (req, res) => {
   try {
-    const newLanguage = await Language.create(req.body);
+    const newLanguage = await Language.create({
+      name: req.body.name,
+    });
     res.status(200).json(newLanguage);
   } catch (err) {
     res.status(400).json(err);
