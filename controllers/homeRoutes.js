@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student, Message } = require('../models');
+const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
 
 // Render tutors on the homepage
 router.get('/', async (req, res) => {
@@ -98,8 +98,47 @@ router.get('/tutorProfile/:id', async (req, res) => {
     }
   });
 
+// add scheduled sessions get routes
+router.get('/scheduledSession', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.findAll({
+      include: [
+        {
+          model: Student,
+        },
+        {
+          model: Tutor,
+        }
+      ],
+    });
+   const scheduledSessions = scheduledSessionData.map(scheduledSession => scheduledSession.get({ plain: true }));
+   console.log(scheduledSessions)
+   res.render('scheduledSession', { scheduledSessions });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-
-
+router.get('/scheduledSession/:id', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.findOne({
+      where: {
+        id: req.params.id,
+      },
+      // include: [
+      //   {
+      //     model: Student,
+      //   },
+      //   {
+      //     model: Tutor,
+      //   }
+      // ],
+    });
+    const scheduledSession = scheduledSessionData.get({ plain: true });
+    res.render('scheduledSession', { scheduledSession });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
