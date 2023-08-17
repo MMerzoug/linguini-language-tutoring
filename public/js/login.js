@@ -18,9 +18,14 @@ loginBtn.addEventListener('click', async (event) => {
   if (response.ok) {
     let res = await response.json();
     if (res.userType == 'student') {
-      await fetch(`/studentProfile/${res.user.id}`);
+      console.log('student profile');
+      document.location.replace(`/studentProfile/${res.user.id}`);
+      //await fetch('/studentProfile/2');
+      //   await fetch(`/studentProfile/${res.user.id}`);
     } else {
-      await fetch(`/tutorProfile/${res.user.id}`);
+      console.log('tutor profile');
+      document.location.replace(`/tutorProfile/${res.user.id}`);
+      //await fetch(`/tutorProfile/${res.user.id}`);
     }
   } else {
     console.log('error');
