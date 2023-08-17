@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
     req.session.save(async () => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      //res.json({ user: userData, message: 'You are now logged in!' });
+
       // Check if user is student or tutor
       const student = await Student.findOne({ where: { user_id: userData.id } });
       if (student) {
