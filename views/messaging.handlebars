@@ -22,6 +22,7 @@ A link to delete a message
  {{#each messages}}
     <h2 class='message'>{{message_text}}</h2>
     <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2>
+     <button type="delete" id="message-delete" value="{{id}}" class="delete-btn">Delete</button>
  {{/each}}
 </div>
 
@@ -34,7 +35,7 @@ A link to delete a message
        Type your message here
     </textarea>
     <button type="submit" id="send" class="btn">Send</button>
-    <button type="delete" id="delete" class="delete-btn">Delete</button>
+   
   </form>
 </div>
 
