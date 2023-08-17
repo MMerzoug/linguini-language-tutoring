@@ -1,4 +1,4 @@
-// Add the following Javascript code: 
+// Add the following Javascript code:
 
 // Create a new instance of the Sequelize model for the messages.
 // Get all the messages for the current user.
@@ -6,8 +6,8 @@
 // Handle the form submission to create a new message.
 // Handle the link clicks to edit or delete a message.
 
-const Message = require('../../models/message');
-const User = require('../../models/user');
+const Message = require('../../models/Message');
+const User = require('../../models/User');
 const messagesView = (messages) => {
   const html = `
     <ul>
@@ -38,13 +38,16 @@ const editMessageHandler = (event) => {
   event.preventDefault();
   const messageId = event.target.dataset.messageId;
   const messageText = event.target.elements.messageText.value;
-  Message.update({
-    message_text: messageText,
-  }, {
-    where: {
-      id: messageId,
+  Message.update(
+    {
+      message_text: messageText,
     },
-  });
+    {
+      where: {
+        id: messageId,
+      },
+    }
+  );
   event.target.reset();
 };
 const deleteMessageHandler = (event) => {
@@ -72,4 +75,4 @@ const app = new Vue({
     editMessage: editMessageHandler,
     deleteMessage: deleteMessageHandler,
   },
-})
+});
