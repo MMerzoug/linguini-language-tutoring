@@ -9,7 +9,7 @@ const session = require('express-session');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 
 //handlebars setup
 const hbs = exphbs.create({ });
