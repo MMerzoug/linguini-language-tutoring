@@ -11,23 +11,33 @@ A link to delete a message
   <div class="card-header">
     <h2>Create New Post</h2>
   </div>
-  <form id="new-post-form" class="card-body">
-    <label class="form-label" for="post-title">To:</label>
-    <input type="text" name="post-title" id="to_id" class="form-input" />
-
-    <label class="form-label" for="post-body">Message</label>
-    <textarea name="post-body" id= "message_text" class="form-input">
-        
-    </textarea>
-
-    <button type="submit" id="send" class="btn">Send</button>
-  </form>
 </div>
 
+<form class="to-input">
+  <label class="form-label" for="post-title">To:</label>  
+  <input type="text" name="post-title" id="to_id" class="form-input"></input>
+</form>
+
+<div class="message-display" id="message-display">
  {{#each messages}}
     <h2 class='message'>{{message_text}}</h2>
     <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2>
  {{/each}}
+</div>
+
+<div>
+<form id="new-post-form" class="card-body">
+    
+
+    <label class="form-label" for="post-body"></label>
+    <textarea name="post-body" id= "message_text" class="form-input">
+       Type your message here
+    </textarea>
+
+    <button type="submit" id="send" class="btn">Send</button>
+    <button type="delete" id="delete" class="delete-btn">Delete</button>
+  </form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 
