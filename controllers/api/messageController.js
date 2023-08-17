@@ -42,7 +42,9 @@ router.post('/', async (req, res) => {
 
     // Create the message
     const messageData = await Message.create({
-      from_id: req.body.from_id,
+      // from_id: req.session.user_id,
+      // The following line is testing only. Once Auth is complete remove this line and uncomment the above line
+      from_id: 1,
       to_id: req.body.to_id,
       message_text: req.body.message_text,
       sent: dayjs()
@@ -53,9 +55,10 @@ router.post('/', async (req, res) => {
     const notificationData = await Notification.create({
       message_id: messageData.id,
       to_id: req.body.to_id,
-      type: req.body.type,
-      content: req.body.content,
-      read: req.body.read,
+      // type: req.body.type,
+      type: "alert",
+      content: "This is an alert",
+      read: true,
       // any other necessary fields for Notification
     }, { transaction });
 
