@@ -7,6 +7,8 @@ const path = require('path');
 
 const session = require('express-session');
 
+// const mysql = require('mysql');
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const port = process.env.PORT || 3001;
@@ -42,6 +44,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes middleware
 app.use(routes);
+
+// // Define the connection to the MySQL database
+// const connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   database: process.env.DB_NAME,
+// });
+
+// connection.connect(err => {
+//   if (err) {
+//     console.error(err);
+//     throw err;
+//   }
+
+//   console.log('Connection to MySQL database established');
+// });
 
 // Start the server
 sequelize.sync({force:false}).then(() => {

@@ -1,0 +1,33 @@
+<h1>Schedule a Tutoring Session</h1>
+
+<!-- Form to schedule a tutoring session -->
+<form action="/schedule-tutoring-session" method="post">
+  <div class="form-group">
+    <label for="student-id">Student ID</label>
+    <input type="text" class="form-control" id="student-id" name="student-id" />
+    <p class="help-block">The student ID of the student who will be attending the session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="tutor-id">Tutor ID</label>
+    <input type="text" class="form-control" id="tutor-id" name="tutor-id" />
+    <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="session-time">Session Time</label>
+    <input type="datetime-local" class="form-control" id="session-time" name="session-time" />
+    <p class="help-block">The time and date of the tutoring session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="topic">Topic</label>
+    <input type="text" class="form-control" id="topic" name="topic" />
+    <p class="help-block">The topic of the tutoring session.</p>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Schedule Session</button>
+</form>
+
+<!-- Import the mysql package -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mysql/2.1.4/mysql.min.js"></script>
