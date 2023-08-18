@@ -48,6 +48,10 @@ User.init(
                 len: [8],
             },
         },
+        image_avatar:{
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
         // username: {
         //     type: DataTypes.STRING,
         //     allowNull: false,
