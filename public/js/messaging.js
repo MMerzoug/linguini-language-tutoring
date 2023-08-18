@@ -108,7 +108,8 @@ const postMessage= async (event) => {
 };
 const deleteMessage= async (event) => {
   event.preventDefault();
-  const message_id = document.querySelector(".delete-btn").value;
+  // const message_id = document.querySelector(".delete-btn").value;
+  const message_id = event.target.value;
   const response = await fetch(`/api/messages/${message_id}`, {
     method: 'DELETE',
   });
@@ -118,5 +119,7 @@ const deleteMessage= async (event) => {
     alert(response.statusText);
   }
 };
+
 document.getElementById ("new-post-form").addEventListener ("submit", postMessage)
-document.getElementById ("message-delete").addEventListener ("click", deleteMessage)
+// document.getElementById ("message-delete").addEventListener ("click", deleteMessage)
+document.querySelectorAll(".delete-btn").forEach(button => button.addEventListener("click", deleteMessage));
