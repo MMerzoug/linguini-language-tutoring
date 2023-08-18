@@ -1,4 +1,3 @@
-
 // Post the message new message
 const postMessage= async (event) => {
     event.preventDefault();
