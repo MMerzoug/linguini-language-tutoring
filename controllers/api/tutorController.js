@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
     });
     res.status(200).json(tutorData);
   } catch (err) {
-   next(err);
+    next(err);
   }
 });
 
@@ -25,44 +25,42 @@ router.get('/:tutor_id', async (req, res, next) => {
           model: User,
         },
       ],
-  });
-  res.status(200).json(tutorData);
+    });
+    res.status(200).json(tutorData);
   } catch (err) {
-   next(err);
+    next(err);
   }
 });
 
-// get all tutors that teach a language 
-router.get("/language/:language", async (req, res, next) => {
+// get all tutors that teach a language
+router.get('/language/:language', async (req, res, next) => {
   console.log(req);
   try {
     const LanguageData = await Language.findOne({
-      where: { name: req.params.language},
+      where: { name: req.params.language },
     });
-    
+
     const tutors = await Tutor.findAll({
-      include: [{model: User}], 
-      where:{language_id: LanguageData.id}
-    })
-  
+      include: [{ model: User }],
+      where: { language_id: LanguageData.id },
+    });
 
     if (tutors.length < 1) {
       res.status(400).json({
-        message:
-          "I'm sorry, there are no tutors for this language.",
+        message: "I'm sorry, there are no tutors for this language.",
       });
       return;
     }
     res.status(200).json(tutors);
   } catch (err) {
-  next(err);
+    next(err);
   }
 });
 
 //post route separate from the user
 router.post('/create', async (req, res, next) => {
   try {
-    const userData = await User.create ({
+    const userData = await User.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
@@ -71,12 +69,12 @@ router.post('/create', async (req, res, next) => {
     const tutorRatingData = await TutorRating.findOne({
       where: {
         rating: req.body.rating,
-      }
+      },
     });
-     const languageData = await Language.findOne({
+    const languageData = await Language.findOne({
       where: {
         name: req.body.language,
-      }
+      },
     });
     const tutorData = await Tutor.create({
       // user_id: req.session.user_id,
@@ -88,7 +86,7 @@ router.post('/create', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  });
+});
 
 module.exports = router;
 
