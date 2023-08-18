@@ -1,6 +1,16 @@
 const router = require('express').Router();
 const { User, Student, Tutor } = require('../../models');
 
+// Render login page
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred');
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -42,6 +52,16 @@ router.post('/login', async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// Render Register
+router.get('/sign-up', async (req, res) => {
+  try {
+    res.render('sign-up');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred');
   }
 });
 
