@@ -30,12 +30,12 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 app.use(session(sess));
 
-//body parsin middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -63,7 +63,7 @@ app.use(routes);
 // });
 
 // Start the server
-sequelize.sync({force:false}).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
   });

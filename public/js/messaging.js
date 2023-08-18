@@ -1,4 +1,4 @@
-// Add the following Javascript code: 
+// Add the following Javascript code:
 
 // Create a new instance of the Sequelize model for the messages.
 // Get all the messages for the current user.
