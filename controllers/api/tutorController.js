@@ -65,7 +65,7 @@ router.post('/create', async (req, res, next) => {
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
-      tutor_image_avatar: req.body.image_avatar,
+      image_avatar: req.body.image_avatar,
     });
     const tutorRatingData = await TutorRating.findOne({
       where: {
