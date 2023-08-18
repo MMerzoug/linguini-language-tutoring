@@ -216,6 +216,24 @@ body {
   align-self: baseline;
 }
 
+/* Scheduled Sessions Page */
+.scheduled-session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  margin: 0 auto;
+  width: 60%;
+  height: 100%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  text-align: left;
+  background-color: #454847;
+  color: white;
+  padding: 50px 20px; 
+  border-radius: 8px;
+}
+
 
 /* .tutorName{
     color: 

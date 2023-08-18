@@ -1,10 +1,7 @@
-<h1>Schedule a Tutoring Session</h1>
- {{#each scheduledSessions}}
-    <h2 class='student-id'>{{student_id}}</h2>
-    {{!-- <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2> --}}
- {{/each}}
 <!-- Form to schedule a tutoring session -->
-<form id="scheduled-session-form">
+
+<form id="scheduled-session-form" class="scheduled-session-form">
+  <h1>Schedule a Tutoring Session</h1>
   <div class="form-group">
     <label for="student-id">Student ID</label>
     <input type="text" class="form-control" id="student-id" name="student-id" />
@@ -32,6 +29,17 @@
 
   <button type="submit" class="btn btn-primary">Schedule Session</button>
 </form>
+
+<div class="session-display" id="session-display"></div>
+{{#each scheduledSessions}}
+<h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
+<h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
+{{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
+<h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
+<button type="delete" value="{{id}}" class="delete-btn">Delete Session</button>
+{{/each}}
+</div>
+
 
 <script src="/js/scheduledSession.js"></script>
 

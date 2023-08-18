@@ -93,41 +93,50 @@ router.get('/tutorProfile/:id', async (req, res) => {
   }
 });
 
-// Add Messaging Get Routes
-router.get('/messages', async (req, res) => {
-  try {
-    const messageData = await Message.findAll({
-      // include: [
-      //   {
-      //     model: Student,
-      //   },
-      //   {
-      //     model: Tutor,
-      //   }
-      // ],
-    });
+  // Add Messaging Get Routes
+  // Call users.find all to send the user list to the messaging template
+  router.get('/messages', async (req, res) => {
+    try {
+      const messageData = await Message.findAll({
+      
+      });
 
-    // maps over messageData and simplifies it for handlebars use
-    // set in a variable called messages that gets passed to handlebars page
-    const messages = messageData.map((message) => message.get({ plain: true }));
-    console.log(messages);
-    // 'messaging' is the name of the handlebars file
-    res.render('messaging', { messages });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+      // maps over messageData and simplifies it for handlebars use
+      // set in a variable called messages that gets passed to handlebars page
+       // Create for loop with promises below
+       const messages = []
+       for ( const message of messageData) { 
+        const fromUser= await User.findByPk(message.from_id);
+        const toUser= await User.findByPk(message.to_id);
+        // Create for loop with promises
+        const plainMessage = message.get({ plain: true })
+        plainMessage.fromUser = fromUser.get ({ plain: true })
+        plainMessage.toUser = toUser.get ({ plain: true })
+        messages.push (plainMessage)
+      }
+      console.log(messages)
+     // 'messaging' is the name of the handlebars file 
+    res.render('messaging', { messages })  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
 
 // add scheduled sessions get routes
 router.get('/scheduledSession', async (req, res) => {
   try {
     const scheduledSessionData = await ScheduledSession.findAll({
       include: [
-        {
+        // Get me the students associated with this session
+        { 
           model: Student,
+          // Student is associated to a user so pull that information in as well
+          include: [{ model: User,},],
         },
         {
           model: Tutor,
+          include: [{ model: User,},],
         },
       ],
     });
@@ -145,14 +154,6 @@ router.get('/scheduledSession/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      // include: [
-      //   {
-      //     model: Student,
-      //   },
-      //   {
-      //     model: Tutor,
-      //   }
-      // ],
     });
     const scheduledSession = scheduledSessionData.get({ plain: true });
     res.render('scheduledSession', { scheduledSession });

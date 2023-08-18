@@ -43,6 +43,20 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Write a delete route for the ScheduledSession model
+router.delete('/:id', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+    res.status(200).json(scheduledSessionData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
 
 //completed

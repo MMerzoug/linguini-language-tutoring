@@ -15,13 +15,14 @@ A link to delete a message
 
 <form class="to-input">
   <label class="form-label" for="post-title">To:</label>  
+  {{!-- make the below a select drop down and use the user id to reference for the list of names --}}
   <input type="text" name="post-title" id="to_id" class="form-input"></input>
 </form>
 
 <div class="message-display" id="message-display">
  {{#each messages}}
     <h2 class='message'>{{message_text}}</h2>
-    <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2>
+    <h2 class='user-id'>Sender: {{fromUser.first_name}} {{fromUser.last_name}} <br> Recipient: {{toUser.first_name}} {{toUser.last_name}} <br> Sent: {{sent}}</h2>
      <button type="delete" id="message-delete" value="{{id}}" class="delete-btn">Delete</button>
  {{/each}}
 </div>
