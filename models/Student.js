@@ -45,6 +45,10 @@ Student.init(
         key: 'id',
       },
     },
+    image_avatar:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,

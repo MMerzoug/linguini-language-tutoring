@@ -11,7 +11,7 @@ router.get('/login', async (req, res) => {
   }
 });
 
-// Render Resgister
+// Render Register
 router.get('/sign-up', async (req, res) => {
   try {
     res.render('sign-up');
@@ -51,7 +51,7 @@ router.get('/tutorListing', async (req, res) => {
   }
 });
 
-// Render student profile on the studentListing page
+// Render students on the student profile page
 router.get('/studentProfile/:id', async (req, res) => {
   try {
     const studentData = await Student.findOne({

@@ -40,6 +40,7 @@ router.post('/create', async (req, res) => {
       user_id: userData.id,
       language_level_id: levelData.id,
       language_id: languageData.id,
+      image_avatar: req.body.image_avatar,
     });
     res.status(200).json(studentData);
   } catch (err) {
