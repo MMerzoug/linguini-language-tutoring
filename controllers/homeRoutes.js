@@ -1,6 +1,27 @@
 const router = require('express').Router();
 const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
 
+
+// Render login page
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred');
+  }
+});
+
+// Render Register
+router.get('/sign-up', async (req, res) => {
+  try {
+    res.render('sign-up');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred');
+  }
+});
+
 // Render tutors on the homepage
 router.get('/', async (req, res) => {
   try {
@@ -31,7 +52,7 @@ router.get('/tutorListing', async (req, res) => {
   }
 });
 
-// Render student profile on the studentListing page
+// Render students on the student profile page
 router.get('/studentProfile/:id', async (req, res) => {
   try {
     const studentData = await Student.findOne({

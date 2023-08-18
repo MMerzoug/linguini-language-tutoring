@@ -1,10 +1,13 @@
-
 <h2>Tutor Profile Page</h2>
-{{!-- Build me --}}
 
-<h2>tutors profile</h2>
-<section>
-    <p>{{id}}</p>
+<section class="tutor-profile" id="deets-cards">
+     <div class="tutor-card">
+        <img src="{{tutor.image_avatar}}">
+        <h5 class="tutorName"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
+        <h5 class="tutorEmail"> {{tutor.user.email}}</h5>
+        <h5 class="tutor-language"> {{tutor.language_id}}</h5>
+        <h5 class="tutor-language-level"> {{tutor.rating}}</h5>
+    </div>
 </section>
 
 
