@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student, Message } = require('../models');
+const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
 
 // Render login page
 router.get('/login', async (req, res) => {
@@ -113,6 +113,49 @@ router.get('/messages', async (req, res) => {
     console.log(messages);
     // 'messaging' is the name of the handlebars file
     res.render('messaging', { messages });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// add scheduled sessions get routes
+router.get('/scheduledSession', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.findAll({
+      include: [
+        {
+          model: Student,
+        },
+        {
+          model: Tutor,
+        }
+      ],
+    });
+   const scheduledSessions = scheduledSessionData.map(scheduledSession => scheduledSession.get({ plain: true }));
+   console.log(scheduledSessions)
+   res.render('scheduledSession', { scheduledSessions });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/scheduledSession/:id', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.findOne({
+      where: {
+        id: req.params.id,
+      },
+      // include: [
+      //   {
+      //     model: Student,
+      //   },
+      //   {
+      //     model: Tutor,
+      //   }
+      // ],
+    });
+    const scheduledSession = scheduledSessionData.get({ plain: true });
+    res.render('scheduledSession', { scheduledSession });
   } catch (err) {
     res.status(400).json(err);
   }

@@ -1,0 +1,39 @@
+<h1>Schedule a Tutoring Session</h1>
+ {{#each scheduledSessions}}
+    <h2 class='student-id'>{{student_id}}</h2>
+    {{!-- <h2 class='message'>sent by user {{from_id}} to user {{to_id}} on {{sent}}</h2> --}}
+ {{/each}}
+<!-- Form to schedule a tutoring session -->
+<form id="scheduled-session-form">
+  <div class="form-group">
+    <label for="student-id">Student ID</label>
+    <input type="text" class="form-control" id="student-id" name="student-id" />
+    <p class="help-block">The student ID of the student who will be attending the session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="tutor-id">Tutor ID</label>
+    <input type="text" class="form-control" id="tutor-id" name="tutor-id" />
+    <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="session-time">Session Time</label>
+    <input type="datetime-local" class="form-control" id="session-begin" name="session-begin" />
+    <input type="datetime-local" class="form-control" id="session-end" name="session-end" />
+    <p class="help-block">The time and date of the tutoring session.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="meeting-link">Meeting Link</label>
+    <input type="text" class="form-control" id="meeting-link" name="meeting-link" />
+    <p class="help-block">The topic of the tutoring session.</p>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Schedule Session</button>
+</form>
+
+<script src="/js/scheduledSession.js"></script>
+
+<!-- Import the mysql package -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mysql/2.1.4/mysql.min.js"></script>
