@@ -1,6 +1,5 @@
-console.log('it worked');
-
 let loginBtn = document.getElementById('loginBtn');
+let clearBtn = document.getElementById('clearBtn');
 
 loginBtn.addEventListener('click', async (event) => {
   event.preventDefault();
@@ -20,14 +19,16 @@ loginBtn.addEventListener('click', async (event) => {
     if (res.userType == 'student') {
       console.log('student profile');
       document.location.replace(`/studentProfile/${res.user.id}`);
-      //await fetch('/studentProfile/2');
-      //   await fetch(`/studentProfile/${res.user.id}`);
     } else {
       console.log('tutor profile');
       document.location.replace(`/tutorProfile/${res.user.id}`);
-      //await fetch(`/tutorProfile/${res.user.id}`);
     }
   } else {
     console.log('error');
   }
+});
+
+clearBtn.addEventListener('click', async (event) => {
+  event.preventDefault();
+  document.getElementById('loginForm').reset();
 });

@@ -12,7 +12,7 @@ router.get('/login', async (req, res) => {
 });
 
 // Render Resgister
-router.get('sign-up', async (req, res) => {
+router.get('/sign-up', async (req, res) => {
   try {
     res.render('sign-up');
   } catch (err) {
@@ -128,12 +128,12 @@ router.get('/scheduledSession', async (req, res) => {
         },
         {
           model: Tutor,
-        }
+        },
       ],
     });
-   const scheduledSessions = scheduledSessionData.map(scheduledSession => scheduledSession.get({ plain: true }));
-   console.log(scheduledSessions)
-   res.render('scheduledSession', { scheduledSessions });
+    const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
+    console.log(scheduledSessions);
+    res.render('scheduledSession', { scheduledSessions });
   } catch (err) {
     res.status(400).json(err);
   }
