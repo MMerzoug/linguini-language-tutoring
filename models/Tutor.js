@@ -28,7 +28,7 @@ Tutor.init(
     },
     rating: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         min: 1,
         max: 5,

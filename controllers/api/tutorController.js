@@ -79,7 +79,7 @@ router.post('/create', async (req, res, next) => {
     const tutorData = await Tutor.create({
       // user_id: req.session.user_id,
       user_id: userData.id,
-      rating: tutorRatingData.id,
+      rating: tutorRatingData?.id,
       language_id: languageData.id,
     });
     res.status(200).json(tutorData);
