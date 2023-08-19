@@ -14,18 +14,18 @@ loginBtn.addEventListener('click', async (event) => {
       password: document.getElementById('password').value,
     }),
   });
-  if (response.ok) {
-    let res = await response.json();
-    if (res.userType == 'student') {
-      console.log('student profile');
-      document.location.replace(`/studentProfile/${res.user.id}`);
-    } else {
-      console.log('tutor profile');
-      document.location.replace(`/tutorProfile/${res.user.id}`);
-    }
-  } else {
-    console.log('error');
-  }
+  // if (response.ok) {
+  //   let res = await response.json();
+  //   if (res.userType == 'student') {
+  //     console.log('student profile');
+  //     document.location.replace(`/studentProfile/${res.user.id}`);
+  //   } else {
+  //     console.log('tutor profile');
+  //     document.location.replace(`/tutorProfile/${res.user.id}`);
+  //   }
+  // } else {
+  //   console.log('error');
+  // }
 });
 
 clearBtn.addEventListener('click', async (event) => {

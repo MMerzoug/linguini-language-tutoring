@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
-
+const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
 
 // Render login page
 router.get('/login', async (req, res) => {
