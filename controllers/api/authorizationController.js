@@ -1,15 +1,6 @@
 const router = require('express').Router();
+const jwt = require('jsonwebtoken');
 const { User, Student, Tutor } = require('../../models');
-
-// Render login page
-router.get('/login', async (req, res) => {
-  try {
-    res.render('login');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('An error occurred');
-  }
-});
 
 router.post('/login', async (req, res) => {
   try {
@@ -27,41 +18,39 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(async () => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    const tokenData = {
+      id: User.id,
+    };
 
-      // Check if user is student or tutor
-      const student = await Student.findOne({ where: { user_id: userData.id } });
-      if (student) {
-        res.json({
-          userType: 'student',
-          user: student,
-          message: 'You are now logged in!',
-        });
-        // res.render('studentProfile', { student });
-      } else {
-        const tutor = await Tutor.findOne({ where: { user_id: userData.id } });
-        res.json({
-          userType: 'tutor',
-          user: tutor,
-          message: 'You are now logged in!',
-        });
-        // res.render('tutorProfile', { tutor });
-      }
+    // Check if user is student or tutor
+    const student = await Student.findOne({ where: { user_id: userData.id } });
+    if (student) {
+      res.json({
+        userType: 'student',
+        user: student,
+        message: 'You are now logged in!',
+      });
+      tokenData.userType = 'student';
+      tokenData.user = student;
+      // res.render('studentProfile', { student });
+    } else {
+      const tutor = await Tutor.findOne({ where: { user_id: userData.id } });
+      res.json({
+        userType: 'tutor',
+        user: tutor,
+        message: 'You are now logged in!',
+      });
+      tokenData.userType = 'tutor';
+      tokenData.user = tutor;
+      // res.render('tutorProfile', { tutor });
+    }
+
+    const token = jwt.sign(tokenData, process.env.JWT_KEY, {
+      expiresIn: 60 * 60,
     });
+    res.cookie('session_token', token, { maxAge: 60 * 60 * 1000 });
   } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-// Render Register
-router.get('/sign-up', async (req, res) => {
-  try {
-    res.render('sign-up');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('An error occurred');
+    res.status(500).end();
   }
 });
 
