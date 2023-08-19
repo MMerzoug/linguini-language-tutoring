@@ -12,37 +12,42 @@ Student.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+Student.belongsTo(Language, {
+  foreignKey: 'language_id',
+});
+
 Tutor.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Language.belongsTo(Student, {
-  foreignKey: 'user_id',
-});
-
-Language.belongsTo(Tutor, {
-  foreignKey: 'user_id',
-});
-
-LanguageLevel.belongsTo(Student, {
-  foreignKey: 'language_level',
-});
-
-TutorRating.belongsTo(Tutor, {
-  foreignKey: 'tutor_id',
+Tutor.belongsTo(Language, {
+  foreignKey: 'language_id',
 });
 
 Tutor.hasMany(TutorRating, {
   foreignKey: 'tutor_id',
 });
 
-Tutor.hasOne(Language, {
-  foreignKey: 'tutor_id',
+// Tutor.belongsTo(TutorRating, {
+//   foreignKey: 'tutor_id',
+// });
+
+// Language.belongsTo(Student, {
+//   foreignKey: 'user_id',
+// });
+
+// Language.belongsTo(Tutor, {
+//   foreignKey: 'user_id',
+// });
+
+LanguageLevel.belongsTo(Student, {
+  foreignKey: 'language_level',
 });
 
-Language.belongsTo(Tutor, {
-  foreignKey: 'tutor_id',
-});
+
+// Language.belongsTo(Tutor, {
+//   foreignKey: 'tutor_id',
+// });
 
 Message.belongsTo(Student, {
   foreignKey: 'student_id',
