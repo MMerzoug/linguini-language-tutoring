@@ -12,19 +12,18 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Public+Sans&display=swap" rel="stylesheet">
-    <!-- FOUNDATION FRAMEWORK -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Caprasimo&display=swap" rel="stylesheet">
+    <!-- BULMA FRAMEWORK -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <!-- SWIPER FRAMEWORK -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/style.css">
     <title>linguini</title>
 </head>
 
-<body>
-    <main>
+<body class="hero">
     <header class="header">
-        <img src="/images/linguini.png" class="logo-image">
+        <img src="/images/bandini.png" class="logo-image">
         <nav>
             <ul class="headerMenuBar">
                 <a href="/" class="home" id="headerEl">home</a>
@@ -37,24 +36,23 @@
             </ul>
         </nav>
     </header>
+    <main class="container container-fluid mt-5">
         {{{ body }}}
-        <footer>
-            <div class="icon-bar">
-                <button class="follow-us">
-                    <a href="/api/authorization/sign-up">follow us!</a>
-                </button>
-                <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa fa-linkedin"></i></a>
-                <a href="mailto:linguini.tutoring@gmail.com"><i class="fa fa-envelope"></i></a>
-                <a href="https:www.instagram.com/linguini.tutors/"><i class="fa fa-instagram"></i></a>
-                <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa fa-github"></i></a>
-            </div>
-        </footer>
     </main>
-    <!-- FOUNDATION FRAMEWORK SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <footer>
+        <div class="icon-bar">
+            <button class="follow-us">
+                <a href="/api/authorization/sign-up">follow us!</a>
+            </button>
+            <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:linguini.tutoring@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https:www.instagram.com/linguini.tutors/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa-brands fa-github-square"></i></a>
+        </div>
+    </footer>
     <!-- SWIPER FRAMEWORK SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="/js/swiper.js"></script>
+    <script src="/js/swiper.js"></script>
 </body>
 
 </html>
