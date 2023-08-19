@@ -15,6 +15,24 @@
 <body class="hero">
     <header class="header">
         <img src="/images/linguini_cartoon_logo.png" class="logo-image">
+        {{#if logged_in}}
+        <nav>
+            <ul class="headerMenuBar">
+                <a href="/" class="home" id="headerEl">home</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="/messages">messages</a>
+                </button>
+                <button class="follow-us" id="headerEl">
+                    <a href="/edit-profile">edit profile</a>
+                </button>
+                <button class="follow-us logout-btn" id="headerEl">
+                    <a> log out </a>
+                </button>
+            </ul>
+        </nav>
+
+        {{else}}
+
         <nav>
             <ul class="headerMenuBar">
                 <a href="/" class="home" id="headerEl">home</a>
@@ -26,6 +44,7 @@
                 </button>
             </ul>
         </nav>
+        {{/if}}
     </header>
     <main class="container container-fluid mt-5">
         {{{ body }}}
@@ -41,5 +60,6 @@
             <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa fa-github"></i></a>
         </div>
     </footer>
+    <script src="/js/logout.js"></script>
 </body>
 </html> 

@@ -16,7 +16,12 @@ A link to delete a message
 <form class="to-input">
   <label class="form-label" for="post-title">To:</label>  
   {{!-- make the below a select drop down and use the user id to reference for the list of names --}}
-  <input type="text" name="post-title" id="to_id" class="form-input"></input>
+  {{!-- <input type="text" name="post-title" id="to_id" class="form-input"></input> --}}
+  <select name="to_id" id="to_id" class="form-input">
+    {{#each users}}
+    <option value="{{id}}">{{first_name}} {{last_name}}</option>
+    {{/each}}
+  </select>
 </form>
 
 <div class="message-display" id="message-display">
@@ -32,8 +37,7 @@ A link to delete a message
     
 
     <label class="form-label" for="post-body"></label>
-    <textarea name="post-body" id= "message_text" class="form-input">
-       Type your message here
+    <textarea name="post-body" id="message_text" class="form-input">
     </textarea>
     <button type="submit" id="send" class="btn">Send</button>
    
