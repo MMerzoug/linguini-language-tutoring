@@ -1,6 +1,6 @@
 <h2>Student Profile Page</h2>
 
-<section class="student-profile" id="deets-cards">
+{{!-- <section class="student-profile" id="deets-cards">
      <div class="student-card">
         <img src="{{student.user.image_avatar}}">
         <h5 class="studentName"> {{student.user.first_name}} {{student.user.last_name}}</h5>
@@ -8,6 +8,28 @@
          <h5 class="student-language"> {{student.language_id}}</h5>
         <h5 class="student-language-level"> {{student.language_level_id}}</h5>
     </div>
-</section>
+</section> --}}
 
+<div class="cardsWrapper">
+<section class="tutor-profile" id="deets-cards">
+     <div class="tutor-card">
+        {{!-- <img src="{{student.user.image_avatar}}"> --}}
+        {{!-- Duck photo below loaded as placeholder, code above works --}}
+        <img src="https://th.bing.com/th/id/OIP.Dwx96HrXj8dVo9vhqEYHqQHaHa?w=177&h=180&c=7&r=0&o=5&pid=1.7">
+        <h5 class="tutorName"> {{student.user.first_name}} {{student.user.last_name}}</h5>
+        <h5 class="tutorEmail"> {{student.user.email}}</h5>
+        <h5 class="tutor-language"> {{student.language_id}}</h5>
+        <h5 class="tutor-language-level"> Language Level: {{student.language_level_id}}</h5>
+    </div>
+</section>
+<section class="tutor-profile" id="deets-cards">
+     <div class="tutor-card">
+        <h5>Goals</h5>
+        <textarea class="student-goals" id="student-goals" name="student-goals" rows="4" cols="50" placeholder="Enter your goals here...">{{student.goals}}</textarea>
+    </div>
+</section>
+</div>
+
+<script src="/js/studentProfile.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mysql/2.1.4/mysql.min.js"></script>
 

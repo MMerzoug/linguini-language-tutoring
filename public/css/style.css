@@ -234,6 +234,15 @@ body {
   border-radius: 8px;
 }
 
+/* Tutor Profile Page */
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+}
 
 /* .tutorName{
     color: 

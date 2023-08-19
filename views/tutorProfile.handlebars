@@ -1,35 +1,36 @@
 <h2>Tutor Profile Page</h2>
 
+<div class="cardsWrapper">
 <section class="tutor-profile" id="deets-cards">
      <div class="tutor-card">
-        <img src="{{tutor.user.image_avatar}}">
+        {{!-- <img src="{{tutor.user.image_avatar}}"> --}}
+        {{!-- Duck photo below loaded as placeholder, code above works --}}
+        <img src="https://th.bing.com/th/id/OIP.Dwx96HrXj8dVo9vhqEYHqQHaHa?w=177&h=180&c=7&r=0&o=5&pid=1.7">
         <h5 class="tutorName"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
         <h5 class="tutorEmail"> {{tutor.user.email}}</h5>
         <h5 class="tutor-language"> {{tutor.language_id}}</h5>
-        <h5 class="tutor-language-level"> {{tutor.rating}}</h5>
-    </div>
-    <div class="tutor-card">
-        <h2 class="session-calendar"> Session Calendar </h2>
-        <h5 class="session-student_id"> {{scheduledSession.student_id}}</h5>
-         <h5 class="session-tudor_id"> {{scheduledSession.tutor_id}}</h5>
-         <h5 class="preferred-location"> {{meeting_link}}</h5>
+        <h5 class="tutor-language-level"> Rating: {{tutor.rating}}</h5>
     </div>
 </section>
+<section class="tutor-profile" id="deets-cards">
+     <div class="tutor-card">
+        <div class="session-display" id="session-display"></div>
+            {{#each scheduledSessions}}
+            <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
+            <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
+            {{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
+            <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
+            <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
+            {{/each}}   
+        </div>
+    </div>
+</section>
+</div>
 
-
-{{!--This code below needs to be rendered in the above div}}
-
-{{!-- <div class="session-display" id="session-display"></div>
-{{#each scheduledSessions}}
-<h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
-<h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-{{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
-{{!-- <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
-<button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
-{{/each}}
-</div> --}}
 
 
 
 {{!-- link stylesheets in the main.handlebars file --}}
-{{!-- link script sheets at the bottom of the individual files --}}
+
+<script src="/js/tutorProfile.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mysql/2.1.4/mysql.min.js"></script>
