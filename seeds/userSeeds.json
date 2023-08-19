@@ -3,162 +3,189 @@
         "first_name": "Jack",
         "last_name": "Sparrow",
         "email": "jsparrow@piratesotc.com",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/1.png"
     },
     {
         "first_name": "Sal",
         "last_name": "Kona",
         "email": "skona@cloudmail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/2.png"
     },
     {
         "first_name": "Mike",
         "last_name": "Winston",
         "email": "mwinston@giantmail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/3.png"
     },
     {
         "first_name": "Cathy",
         "last_name": "Reed",
         "email": "creed@heremail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/4.png"
     },
     {
         "first_name": "David",
         "last_name": "Parker",
         "email": "dparker@geem-ale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/5.png"
     },
     {
         "first_name": "Vivek",
         "last_name": "Ramsey",
         "email": "vramsey@hautemail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/6.png"
     },
     {
         "first_name": "John",
         "last_name": "Smith",
         "email": "sjohn@skleemail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/7.png"
     },
     {
         "first_name": "Brielle",
         "last_name": "Lopez",
         "email": "blopez@bigwhale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/8.png"
     },
     {
         "first_name": "Santiago",
         "last_name": "Adamo",
         "email": "sadamo@grayshale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/9.png"
     },
     {
         "first_name": "Maja",
         "last_name": "Owen",
         "email": "mowen@noavail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/10.png"
     },
     {
         "first_name": "Rodalyn",
         "last_name": "Sayaphon",
         "email": "rsayaphon@cantmakebail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/11.png"
     },
     {
         "first_name": "Nadida",
         "last_name": "Dy",
         "email": "ndy@clydesdale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/12.png"
     },
     {
         "first_name": "Chawn",
         "last_name": "Landron",
         "email": "clandron@kurtale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/13.png"
     },
     {
         "first_name": "Reve",
         "last_name": "Nest",
         "email": "rnest@downscale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/14.png"
     },
     {
         "first_name": "Lensey",
         "last_name": "Vanoflen",
         "email": "lvanoflen@farthingale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/15.png"
     },
     {
         "first_name": "Sherylann",
         "last_name": "Plain",
         "email": "splain@macphail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/16.png"
     },
     {
         "first_name": "Simarron",
         "last_name": "MacDougal",
         "email": "smacdougal@rustynail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/17.png"
     },
     {
         "first_name": "Azizah",
         "last_name": "Parodi",
         "email": "aparodi@danquayle.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/18.png"
     },
     {
         "first_name": "Johnell",
         "last_name": "Legalley",
         "email": "jlegalley@schmail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/19.png"
     },
     {
         "first_name": "Ilane",
         "last_name": "Townsell",
         "email": "itownsell@wholesail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/20.png"
     },
     {
         "first_name": "Efigenia",
         "last_name": "Organista",
         "email": "eorganista@loudwale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/21.png"
     },
     {
         "first_name": "Tunke",
         "last_name": "Monette",
         "email": "tmonette@freegrail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/22.png"
     },
     {
         "first_name": "Ruksane",
         "last_name": "Weare",
         "email": "rweare@kevmchale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/23.png"
     },
     {
         "first_name": "Rhapsody",
         "last_name": "Gaumont",
         "email": "rgaumont@stereorail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/24.png"
     },
     {
         "first_name": "Sedonia",
         "last_name": "Patrylak",
         "email": "spatrylak@gorbachevmikhail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/25.png"
     },
     {
         "first_name": "Allina",
         "last_name": "Erger",
         "email": "aerger@phonytail.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/26.png"
     },
     {
         "first_name": "Musa",
         "last_name": "Alviso",
         "email": "malviso@goingoutofbusinesssale.lan",
-        "password": "changeme1234"
+        "password": "changeme1234",
+        "image_avatar": "/images/avatars/27.png"
     }
 ]
