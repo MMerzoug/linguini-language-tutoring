@@ -1,3 +1,4 @@
+/* Imports */
 const express = require('express');
 const sequelize = require('./config/connection');
 const routes = require('./controllers');
@@ -7,18 +8,16 @@ const path = require('path');
 
 const session = require('express-session');
 
-// const mysql = require('mysql');
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const port = process.env.PORT || 3001;
 
-//handlebars setup
+/* Handelbars setup */
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-//session setup
+/* Session setup  */
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -34,34 +33,18 @@ const sess = {
   }),
 };
 
+/* Application setup */
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//static files middleware
+/* Static folder setup */
 app.use(express.static(path.join(__dirname, 'public')));
 
-//routes middleware
+/* Routes setup */
 app.use(routes);
 
-// // Define the connection to the MySQL database
-// const connection = mysql.createConnection({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-// });
-
-// connection.connect(err => {
-//   if (err) {
-//     console.error(err);
-//     throw err;
-//   }
-
-//   console.log('Connection to MySQL database established');
-// });
-
-// Start the server
+/* Sync sequelize */
 sequelize.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

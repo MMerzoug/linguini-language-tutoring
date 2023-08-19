@@ -8,6 +8,9 @@ router.get('/', async (req, res, next) => {
         {
           model: User,
         },
+        {
+          model: Language,
+        }
       ],
     });
     res.status(200).json(tutorData);

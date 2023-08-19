@@ -27,7 +27,7 @@ Student.init(
     },
     language_level_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'language_level',
         key: 'id',

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
+const { User, Tutor, Student, Language, Message, ScheduledSession } = require('../models');
 
 
 // Render login page
@@ -26,7 +26,14 @@ router.get('/sign-up', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
-      include: [User],
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Language,
+        },
+      ],
     });
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
     console.log(tutors);
