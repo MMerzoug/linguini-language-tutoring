@@ -1,7 +1,11 @@
 <section>
-    <p class="card-panel custom-card" id="motto">
-        Speak Dreams into Reality: Begin Your Language Journey with linguini!
+    <p class="motto">
+        Speak Dreams into Reality.<br>
+        Begin Your Language Journey with linguini!
     </p>
+</section>
+<section class="hero">
+    {{!-- <img src="/images/hero.png"> --}}
 </section>
 <section>
     <div class="swiper">
@@ -10,20 +14,20 @@
             <div class="swiper-slide">
                 <div class="tutor-card">
                     <img src="{{user.image_avatar}}" class="tutor-avatar" />
-                    <h1>
+                    <h1 class="card-heading">
                         {{user.first_name}} {{user.last_name}}
                     </h1>
                     <p>
                         Proficient in: {{language.name}}
                     </p>
                     <p>
-                        Rating: {{rating}} out of 5 stars
+                        Rating: {{rating}} of 5 stars
                     </p>
                 </div>
             </div>
             {{/each}}
         </div>
-        <div class="swiper-pagination"></div>
+        {{!-- <div class="swiper-pagination"></div> --}}
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
