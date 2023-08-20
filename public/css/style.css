@@ -1,13 +1,12 @@
 body {
   background-color: #efefef;
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
 }
 
 /* logo styling */
 .logo-image {
-  display: block;
-  width: 20%;
-  height: 2.1in;
+  width: 15rem;
   margin-top: 15px;
   justify-content: space-around;
   padding: 20px;
@@ -73,7 +72,8 @@ body {
   display: block;
 }
 
-/* Homepage Card Styling */ /* <---- This was interfering with the carousel display -JAS */
+/* Homepage Card Styling */
+/* <---- This was interfering with the carousel display -JAS */
 /* .tutor-cards { */
 /* display: flex; */
 /* flex-wrap: wrap; */
