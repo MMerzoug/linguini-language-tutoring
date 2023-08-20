@@ -42,17 +42,15 @@ router.post('/', checkAuthenticated, async (req, res) => {
     transaction = await Message.sequelize.transaction();
 
     // Create the message
-    const messageData = await Message.create(
-      {
-        // from_id: req.session.user_id,
-        // The following line is testing only. Once Auth is complete remove this line and uncomment the above line
-        from_id: 1,
-        to_id: req.body.to_id,
-        message_text: req.body.message_text,
-        sent: dayjs(),
-      },
-      { transaction }
-    );
+    const messageData = await Message.create({
+      // from_id: req.session.user_id,
+      // The following line is testing only. Once Auth is complete remove this line and uncomment the above line
+      from_id: req.session.user_id,
+      to_id: req.body.to_id,
+      message_text: req.body.message_text,
+      sent: dayjs()
+      
+    }, { transaction });
 
     // Use message ID to create a notification
     const notificationData = await Notification.create(

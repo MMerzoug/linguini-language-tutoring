@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student, Message, ScheduledSession } = require('../models');
+const { User, Tutor, Student, Language, Message, ScheduledSession } = require('../models');
 const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
 
 // Render login page
@@ -26,7 +26,14 @@ router.get('/sign-up', checkNotAuthenticated, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
-      include: [User],
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Language,
+        },
+      ],
     });
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
     console.log(tutors);
@@ -66,7 +73,7 @@ router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
       },
     });
     const student = studentData.get({ plain: true });
-    res.render('studentProfile', { student });
+    res.render('studentProfile', { student, logged_in: true});
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -87,7 +94,7 @@ router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
       },
     });
     const tutor = tutorData.get({ plain: true });
-    res.render('tutorProfile', { tutor });
+    res.render('tutorProfile', { tutor, logged_in: true });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -99,6 +106,8 @@ router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
 router.get('/messages', checkAuthenticated, async (req, res) => {
   try {
     const messageData = await Message.findAll({});
+    const userData = await User.findAll({});
+    const users = userData.map((user) => user.get({ plain: true }));
 
     // maps over messageData and simplifies it for handlebars use
     // set in a variable called messages that gets passed to handlebars page
@@ -115,7 +124,7 @@ router.get('/messages', checkAuthenticated, async (req, res) => {
     }
     console.log(messages);
     // 'messaging' is the name of the handlebars file
-    res.render('messaging', { messages });
+    res.render('messaging', { messages, users, logged_in: true });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -140,7 +149,7 @@ router.get('/scheduledSession', checkAuthenticated, async (req, res) => {
     });
     const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
     console.log(scheduledSessions);
-    res.render('scheduledSession', { scheduledSessions });
+    res.render('scheduledSession', { scheduledSessions, logged_in: true });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -154,7 +163,14 @@ router.get('/scheduledSession/:id', checkAuthenticated, async (req, res) => {
       },
     });
     const scheduledSession = scheduledSessionData.get({ plain: true });
-    res.render('scheduledSession', { scheduledSession });
+    res.render('scheduledSession', { scheduledSession, logged_in: true });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+router.get('/edit-profile', async (req, res) => {
+  try {
+    res.render('edit-profile', { logged_in: true });
   } catch (err) {
     res.status(400).json(err);
   }

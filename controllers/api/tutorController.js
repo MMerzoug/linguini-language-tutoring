@@ -10,6 +10,9 @@ router.get('/', checkAuthenticated, async (req, res, next) => {
         {
           model: User,
         },
+        {
+          model: Language,
+        }
       ],
     });
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));

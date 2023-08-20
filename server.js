@@ -14,7 +14,7 @@ initializePassport(passport);
 const app = express();
 const port = process.env.PORT || 3001;
 
-//handlebars setup
+/* Handelbars setup */
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
