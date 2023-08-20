@@ -55,7 +55,7 @@ router.get('/success', checkAuthenticated, async (req, res) => {
     };
   }
 
-  res.render(url, { renderData });
+  res.render(url, renderData);
 });
 
 router.delete('/logout', checkAuthenticated, (req, res) => {
