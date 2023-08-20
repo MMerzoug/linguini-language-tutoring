@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #173f4a;
   font-family: 'Poppins', sans-serif;
   width: 100vw;
@@ -46,6 +48,10 @@ body {
   font-weight: bold;
   font-size: 1.5rem;
   color: white;
+}
+
+.main {
+  height: 77vh;
 }
 
 .motto {
@@ -270,4 +276,72 @@ body {
 .scheduledSessionWrapper {
   display: flex;
   gap: 30px;
+}
+
+/* FORM STYLES */
+.form-title {
+  font-size: 2rem;
+  color: #fff;
+  /* background-color: cyan; */
+  width: fit-content;
+  margin: auto;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* background-color: #41aaa9; */
+  gap: 2rem;
+}
+
+.form-image-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.sign-up-image {
+  border-radius: 1rem;
+  height: 30rem;
+}
+
+.form {
+  width: 24vw;
+  background-color: #fceee7;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+label {
+  color: #454847;
+}
+
+input {
+  border: none;
+}
+
+select {
+  border: none;
+}
+
+.form-button {
+  border: none;
+  height: 2rem;
+  border-radius: .5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.submit-form {
+  background-color: #41aaa9;
+}
+
+.clear-form {
+  background-color: #6873bb;
 }
