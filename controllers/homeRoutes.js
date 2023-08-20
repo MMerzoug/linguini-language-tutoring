@@ -88,12 +88,16 @@ router.get('/tutorProfile/:id', async (req, res) => {
         {
           model: User,
         },
+        {
+          model: Language,
+        },
       ],
       where: {
         id: req.params.id,
       },
     });
     const tutor = tutorData.get({ plain: true });
+    console.log(tutor);
     res.render('tutorProfile', { tutor, logged_in: true });
   } catch (err) {
     console.error(err);
