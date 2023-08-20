@@ -4,12 +4,12 @@
 <section class="tutor-profile" id="deets-cards">
      <div class="tutor-card">
         {{!-- <img src="{{tutor.user.image_avatar}}"> --}}
-        {{!-- Duck photo below loaded as placeholder, code above works --}}
+        {{!-- Duck photo below loaded as placeholder, code above should load avatar --}}
         <img src="https://th.bing.com/th/id/OIP.Dwx96HrXj8dVo9vhqEYHqQHaHa?w=177&h=180&c=7&r=0&o=5&pid=1.7">
         <h5 class="tutorName"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
         <h5 class="tutorEmail"> {{tutor.user.email}}</h5>
         <h5 class="tutor-language"> {{tutor.language_id}}</h5>
-        <h5 class="tutor-language-level"> Rating: {{tutor.rating}}</h5>
+        <h5 class="tutor-language-level"> Rating: {{tutor.rating}} out of 5 stars</h5>
     </div>
 </section>
 <section class="tutor-profile" id="deets-cards">
@@ -18,7 +18,7 @@
             {{#each scheduledSessions}}
             <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
             <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-            {{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
+            <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2>
             <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
             <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
             {{/each}}   
@@ -26,8 +26,6 @@
     </div>
 </section>
 </div>
-
-
 
 
 {{!-- link stylesheets in the main.handlebars file --}}

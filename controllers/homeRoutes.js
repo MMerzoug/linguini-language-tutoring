@@ -176,4 +176,26 @@ router.get('/edit-profile', async (req, res) => {
   }
 });
 
+// Render scheduledSession on tutorProfile page
+router.get('/tutorProfile/:id', async (req, res) => {
+  try {
+    const scheduledSessionData = await ScheduledSession.findAll({
+      include: [
+        {
+          model: Tutor,
+          include: [{ model: User }],
+        },
+      ],
+      where: {
+       tutor_id: req.params.id,
+      },
+    });
+    const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
+    res.render('tutorProfile', { scheduledSessions, logged_in: true });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 module.exports = router;
