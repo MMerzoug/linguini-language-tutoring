@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { User, Tutor, Language, TutorRating } = require('../../models');
+const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
+
 // base url is /api/tutors/
-router.get('/', async (req, res, next) => {
+router.get('/', checkAuthenticated, async (req, res, next) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [
@@ -13,13 +15,15 @@ router.get('/', async (req, res, next) => {
         }
       ],
     });
-    res.status(200).json(tutorData);
+    const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
+    res.render('tutorListing', { tutors });
+    // res.status(200).json(tutorData);
   } catch (err) {
     next(err);
   }
 });
 
-router.get('/:tutor_id', async (req, res, next) => {
+router.get('/:tutor_id', checkAuthenticated, async (req, res, next) => {
   try {
     const tutorData = await Tutor.findOne({
       where: { id: req.params.tutor_id },
@@ -36,7 +40,7 @@ router.get('/:tutor_id', async (req, res, next) => {
 });
 
 // get all tutors that teach a language
-router.get('/language/:language', async (req, res, next) => {
+router.get('/language/:language', checkAuthenticated, async (req, res, next) => {
   console.log(req);
   try {
     const LanguageData = await Language.findOne({
@@ -61,7 +65,7 @@ router.get('/language/:language', async (req, res, next) => {
 });
 
 //post route separate from the user
-router.post('/create', async (req, res, next) => {
+router.post('/create', checkNotAuthenticated, async (req, res, next) => {
   try {
     const userData = await User.create({
       first_name: req.body.first_name,
@@ -81,7 +85,6 @@ router.post('/create', async (req, res, next) => {
       },
     });
     const tutorData = await Tutor.create({
-      // user_id: req.session.user_id,
       user_id: userData.id,
       rating: tutorRatingData?.id,
       language_id: languageData.id,

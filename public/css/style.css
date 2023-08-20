@@ -1,6 +1,6 @@
 body {
   background-color: #efefef;
-  font-family: 'Caprasimo', cursive;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* logo styling */
@@ -270,14 +270,18 @@ body {
   border-radius: 8px;
 }
 
-/* Tutor Profile Page */
+.form-group {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 10px;
+}
 
-.cardsWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 0 auto;
+.session-display {
+  display: block;
+  width: 50%;
+  float: right;
+  margin: 10px;
 }
 
 /* .tutorName{
