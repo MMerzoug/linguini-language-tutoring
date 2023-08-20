@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Student, Tutor } = require('../../models');
+const { User, Student, Tutor, Language, LanguageLevel } = require('../../models');
 const passport = require('passport');
 const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
 
@@ -22,6 +22,12 @@ router.get('/success', checkAuthenticated, async (req, res) => {
       {
         model: User,
       },
+      // {
+      //   model: Language,
+      // },
+      // {
+      //   model: LanguageLevel,
+      // },
     ],
     where: { user_id: userData.id },
   });

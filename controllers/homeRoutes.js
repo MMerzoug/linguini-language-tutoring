@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Tutor, Student, Language, Message, ScheduledSession } = require('../models');
+const { User, Tutor, Student, Language, Message, ScheduledSession, LanguageLevel } = require('../models');
 const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
 
 // Render login page
@@ -66,6 +66,12 @@ router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
       include: [
         {
           model: User,
+        },
+        {
+          model: Language,
+        },
+        {
+          model: LanguageLevel,
         },
       ],
       where: {
