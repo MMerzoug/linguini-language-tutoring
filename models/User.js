@@ -52,15 +52,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: true,
           },
-        // username: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique: true,
-        // },
-        // type: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
     },
     {
         hooks: {
