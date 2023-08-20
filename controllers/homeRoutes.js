@@ -3,7 +3,7 @@ const { User, Tutor, Student, Message, ScheduledSession } = require('../models')
 const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
 
 // Render login page
-router.get('/login', async (req, res) => {
+router.get('/login', checkNotAuthenticated, async (req, res) => {
   try {
     res.render('login');
   } catch (err) {
@@ -13,19 +13,9 @@ router.get('/login', async (req, res) => {
 });
 
 // Render Register
-router.get('/sign-up', async (req, res) => {
+router.get('/sign-up', checkNotAuthenticated, async (req, res) => {
   try {
     res.render('sign-up');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('An error occurred');
-  }
-});
-
-// Render dashboard page
-router.get('/dashboard', async (req, res) => {
-  try {
-    res.render('dashboard', { user: req.user });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -63,7 +53,7 @@ router.get('/tutorListing', async (req, res) => {
 });
 
 // Render students on the student profile page
-router.get('/studentProfile/:id', async (req, res) => {
+router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
   try {
     const studentData = await Student.findOne({
       include: [
@@ -84,7 +74,7 @@ router.get('/studentProfile/:id', async (req, res) => {
 });
 
 // Render tutor profile on the tutorProfile page
-router.get('/tutorProfile/:id', async (req, res) => {
+router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findOne({
       include: [
@@ -106,7 +96,7 @@ router.get('/tutorProfile/:id', async (req, res) => {
 
 // Add Messaging Get Routes
 // Call users.find all to send the user list to the messaging template
-router.get('/messages', async (req, res) => {
+router.get('/messages', checkAuthenticated, async (req, res) => {
   try {
     const messageData = await Message.findAll({});
 
@@ -132,7 +122,7 @@ router.get('/messages', async (req, res) => {
 });
 
 // add scheduled sessions get routes
-router.get('/scheduledSession', async (req, res) => {
+router.get('/scheduledSession', checkAuthenticated, async (req, res) => {
   try {
     const scheduledSessionData = await ScheduledSession.findAll({
       include: [
@@ -156,7 +146,7 @@ router.get('/scheduledSession', async (req, res) => {
   }
 });
 
-router.get('/scheduledSession/:id', async (req, res) => {
+router.get('/scheduledSession/:id', checkAuthenticated, async (req, res) => {
   try {
     const scheduledSessionData = await ScheduledSession.findOne({
       where: {

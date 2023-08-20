@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Tutor, TutorRating } = require('../../models');
+const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
 
 // get all tutor ratings
-router.get('/', async (req, res) => {
+router.get('/', checkAuthenticated, async (req, res) => {
   try {
     const tutorRatingData = await TutorRating.findAll({
       include: [
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 // post a new tutor rating
-router.post('/', async (req, res) => {
+router.post('/', checkAuthenticated, async (req, res) => {
   try {
     // create
     const tutorRatingData = await TutorRating.create({
@@ -35,10 +36,9 @@ router.post('/', async (req, res) => {
 });
 
 // get tutor rating by tutor id and updates the tutor's rating in the tutor table
-router.get('/avg_rating/:tutor_id', async (req, res, next) => {
+router.get('/avg_rating/:tutor_id', checkAuthenticated, async (req, res, next) => {
   console.log(req);
   try {
-
     const result = await TutorRating.findAll({
       where: { tutor_id: req.params.tutor_id },
       attributes: [[sequelize.fn('AVG', sequelize.col('tutorRating.rating')), 'avgRatings']],
@@ -56,7 +56,6 @@ router.get('/avg_rating/:tutor_id', async (req, res, next) => {
     );
 
     res.status(200).json(result);
-
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

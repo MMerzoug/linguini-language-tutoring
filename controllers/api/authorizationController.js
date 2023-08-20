@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { User, Student, Tutor } = require('../../models');
 const passport = require('passport');
 const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
-const { json } = require('sequelize');
 
 // endpoint for logging in
 router.post(
   '/login',
+  checkNotAuthenticated,
   passport.authenticate('local', {
     successRedirect: '/api/authorization/success',
     failuireRedirect: '/login',
@@ -14,7 +14,7 @@ router.post(
   })
 );
 
-router.get('/success', async (req, res) => {
+router.get('/success', checkAuthenticated, async (req, res) => {
   const userData = await User.findOne({ where: { email: req.user.email } });
   // Check if user is student or tutor
   const student = await Student.findOne({
@@ -52,6 +52,7 @@ router.get('/success', async (req, res) => {
       message: 'You are now logged in!',
     };
   }
+
   res.render(url, { renderData });
 });
 
