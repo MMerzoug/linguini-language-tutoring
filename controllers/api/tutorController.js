@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Tutor, Language, TutorRating } = require('../../models');
+
 // base url is /api/tutors/
 router.get('/', async (req, res, next) => {
   try {
@@ -10,7 +11,9 @@ router.get('/', async (req, res, next) => {
         },
       ],
     });
-    res.status(200).json(tutorData);
+    const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
+    res.render('tutorListing', { tutors });
+    // res.status(200).json(tutorData);
   } catch (err) {
     next(err);
   }

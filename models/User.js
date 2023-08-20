@@ -48,10 +48,10 @@ User.init(
         len: [8],
       },
     },
-    image_avatar: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // image_avatar: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
   },
   {
     hooks: {

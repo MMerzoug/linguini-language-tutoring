@@ -11,25 +11,7 @@ const authenticateUser = async (email, password, done) => {
     if (!validPassword) {
       return done(null, false, { message: 'Incorrect email or password' });
     }
-    return done(null, userData.get({ plain: true }));
-    // // Check if user is student or tutor
-    // const student = await Student.findOne({ where: { user_id: userData.id } });
-    // if (student) {
-    //   //   res.json({
-    //   //     userType: 'student',
-    //   //     user: student,
-    //   //     message: 'You are now logged in!',
-    //   //   });
-    //   return done(null, student.get({ plain: true }));
-    // } else {
-    //   const tutor = await Tutor.findOne({ where: { user_id: userData.id } });
-    //   //   res.json({
-    //   //     userType: 'tutor',
-    //   //     user: tutor,
-    //   //     message: 'You are now logged in!',
-    //   //   });
-    //   return done(null, tutor.get({ plain: true }));
-    // }
+    return done(null, userData);
   } catch (err) {
     return done(err);
   }

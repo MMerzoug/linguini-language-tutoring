@@ -22,9 +22,6 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//static files middleware
-app.use(express.static(path.join(__dirname, 'public')));
-
 // writes the failed messages
 app.use(flash());
 app.use(
@@ -37,6 +34,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//static files middleware
+app.use(express.static(path.join(__dirname, 'public')));
 //routes middleware
 app.use(routes);
 
