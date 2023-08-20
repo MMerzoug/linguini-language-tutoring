@@ -8,8 +8,8 @@ router.post(
   '/login',
   checkNotAuthenticated,
   passport.authenticate('local', {
-    successRedirect: '/api/authorization/success',
-    failuireRedirect: '/login',
+    successRedirect: '/',
+    failureRedirect: '/login',
     failureFlash: true,
   })
 );
@@ -36,13 +36,7 @@ router.get('/success', checkAuthenticated, async (req, res) => {
   let url = '';
 
   if (student) {
-    url = 'studentProfile';
-    renderData = {
-      logged_in: true,
-      userType: 'student',
-      student: student.get({ plain: true }),
-      message: 'You are now logged in!',
-    };
+    res.redirect('/studentProfile');
   } else {
     const tutor = await Tutor.findOne({
       include: [
@@ -52,16 +46,10 @@ router.get('/success', checkAuthenticated, async (req, res) => {
       ],
       where: { user_id: userData.id },
     });
-    url = 'tutorProfile';
-    renderData = {
-      logged_in: true,
-      userType: 'tutor',
-      tutor: tutor.get({ plain: true }),
-      message: 'You are now logged in!',
-    };
+    res.redirect('/tutorProfile');
   }
 
-  res.render(url, renderData);
+  res.status(500).end()
 });
 
 router.post('/logout', checkAuthenticated, (req, res) => {
