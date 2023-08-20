@@ -87,20 +87,36 @@ router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
 });
 
 // Render tutor profile on the tutorProfile page
-router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
+router.get('/tutorProfile/', checkAuthenticated, async (req, res) => {
   try {
+    const userData = await User.findOne({ where: { email: req.user.email } });
     const tutorData = await Tutor.findOne({
       include: [
         {
           model: User,
         },
+        {
+          model: Language,
+        },
       ],
       where: {
-        id: req.params.id,
+        user_id: userData.id,
       },
     });
     const tutor = tutorData.get({ plain: true });
-    res.render('tutorProfile', { tutor, logged_in: true });
+    const scheduledSessionData = await ScheduledSession.findAll({
+      include: [
+        {
+          model: Tutor,
+          include: [{ model: User }],
+        },
+      ],
+      where: {
+        tutor_id: tutor.id,
+      },
+    });
+    const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
+    res.render('tutorProfile', { tutor, logged_in: true, scheduledSessions });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -182,5 +198,9 @@ router.get('/edit-profile', checkAuthenticated, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+
+
 
 module.exports = router;

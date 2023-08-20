@@ -1,35 +1,34 @@
 <h2>Tutor Profile Page</h2>
 
+<div class="tutorProfileWrapper">
 <section class="tutor-profile" id="deets-cards">
      <div class="tutor-card">
         <img src="{{tutor.user.image_avatar}}">
         <h5 class="tutorName"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
         <h5 class="tutorEmail"> {{tutor.user.email}}</h5>
-        <h5 class="tutor-language"> {{tutor.language_id}}</h5>
-        <h5 class="tutor-language-level"> {{tutor.rating}}</h5>
-    </div>
-    <div class="tutor-card">
-        <h2 class="session-calendar"> Session Calendar </h2>
-        <h5 class="session-student_id"> {{scheduledSession.student_id}}</h5>
-         <h5 class="session-tudor_id"> {{scheduledSession.tutor_id}}</h5>
-         <h5 class="preferred-location"> {{meeting_link}}</h5>
+        <h5 class="tutor-language"> {{tutor.language.name}}</h5>
+        <h5 class="tutor-language-level"> Rating: {{tutor.rating}} out of 5 stars</h5>
     </div>
 </section>
+    <div class="tutor-card">
+        <div class="session-display" id="session-display"></div>
+           {{#each scheduledSessions}}
+            <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
+            <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
+            <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2>
+            <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
+            <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
+            {{/each}} 
+        </div>
+    </div>
+</div>
 
 
-{{!--This code below needs to be rendered in the above div}}
 
-{{!-- <div class="session-display" id="session-display"></div>
-{{#each scheduledSessions}}
-<h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
-<h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-{{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
-{{!-- <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
-<button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
-{{/each}}
-</div> --}}
+<script src="/js/tutorProfile.js"></script>
 
 
 
-{{!-- link stylesheets in the main.handlebars file --}}
-{{!-- link script sheets at the bottom of the individual files --}}
+
+
+
