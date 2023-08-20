@@ -8,9 +8,6 @@ dependencies:
   bcrypt:
     specifier: ^5.1.0
     version: 5.1.0
-  connect-session-sequelize:
-    specifier: ^7.1.7
-    version: 7.1.7(sequelize@6.32.1)
   dayjs:
     specifier: ^1.11.9
     version: 1.11.9
@@ -20,21 +17,24 @@ dependencies:
   express:
     specifier: ^4.18.2
     version: 4.18.2
+  express-flash:
+    specifier: ^0.0.2
+    version: 0.0.2
   express-handlebars:
     specifier: ^7.1.1
     version: 7.1.1
   express-session:
     specifier: ^1.17.3
     version: 1.17.3
-  expression:
-    specifier: ^0.0.1
-    version: 0.0.1
   handlebars:
     specifier: ^4.7.8
     version: 4.7.8
   mysql2:
     specifier: ^3.6.0
     version: 3.6.0
+  passport:
+    specifier: ^0.6.0
+    version: 0.6.0
   passport-local:
     specifier: ^1.0.0
     version: 1.0.0
@@ -280,16 +280,9 @@ packages:
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  /connect-session-sequelize@7.1.7(sequelize@6.32.1):
-    resolution: {integrity: sha512-Wqq7rg0w+9bOVs6jC0nhZnssXJ3+iKNlDVWn2JfBuBPoY7oYaxzxfBKeUYrX6dHt3OWEWbZV6LJvapwi76iBQQ==}
-    engines: {node: '>= 10'}
-    peerDependencies:
-      sequelize: '>= 6.1.0'
-    dependencies:
-      debug: 4.3.4
-      sequelize: 6.32.1(mysql2@3.6.0)
-    transitivePeerDependencies:
-      - supports-color
+  /connect-flash@0.1.1:
+    resolution: {integrity: sha512-2rcfELQt/ZMP+SM/pG8PyhJRaLKp+6Hk2IUBNkEit09X+vwn3QsAL3ZbYtxUn7NVPzbMTSLRDhqe0B/eh30RYA==}
+    engines: {node: '>= 0.4.0'}
     dev: false
 
   /console-control-strings@1.1.0:
@@ -433,6 +426,13 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /express-flash@0.0.2:
+    resolution: {integrity: sha512-QVUR0ZZRCaa8+iPHoUQaQJrQWcQuK/Q+19M7IUIdIEtvwhrA/ifHT7y1CVJI41YfGiOQnbGtn3uvd2vOdgu58A==}
+    engines: {node: '>= 0.8.0'}
+    dependencies:
+      connect-flash: 0.1.1
+    dev: false
+
   /express-handlebars@7.1.1:
     resolution: {integrity: sha512-qdODITPVBGmPShpBsc0xUy9Qau/pF8nyu/j8MYePBT2UNwaVvT/0Z9GpXqd37PZOw0MiLFW6l7xbkSISkTsrbg==}
     engines: {node: '>=v16'}
@@ -495,13 +495,6 @@ packages:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /expression@0.0.1:
-    resolution: {integrity: sha512-yOZW47NCRkh8akZWiJpOxdqDjfxWQOOhSSy5r+Ml+ekkl7h8qejMjEpIwHknd23R+GdS0Tkusm4P4EFrxQo4XA==}
-    engines: {node: '>=0.4.2'}
-    dependencies:
-      reparse: 0.1.2
     dev: false
 
   /fill-range@7.0.1:
@@ -1043,6 +1036,15 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: false
 
+  /passport@0.6.0:
+    resolution: {integrity: sha512-0fe+p3ZnrWRW74fe8+SvCyf4a3Pb2/h7gFkQ8yTJpAO50gDzlfjZUZTO1k5Eg9kUct22OxHLqDZoKUWRHOh9ug==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
+      utils-merge: 1.0.1
+    dev: false
+
   /path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
@@ -1063,6 +1065,10 @@ packages:
 
   /path-to-regexp@0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
+    dev: false
+
+  /pause@0.0.1:
+    resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
     dev: false
 
   /pg-connection-string@2.6.2:
@@ -1128,11 +1134,6 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
-
-  /reparse@0.1.2:
-    resolution: {integrity: sha512-WYVvlxnR1Nsy8TzDuslvopB6AJicP0cilq2PD8ap5cqre45n8eeR+WkzVVMCehqH/l+yuGKDEPN0KfBHVBMR2w==}
-    engines: {node: '>= 0.1.103'}
-    dev: false
 
   /retry-as-promised@7.0.4:
     resolution: {integrity: sha512-XgmCoxKWkDofwH8WddD0w85ZfqYz+ZHlr5yo+3YUCfycWawU56T5ckWXsScsj5B8tqUcIG67DxXByo3VUgiAdA==}
