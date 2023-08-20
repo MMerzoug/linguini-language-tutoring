@@ -1,6 +1,7 @@
 body {
   background-color: #efefef;
-  font-family: 'Caprasimo', cursive;
+  font-family: 'Poppins', sans-serif;
+   box-sizing: border-box;
 }
 
 /* logo styling */
@@ -236,19 +237,21 @@ body {
 }
 
 /* Scheduled Sessions Page */
-.scheduled-session-form {
-  display: flex;
+.scheduled-session-form,
+.session-display {
+  display: inline-block;
   flex-direction: column;
   align-items: left;
-  justify-content: flex-start;
-  margin: 0 auto;
   width: 60%;
-  height: 100%;
-  padding: 50px 20px;
-  box-sizing: border-box;
-  text-align: left;
+  padding: 50px 50px;
   background-color: #454847;
   color: white;
-  padding: 50px 20px;
   border-radius: 8px;
 }
+
+.scheduledSessionWrapper {
+  display: flex;
+  gap: 30px;
+
+}
+
