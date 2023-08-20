@@ -1,14 +1,12 @@
-<h2>Tutor Profile Page</h2>
-
+<h1 class="form-title">Tutor Profile Page</h1>
 <div class="tutorProfileWrapper">
 <section class="user-profile" id="deets-cards">
      <div class="user-card">
-        <img src="{{tutor.user.image_avatar}}">
+        <img src="{{tutor.user.image_avatar}}" class="user-profile-avatar">
         <h5 class="user-name"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
         <h5 class="user-email"> {{tutor.user.email}}</h5>
-        <h5 class="tutor-language"> {{tutor.language.name}}</h5>
-        <h5 class="tutor-rating"> {{tutor.rating}}</h5>
-        <h5 class="tutor-language-level"> Rating: {{tutor.rating}} out of 5 stars</h5>
+        <h5 class="user-language"> Proficient in: {{tutor.language.name}}</h5>
+        <h5 class="tutor-rating"> Rating: {{tutor.rating}} of 5 stars</h5>
     </div>
 </section>
     <div class="user-card">

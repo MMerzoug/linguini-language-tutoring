@@ -104,6 +104,11 @@ body {
   width: 7rem;
 }
 
+.user-profile-avatar {
+  border-radius: 50%;
+  width: 12rem;
+}
+
 .card-heading {
   font-weight: bold;
   font-size: larger;
