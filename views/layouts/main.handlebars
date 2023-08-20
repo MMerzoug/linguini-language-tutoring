@@ -22,21 +22,24 @@
 </head>
 
 <body>
-
     <header class="header">
-        <img src="/images/linguini.png" class="logo-image">
+        <div>
+            <img src="/images/logo.png" class="logo">
+        </div>
         {{#if logged_in}}
         <nav>
-            <ul class="headerMenuBar">
-                <a href="/" class="home" id="headerEl">Home</a>
-                <button class="follow-us" id="headerEl">
+            <ul class="nav-list">
+                <button class="home-button">
+                    <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
+                </button>
+                <button class="nav-button">
                     <a href="/messages">Messages</a>
                 </button>
-                <button class="follow-us" id="headerEl">
-                    <a href="/edit-profile">Edit Profile</a>
+                <button class="nav-button">
+                    <a href="/edit-profile">Sessions</a>
                 </button>
-                <button class="follow-us logout-btn" id="headerEl">
-                    <a> Log Out </a>
+                <button class="nav-button">
+                    <a href="">Log Out</a>
                 </button>
                 <button class="nav-button nav-element">
                     <a href="">Log Out</a>
@@ -44,34 +47,41 @@
             </ul>
         </nav>
         {{else}}
-
         <nav>
-            <ul class="headerMenuBar">
-                <a href="/" class="home" id="headerEl">Home</a>
-                <button class="follow-us" id="headerEl">
-                    <a href="/login">Log In</a>
+            <ul class="nav-list">
+                <button class="home-button">
+                    <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
                 </button>
-                <button class="follow-us" id="headerEl">
-                    <a href="/sign-up">Sign Up</a>
+                <button class="nav-button">
+                    <a href="/login" class="nav-link">Log In</a>
+                </button>
+                <button class="nav-button">
+                    <a href="/sign-up" class="nav-link">Sign Up</a>
                 </button>
             </ul>
         </nav>
         {{/if}}
     </header>
-
-    <main class="container container-fluid mt-5">
+    <main>
         {{{ body }}}
     </main>
-
-    <footer>
+    <footer class="footer">
         <div class="icon-bar">
-            <button class="follow-us">
-                <a href="/sign-up">Follow Us!</a>
+            <button class="footer-button">
+                <a href="/sign-up" class="nav-link">Follow Us!</a>
             </button>
-            <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:linguini.tutoring@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https:www.instagram.com/linguini.tutors/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa-brands fa-github-square"></i></a>
+            <button class="social-button">
+                <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa-brands fa-linkedin"></i></a>
+            </button>
+            <button class="social-button">
+                <a href="mailto:linguini.tutoring@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </button>
+            <button class="social-button">
+                <a href="https:www.instagram.com/linguini.tutors/"><i class="fa-brands fa-instagram"></i></a>
+            </button>
+            <button class="social-button">
+                <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa-brands fa-github-square"></i></a>
+            </button>
         </div>
     </footer>
 

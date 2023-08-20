@@ -1,131 +1,156 @@
 body {
-  background-color: #efefef;
+  background-color: #173f4a;
   font-family: 'Poppins', sans-serif;
-   box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* header styling */
 .header {
-  height: 10vh;
-  background-color: cyan;
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  height: 15vh;
+  background-color: transparent;
 }
 
 /* logo styling */
-.logo-image {
-  width: 15rem;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.logo {
+  width: 8rem;
+  margin: 1rem 1rem 0;
 }
 
-.nav-menu-bar {
+.nav-list {
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
-  justify-content: flex-end;
-  background-color: green;
-}
-
-.home {
-  color: #454847;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.nav-element {
-  margin-right: 1rem;
+  gap: 1rem;
+  margin: 3rem;
 }
 
 /* button styling */
-.nav-button {
-  background-color: #6873bb;
+.home-button {
   width: fit-content;
-  padding: 1rem;
-  border-radius: 5px;
+  padding: .5rem;
+  background-color: transparent;
   border: none;
 }
 
-.follow-us-link {
-  /* background-color: #6873bb; */
+.nav-button {
+  width: fit-content;
+  padding: 0 .6rem .3rem .6rem;
+  background-color: #41aaa9;
+  border-radius: .5rem;
+  border: none;
+}
+
+.nav-link {
   font-weight: bold;
   font-size: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  text-decoration: none;
-  display: block;
+  color: white;
 }
 
-.logo {
-  width: 35%;
-  height: auto;
-  padding: 1%;
+.motto {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  top: 6rem;
+  left: 25%;
+  width: 50vw;
+  margin: auto;
+  text-align: center;
+  background-color: #feefe8;
+  color: #454847;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 10px;
 }
 
-
-/* Homepage Card Styling */
-/* <---- This was interfering with the carousel display -JAS */
-/* .tutor-cards { */
-/* display: flex; */
-/* flex-wrap: wrap; */
-/* justify-content: center; Space the cards evenly */
-/* width: 60%; Take up 60% of the screen width */
-/* right: 0; */
-/* margin: auto; */
-/* margin-right: 20%; */
-/* text-align: center; */
-/* gap: 20px; */
-/* margin-top: 20px; */
-/* box-sizing: border-box;   */
-/* padding: 50px 20px; */
-/* } */
+.hero {
+  height: 73vh;
+  width: 85vw;
+  margin: auto;
+  background-image: url("/images/hero.png");
+  border-radius: .5rem;
+  background-position: center;
+  background-size: cover;
+}
 
 /* SWIPER STYLING */
 .swiper {
-  margin: 1rem;
+  width: 60vw;
+  position: absolute;
+  top: 38rem;
+  left: 20%;
+  margin: auto;
 }
 
 .swiper-slide {
-  width: 30%;
+  width: 15rem;
 }
 
 .tutor-card {
-  /* flex-basis: calc(25% - 20px); */
   border-radius: 10px;
   padding: 1.5rem;
-  background-color: #454847;
-  color: white;
+  background-color: #feefe8;
+  color: #173f4a;
   text-align: center;
 }
 
-.tutor-card img {
+.tutor-avatar {
   border-radius: 50%;
   width: 7rem;
 }
 
-.tutor-card h1 {
-  font-size: large;
+.card-heading {
+  font-weight: bold;
+  font-size: larger;
 }
 
-.card-panel.custom-card {
+.footer {
+  display: flex;
+  height: 12vh;
+  background-color: transparent;
+  padding: 0;
+  /* margin: 0; */
+}
+
+/* footer Icon Bar Styling */
+.icon-bar {
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
-  margin-right: 20%;
-  margin: auto;
+  align-content: center;
+  font-size: 2em;
   text-align: center;
-  box-sizing: border-box;
+  margin: auto;
+  gap: .6rem;
+  /* margin-top: 30px; */
+  /* margin-bottom: 5px; */
+}
+
+.icon-bar a {
+  color: #fff;
+}
+
+.icon-bar a:hover {
+  color: #6873bb;
+}
+
+.footer-button {
+  width: fit-content;
+  padding: 0 .6rem .5rem .6rem;
   background-color: #454847;
-  color: white;
-  padding: 50px 20px;
+  border-radius: .5rem;
+  border: none;
+}
+
+.footer-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.social-button {
+  width: fit-content;
+  /* padding: 0 .6rem .5rem .6rem; */
+  background-color: transparent;
+  border-radius: .5rem;
+  border: none;
 }
 
 .tutorName {
@@ -140,12 +165,6 @@ body {
   font-size: 18px;
   margin-bottom: 10px;
   /* Spacing between each line inside the card */
-}
-
-#motto {
-  font-weight: bold;
-  font-size: 30px;
-  border-radius: 8px;
 }
 
 /* tutorList page styling  */
@@ -178,22 +197,6 @@ body {
 .tutorRating {
   margin-bottom: 15px;
   /* Space out the elements inside the card */
-}
-
-/* footer Icon Bar Styling */
-.icon-bar {
-  font-size: 2em;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 5px;
-}
-
-.icon-bar a {
-  color: #454847;
-}
-
-.icon-bar a:hover {
-  color: #6873bb;
 }
 
 /* messaging page styling */
@@ -267,5 +270,4 @@ body {
 .scheduledSessionWrapper {
   display: flex;
   gap: 30px;
-
 }
