@@ -25,13 +25,17 @@ router.get('/success', async (req, res) => {
     ],
     where: { user_id: userData.id },
   });
+
+  let renderData = {};
+  let url = '';
+
   if (student) {
-    let userData = JSON.stringify({
+    url = 'studentProfile';
+    renderData = {
       userType: 'student',
       student: student.get({ plain: true }),
       message: 'You are now logged in!',
-    });
-    res.render('studentProfile', { userData });
+    };
   } else {
     const tutor = await Tutor.findOne({
       include: [
@@ -41,13 +45,14 @@ router.get('/success', async (req, res) => {
       ],
       where: { user_id: userData.id },
     });
-    let userData = {
+    url = 'tutorProfile';
+    renderData = {
       userType: 'tutor',
       tutor: tutor.get({ plain: true }),
       message: 'You are now logged in!',
     };
-    res.render('tutorProfile', { userData });
   }
+  res.render(url, { renderData });
 });
 
 router.delete('/logout', checkAuthenticated, (req, res) => {
