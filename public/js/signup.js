@@ -40,7 +40,7 @@ signUpBtn.addEventListener('click', async (event) => {
     body: body,
   });
   if (response.ok) {
-    document.location.replace('/api/authorization/login');
+    document.location.replace('/login');
   } else {
     console.log('error');
   }

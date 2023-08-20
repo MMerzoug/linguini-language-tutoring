@@ -50,7 +50,7 @@ User.init(
     },
     image_avatar: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

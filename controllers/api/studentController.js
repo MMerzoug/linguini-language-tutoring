@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Student, Language, LanguageLevel } = require('../../models');
+const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
 
-router.get('/', async (req, res) => {
+router.get('/', checkAuthenticated, async (req, res) => {
   try {
     const studentData = await Student.findAll({
       include: [
@@ -17,7 +18,7 @@ router.get('/', async (req, res) => {
 });
 
 //post route separate from the user
-router.post('/create', async (req, res) => {
+router.post('/create', checkNotAuthenticated, async (req, res, next) => {
   try {
     const userData = await User.create({
       // ...req.body,
@@ -29,12 +30,12 @@ router.post('/create', async (req, res) => {
     const levelData = await LanguageLevel.findOne({
       where: {
         label: req.body.language_level,
-      }
+      },
     });
     const languageData = await Language.findOne({
       where: {
         name: req.body.language,
-      }
+      },
     });
     const studentData = await Student.create({
       user_id: userData.id,

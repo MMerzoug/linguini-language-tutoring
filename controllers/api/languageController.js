@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Language, Tutor } = require('../../models');
+const { checkAuthenticated } = require('../../passport-config');
 
-router.get('/', async (req, res) => {
+router.get('/', checkAuthenticated, async (req, res) => {
   try {
     const LanguageData = await Language.findAll();
 
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Allows new languages to be added to be able to add additional languages on the front end.
-router.post('/', async (req, res) => {
+router.post('/', checkAuthenticated, async (req, res) => {
   try {
     const newLanguage = await Language.create({
       name: req.body.name,
