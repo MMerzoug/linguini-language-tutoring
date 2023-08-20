@@ -91,7 +91,7 @@ body {
   width: 15rem;
 }
 
-.tutor-card {
+.user-card {
   border-radius: 10px;
   padding: 1.5rem;
   background-color: #feefe8;
@@ -99,7 +99,7 @@ body {
   text-align: center;
 }
 
-.tutor-avatar {
+.user-avatar {
   border-radius: 50%;
   width: 7rem;
 }
@@ -159,15 +159,16 @@ body {
   border: none;
 }
 
-.tutorName {
+.user-name {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-.tutorEmail,
-.tutorLanguage,
-.tutorRating {
+.user-email,
+.user-language,
+.student-level,
+.tutor-rating {
   font-size: 18px;
   margin-bottom: 10px;
   /* Spacing between each line inside the card */
@@ -330,6 +331,12 @@ select {
   border: none;
 }
 
+.form-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .form-button {
   border: none;
   height: 2rem;
@@ -344,4 +351,9 @@ select {
 
 .clear-form {
   background-color: #6873bb;
+}
+
+.form-text {
+  text-align: justify;
+  text-justify: distribute;
 }

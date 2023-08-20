@@ -94,6 +94,9 @@ router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
         {
           model: User,
         },
+        {
+          model: Language,
+        }
       ],
       where: {
         id: req.params.id,

@@ -1,14 +1,14 @@
 <h2>Tutor Profile Page</h2>
 
-<section class="tutor-profile" id="deets-cards">
-     <div class="tutor-card">
+<section class="user-profile" id="deets-cards">
+     <div class="user-card">
         <img src="{{tutor.user.image_avatar}}">
-        <h5 class="tutorName"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
-        <h5 class="tutorEmail"> {{tutor.user.email}}</h5>
-        <h5 class="tutor-language"> {{tutor.language_id}}</h5>
-        <h5 class="tutor-language-level"> {{tutor.rating}}</h5>
+        <h5 class="user-name"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
+        <h5 class="user-email"> {{tutor.user.email}}</h5>
+        <h5 class="user-language"> {{user.language.name}}</h5>
+        <h5 class="tutor-rating"> {{tutor.rating}}</h5>
     </div>
-    <div class="tutor-card">
+    <div class="user-card">
         <h2 class="session-calendar"> Session Calendar </h2>
         <h5 class="session-student_id"> {{scheduledSession.student_id}}</h5>
          <h5 class="session-tudor_id"> {{scheduledSession.tutor_id}}</h5>
