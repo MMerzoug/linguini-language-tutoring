@@ -1,6 +1,6 @@
 body {
   background-color: #efefef;
-  font-family: 'Caprasimo', cursive;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* logo styling */
@@ -127,6 +127,7 @@ body {
   background-color: #454847;
   color: white;
   padding: 50px 20px;
+  font-size: 44px;
 }
 
 .tutorName {
@@ -269,7 +270,6 @@ body {
   padding: 50px 20px;
   border-radius: 8px;
 }
-
 
 /* .tutorName{
   color: 
