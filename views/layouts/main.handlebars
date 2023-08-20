@@ -12,7 +12,7 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Caprasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
     <!-- BULMA FRAMEWORK -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <!-- SWIPER FRAMEWORK -->
@@ -26,16 +26,17 @@
     <header class="header">
         <img src="/images/linguini.png" class="logo-image">
         {{#if logged_in}}
-        <nav class="navigation">
-            <ul class="nav-menu-bar">
-                <button class="nav-button nav-element">
-                    <a href="/" class="home nav-element">Home</a>
+        <nav>
+            <ul class="headerMenuBar">
+                <a href="/" class="home" id="headerEl">Home</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="/messages">Messages</a>
                 </button>
-                <button class="nav-button nav-element">
-                    <a href="/messages" class="follow-us-link">Messages</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="/edit-profile">Edit Profile</a>
                 </button>
-                <button class="nav-button nav-element">
-                    <a href="/edit-profile" class="follow-us-link">Edit Profile</a>
+                <button class="follow-us logout-btn" id="headerEl">
+                    <a> Log Out </a>
                 </button>
                 <button class="nav-button nav-element">
                     <a href="">Log Out</a>
@@ -43,14 +44,15 @@
             </ul>
         </nav>
         {{else}}
-        <nav class="navigation">
-            <ul class="nav-menu-bar">
-                <a href="/" class="home nav-element">Home</a>
-                <button class="nav-button nav-element">
-                    <a href="/api/authorization/login">Log In</a>
+
+        <nav>
+            <ul class="headerMenuBar">
+                <a href="/" class="home" id="headerEl">Home</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="/login">Log In</a>
                 </button>
-                <button class="nav-button nav-element">
-                    <a href="/api/authorization/sign-up">Sign Up</a>
+                <button class="follow-us" id="headerEl">
+                    <a href="/sign-up">Sign Up</a>
                 </button>
             </ul>
         </nav>
@@ -63,8 +65,8 @@
 
     <footer>
         <div class="icon-bar">
-            <button class="nav-button">
-                <a href="/api/authorization/sign-up">follow us!</a>
+            <button class="follow-us">
+                <a href="/sign-up">Follow Us!</a>
             </button>
             <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa-brands fa-linkedin"></i></a>
             <a href="mailto:linguini.tutoring@gmail.com"><i class="fa-solid fa-envelope"></i></a>

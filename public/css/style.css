@@ -1,5 +1,6 @@
 body {
-  background-color: fff;
+  background-color: #efefef;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* header styling */
@@ -267,6 +268,19 @@ body {
   border-radius: 8px;
 }
 
+.form-group {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 10px;
+}
+
+.session-display {
+  display: block;
+  width: 50%;
+  float: right;
+  margin: 10px;
+}
 
 /* .tutorName{
   color: 

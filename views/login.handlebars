@@ -1,11 +1,11 @@
 <h1>Login</h1>
-<form id="loginForm">
+<form id="loginForm" action="/api/authorization/login" method="POST">
     <section>
         <label for="email">Email</label>
-        <input type="email" id="email" class="formInput">
+        <input type="email" id="email" name="email" class="formInput">
 
         <label for="password">Password</label>
-        <input type="password" id="password" class="formInput">
+        <input type="password" id="password" name="password" class="formInput">
     </section>
     <button type="submit" id="loginBtn">Login</button>
     <button type="clear" id="clearBtn">Clear</button>

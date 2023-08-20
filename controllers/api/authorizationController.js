@@ -1,78 +1,76 @@
 const router = require('express').Router();
-const { User, Student, Tutor } = require('../../models');
+const { User, Student, Tutor, Language, LanguageLevel } = require('../../models');
+const passport = require('passport');
+const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
 
-// Render login page
-router.get('/login', async (req, res) => {
-  try {
-    res.render('login');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('An error occurred');
-  }
-});
+// endpoint for logging in
+router.post(
+  '/login',
+  checkNotAuthenticated,
+  passport.authenticate('local', {
+    successRedirect: '/api/authorization/success',
+    failuireRedirect: '/login',
+    failureFlash: true,
+  })
+);
 
-router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+router.get('/success', checkAuthenticated, async (req, res) => {
+  const userData = await User.findOne({ where: { email: req.user.email } });
+  // Check if user is student or tutor
+  const student = await Student.findOne({
+    include: [
+      {
+        model: User,
+      },
+      // {
+      //   model: Language,
+      // },
+      // {
+      //   model: LanguageLevel,
+      // },
+    ],
+    where: { user_id: userData.id },
+  });
 
-    if (!userData) {
-      res.status(400).json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+  let renderData = {};
+  let url = '';
 
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(async () => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      // Check if user is student or tutor
-      const student = await Student.findOne({ where: { user_id: userData.id } });
-      if (student) {
-        res.json({
-          userType: 'student',
-          user: student,
-          message: 'You are now logged in!',
-        });
-        // res.render('studentProfile', { student });
-      } else {
-        const tutor = await Tutor.findOne({ where: { user_id: userData.id } });
-        res.json({
-          userType: 'tutor',
-          user: tutor,
-          message: 'You are now logged in!',
-        });
-        // res.render('tutorProfile', { tutor });
-      }
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-// Render Register
-router.get('/sign-up', async (req, res) => {
-  try {
-    res.render('sign-up');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('An error occurred');
-  }
-});
-
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
+  if (student) {
+    url = 'studentProfile';
+    renderData = {
+      logged_in: true,
+      userType: 'student',
+      student: student.get({ plain: true }),
+      message: 'You are now logged in!',
+    };
   } else {
-    res.status(404).end();
+    const tutor = await Tutor.findOne({
+      include: [
+        {
+          model: User,
+        },
+      ],
+      where: { user_id: userData.id },
+    });
+    url = 'tutorProfile';
+    renderData = {
+      logged_in: true,
+      userType: 'tutor',
+      tutor: tutor.get({ plain: true }),
+      message: 'You are now logged in!',
+    };
   }
+
+  res.render(url, renderData);
+});
+
+router.post('/logout', checkAuthenticated, (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/login');
+  });
 });
 
 module.exports = router;
