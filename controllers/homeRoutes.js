@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { User, Tutor, Student, Language, Message, ScheduledSession } = require('../models');
-
+const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
 
 // Render login page
-router.get('/login', async (req, res) => {
+router.get('/login', checkNotAuthenticated, async (req, res) => {
   try {
     res.render('login');
   } catch (err) {
@@ -13,7 +13,7 @@ router.get('/login', async (req, res) => {
 });
 
 // Render Register
-router.get('/sign-up', async (req, res) => {
+router.get('/sign-up', checkNotAuthenticated, async (req, res) => {
   try {
     res.render('sign-up');
   } catch (err) {
@@ -23,7 +23,7 @@ router.get('/sign-up', async (req, res) => {
 });
 
 // Render tutors on the homepage
-router.get('/', async (req, res) => {
+router.get('/', checkNotAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render tutor data on the tutorListing page
-router.get('/tutorListing', async (req, res) => {
+router.get('/tutorListing', checkAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [User],
@@ -60,7 +60,7 @@ router.get('/tutorListing', async (req, res) => {
 });
 
 // Render students on the student profile page
-router.get('/studentProfile/:id', async (req, res) => {
+router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
   try {
     const studentData = await Student.findOne({
       include: [
@@ -73,7 +73,7 @@ router.get('/studentProfile/:id', async (req, res) => {
       },
     });
     const student = studentData.get({ plain: true });
-    res.render('studentProfile', { student, logged_in: true});
+    res.render('studentProfile', { student, logged_in: true });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -81,7 +81,7 @@ router.get('/studentProfile/:id', async (req, res) => {
 });
 
 // Render tutor profile on the tutorProfile page
-router.get('/tutorProfile/:id', async (req, res) => {
+router.get('/tutorProfile/:id', checkAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findOne({
       include: [
@@ -107,7 +107,7 @@ router.get('/tutorProfile/:id', async (req, res) => {
 
 // Add Messaging Get Routes
 // Call users.find all to send the user list to the messaging template
-router.get('/messages', async (req, res) => {
+router.get('/messages', checkAuthenticated, async (req, res) => {
   try {
     const messageData = await Message.findAll({});
     const userData = await User.findAll({});
@@ -135,7 +135,7 @@ router.get('/messages', async (req, res) => {
 });
 
 // add scheduled sessions get routes
-router.get('/scheduledSession', async (req, res) => {
+router.get('/scheduledSession', checkAuthenticated, async (req, res) => {
   try {
     const scheduledSessionData = await ScheduledSession.findAll({
       include: [
@@ -159,7 +159,7 @@ router.get('/scheduledSession', async (req, res) => {
   }
 });
 
-router.get('/scheduledSession/:id', async (req, res) => {
+router.get('/scheduledSession/:id', checkAuthenticated, async (req, res) => {
   try {
     const scheduledSessionData = await ScheduledSession.findOne({
       where: {
@@ -172,7 +172,8 @@ router.get('/scheduledSession/:id', async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.get('/edit-profile', async (req, res) => {
+
+router.get('/edit-profile', checkAuthenticated, async (req, res) => {
   try {
     res.render('edit-profile', { logged_in: true });
   } catch (err) {
