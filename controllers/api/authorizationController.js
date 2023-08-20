@@ -32,6 +32,7 @@ router.get('/success', checkAuthenticated, async (req, res) => {
   if (student) {
     url = 'studentProfile';
     renderData = {
+      logged_in: true,
       userType: 'student',
       student: student.get({ plain: true }),
       message: 'You are now logged in!',
@@ -47,6 +48,7 @@ router.get('/success', checkAuthenticated, async (req, res) => {
     });
     url = 'tutorProfile';
     renderData = {
+      logged_in: true,
       userType: 'tutor',
       tutor: tutor.get({ plain: true }),
       message: 'You are now logged in!',

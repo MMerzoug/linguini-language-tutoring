@@ -23,7 +23,7 @@ router.get('/sign-up', checkNotAuthenticated, async (req, res) => {
 });
 
 // Render tutors on the homepage
-router.get('/', async (req, res) => {
+router.get('/', checkNotAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render tutor data on the tutorListing page
-router.get('/tutorListing', async (req, res) => {
+router.get('/tutorListing', checkAuthenticated, async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       include: [User],
@@ -73,7 +73,7 @@ router.get('/studentProfile/:id', checkAuthenticated, async (req, res) => {
       },
     });
     const student = studentData.get({ plain: true });
-    res.render('studentProfile', { student, logged_in: true});
+    res.render('studentProfile', { student, logged_in: true });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred');
@@ -168,7 +168,8 @@ router.get('/scheduledSession/:id', checkAuthenticated, async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.get('/edit-profile', async (req, res) => {
+
+router.get('/edit-profile', checkAuthenticated, async (req, res) => {
   try {
     res.render('edit-profile', { logged_in: true });
   } catch (err) {
