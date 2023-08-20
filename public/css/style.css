@@ -1,6 +1,6 @@
 body {
   background-color: #efefef;
-  font-family: 'Caprasimo', cursive;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* logo styling */
@@ -270,6 +270,19 @@ body {
   border-radius: 8px;
 }
 
+.form-group {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 10px;
+}
+
+.session-display {
+  display: block;
+  width: 50%;
+  float: right;
+  margin: 10px;
+}
 
 /* .tutorName{
   color: 
