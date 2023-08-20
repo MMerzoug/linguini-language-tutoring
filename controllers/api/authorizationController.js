@@ -58,7 +58,7 @@ router.get('/success', checkAuthenticated, async (req, res) => {
   res.render(url, renderData);
 });
 
-router.delete('/logout', checkAuthenticated, (req, res) => {
+router.post('/logout', checkAuthenticated, (req, res) => {
   req.logout((err) => {
     if (err) {
       return next(err);
