@@ -1,5 +1,5 @@
 <!-- Form to schedule a tutoring session -->
-
+<div class="scheduledSessionWrapper">
 <form id="scheduled-session-form" class="scheduled-session-form">
   <h1>Schedule a Tutoring Session</h1>
   <div class="form-group">
@@ -26,20 +26,21 @@
     <input type="text" class="form-control" id="meeting-link" name="meeting-link" />
     {{!-- <p class="help-block">The topic of the tutoring session.</p> --}}
   </div>
-
   <button type="submit" class="btn btn-primary">Schedule Session</button>
 </form>
 
-<div class="session-display" id="session-display"></div>
-{{#each scheduledSessions}}
-<h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
-<h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-<h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
-<button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
-{{/each}}
+<form class="session-display" id="session-display">
+  <div>
+  {{#each scheduledSessions}}
+  <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
+  <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
+  <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
+  <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
+  {{/each}}
+  </div>
+</form>
+
 </div>
-
-
 
 <script src="/js/scheduledSession.js"></script>
 
