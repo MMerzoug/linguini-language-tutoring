@@ -21,46 +21,49 @@
     <title>linguini</title>
 </head>
 
-<body class="hero">
+<body>
+
     <header class="header">
-        <img src="/images/linguini_cartoon_logo.png" class="logo-image">
+        <img src="/images/linguini.png" class="logo-image">
         {{#if logged_in}}
-        <nav>
-            <ul class="headerMenuBar">
-                <a href="/" class="home" id="headerEl">home</a>
-                <button class="follow-us" id="headerEl">
-                    <a href="/messages">messages</a>
+        <nav class="navigation">
+            <ul class="nav-menu-bar">
+                <button class="nav-button nav-element">
+                    <a href="/" class="home nav-element">Home</a>
                 </button>
-                <button class="follow-us" id="headerEl">
-                    <a href="/edit-profile">edit profile</a>
+                <button class="nav-button nav-element">
+                    <a href="/messages" class="follow-us-link">Messages</a>
                 </button>
-                <button class="follow-us logout-btn" id="headerEl">
-                    <a> log out </a>
+                <button class="nav-button nav-element">
+                    <a href="/edit-profile" class="follow-us-link">Edit Profile</a>
+                </button>
+                <button class="nav-button nav-element">
+                    <a href="">Log Out</a>
                 </button>
             </ul>
         </nav>
-
         {{else}}
-
-        <nav>
-            <ul class="headerMenuBar">
-                <a href="/" class="home" id="headerEl">home</a>
-                <button class="follow-us" id="headerEl">
+        <nav class="navigation">
+            <ul class="nav-menu-bar">
+                <a href="/" class="home nav-element">Home</a>
+                <button class="nav-button nav-element">
                     <a href="/api/authorization/login">Log In</a>
                 </button>
-                <button class="follow-us" id="headerEl">
+                <button class="nav-button nav-element">
                     <a href="/api/authorization/sign-up">Sign Up</a>
                 </button>
             </ul>
         </nav>
         {{/if}}
     </header>
+
     <main class="container container-fluid mt-5">
         {{{ body }}}
     </main>
+
     <footer>
         <div class="icon-bar">
-            <button class="follow-us">
+            <button class="nav-button">
                 <a href="/api/authorization/sign-up">follow us!</a>
             </button>
             <a href="https://www.linkedin.com/in/monique-merzoug-a0b800288"><i class="fa-brands fa-linkedin"></i></a>
@@ -69,10 +72,12 @@
             <a href="https://github.com/MMerzoug?tab=repositories"><i class="fa-brands fa-github-square"></i></a>
         </div>
     </footer>
+
     <!-- SWIPER FRAMEWORK SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="/js/swiper.js"></script>
     <script src="/js/logout.js"></script>
+
 </body>
 
 </html>
