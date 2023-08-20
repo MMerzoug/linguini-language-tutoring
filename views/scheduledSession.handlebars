@@ -3,28 +3,28 @@
 <form id="scheduled-session-form" class="scheduled-session-form">
   <h1>Schedule a Tutoring Session</h1>
   <div class="form-group">
-    <label for="student-id">Student ID</label>
+    <label for="student-id">Student Name</label>
     <input type="text" class="form-control" id="student-id" name="student-id" />
-    <p class="help-block">The student ID of the student who will be attending the session.</p>
+    {{!-- <p class="help-block">The student ID of the student who will be attending the session.</p> --}}
   </div>
 
   <div class="form-group">
-    <label for="tutor-id">Tutor ID</label>
+    <label for="tutor-id">Tutor Name</label>
     <input type="text" class="form-control" id="tutor-id" name="tutor-id" />
-    <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p>
+    {{!-- <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p> --}}
   </div>
 
   <div class="form-group">
     <label for="session-time">Session Time</label>
     <input type="datetime-local" class="form-control" id="session-begin" name="session-begin" />
     <input type="datetime-local" class="form-control" id="session-end" name="session-end" />
-    <p class="help-block">The time and date of the tutoring session.</p>
+    {{!-- <p class="help-block">The time and date of the tutoring session.</p> --}}
   </div>
 
   <div class="form-group">
-    <label for="meeting-link">Meeting Link</label>
+    <label for="meeting-link">Preferred Location</label>
     <input type="text" class="form-control" id="meeting-link" name="meeting-link" />
-    <p class="help-block">The topic of the tutoring session.</p>
+    {{!-- <p class="help-block">The topic of the tutoring session.</p> --}}
   </div>
 
   <button type="submit" class="btn btn-primary">Schedule Session</button>
@@ -34,7 +34,6 @@
 {{#each scheduledSessions}}
 <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
 <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-{{!-- <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2> --}}
 <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
 <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
 {{/each}}
