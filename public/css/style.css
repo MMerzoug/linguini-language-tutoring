@@ -185,7 +185,7 @@ body {
   background-color: #454847;
   color: white;
   border-radius: 8px;
-  height: 15vh;
+  /* height: 15vh; */
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
@@ -488,4 +488,10 @@ select {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  font-size: 2rem;
+}
+
+#studentHdr {
+  color: #fff;
+  font-size: 2rem;
 }
