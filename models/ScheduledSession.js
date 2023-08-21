@@ -63,6 +63,7 @@ ScheduledSession.init(
             },
             get() {
                 return new Date(this.getDataValue('sent')).toDateString();
+                // return dayjs(this.getDataValue("sent")).format("MMMM-D, YYYY h:mm:ss")
             },
             set(value) {
                 this.setDataValue('sent', value);

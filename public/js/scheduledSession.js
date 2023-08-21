@@ -1,6 +1,7 @@
 // Get the scheduled sessions from the database.
 // This function fetches the scheduled sessions from the database for the specified student ID.
 
+
 const getScheduledSessions = async (studentId) => {
   // Get the scheduled sessions from the database.
   const scheduledSessions = await fetch(`/api/scheduled-sessions/student/${studentId}`, {
@@ -44,9 +45,12 @@ const postSession = async (event) => {
 
   const studentId = document.getElementById('student-id').value;
   const tutorId = document.getElementById('tutor-id').value;
-  const sessionBegin = document.getElementById('session-begin').value;
-  const sessionEnd = document.getElementById('session-end').value;
+  let sessionBegin = document.getElementById('session-begin').value;
+  let sessionEnd = document.getElementById('session-end').value;
   const meetingLink = document.getElementById('meeting-link').value;
+
+  sessionBegin= sessionBegin.split("T").join(" ") + ":00"
+  sessionEnd= sessionEnd.split("T").join(" ") + ":00"
 console.log(sessionBegin, sessionEnd)
 // api fetch should align to the index.js in api folder
   // The `fetch()` function makes a request to the API endpoint `/api/scheduledSessions`.
