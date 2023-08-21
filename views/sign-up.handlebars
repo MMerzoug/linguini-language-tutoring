@@ -1,33 +1,37 @@
-<h1>Sign-up For An Account</h1>
-<form id="signUpForm">
-    <label for="email">Email</label>
-    <input type="email" id="email" class="formInput">
+<h1 class="form-title">Sign-up For An Account</h1>
+<div class="form-container">
+    <div class="form-image-container">
+        <img src="/images/sign-up.png" alt="An individual sitting at a desk studying a language." class="sign-up-image"/>
+    </div>
+    <form class="form" id="signUpForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="formInput">
 
-    <label for="password">Password</label>
-    <input type="password" id="password" class="formInput">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="formInput">
 
-    <label for="first name">First Name</label>
-    <input type="text" id="firstName" class="formInput">
+        <label for="first name">First Name</label>
+        <input type="text" id="firstName" class="formInput">
 
-    <label for="last name">Last Name</label>
-    <input type="text" id="lastName" class="formInput">
+        <label for="last name">Last Name</label>
+        <input type="text" id="lastName" class="formInput">
 
-    <label for="language">Language:</label>
-    <select name="language" id="language">
-        <option value="english">English</option>
-        <option value="french">French</option>
-        <option value="italian">Italian</option>
-        <option value="spanish">Spanish</option>
-    </select>
-    
-    <label for="type">Type</label>
-    <select name="type" id="type">
-        <option value="student">Student</option>
-        <option value="tutor">Tutor</option>
-    </select>
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            <option value="english">English</option>
+            <option value="french">French</option>
+            <option value="italian">Italian</option>
+            <option value="spanish">Spanish</option>
+        </select>
 
-    <button type="submit" id="signUpBtn">Sign Up</button>
-    <button type="clear" id="clearBtn">Clear</button>
-</form>
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="student">Student</option>
+            <option value="tutor">Tutor</option>
+        </select>
 
+        <button class="form-button submit-form" type="submit" id="signUpBtn">Sign Up</button>
+        <button class="form-button clear-form" type="clear" id="clearBtn">Clear</button>
+    </form>
+</div>
 <script src="/js/signup.js"></script>

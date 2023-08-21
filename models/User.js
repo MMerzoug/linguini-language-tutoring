@@ -51,6 +51,7 @@ User.init(
     image_avatar: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue: "/images/avatars/0.svg",
     },
   },
   {

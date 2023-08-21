@@ -1,35 +1,43 @@
-<div class="post card">
-  <div class="card-header">
-    <h2>Message Center</h2>
-  </div>
-</div>
+{{!
+A list of all the messages for the current user
+A form to create a new message
+A link to edit a message
+A link to delete a message
+}}
 
-<div class="message-display" id="message-display">
-  {{#each messages}}
-    <h2 class="message">{{message_text}}</h2>
-    <h2 class="user-id">Sender: {{fromUser.first_name}} {{fromUser.last_name}} <br /> Recipient: {{toUser.first_name}} {{toUser.last_name}} <br /> Sent: {{sent}}</h2>
-    <button type="delete" id="message-delete" value="{{id}}" class="delete-btn">Delete</button>
-  {{/each}}
-</div>
+<h2 class="form-title">Message Center</h2>
 
-<form class="to-input">
-  <label class="form-label" for="post-title">To:</label>
-  {{! make the below a select drop down and use the user id to reference for the list of names }}
-  {{! <input type="text" name="post-title" id="to_id" class="form-input"></input> }}
-  <select name="to_id" id="to_id" class="form-input">
-    {{#each users}}
-      <option value="{{id}}">{{first_name}} {{last_name}}</option>
-    {{/each}}
-  </select>
-</form>
-
-<div>
-  <form id="new-post-form" class="card-body">
-    <label class="form-label" for="post-body"></label>
-    <textarea name="post-body" id="message_text" class="form-input">
-    </textarea>
-    <button type="submit" id="send" class="btn">Send</button>
+<div class="messages">
+  <form class='to-input'>
+    <label class='form-label' for='post-title'>To:</label>
+    {{! make the below a select drop down and use the user id to reference for the list of names }}
+    {{! <input type="text" name="post-title" id="to_id" class="form-input"></input> }}
+    <select name='to_id' id='to_id' class='form-input'>
+      {{#each users}}
+      <option value='{{id}}'>{{first_name}} {{last_name}}</option>
+      {{/each}}
+    </select>
   </form>
+
+  <div class="send-message-card">
+    <form id='new-post-form' class='card-body'>
+      <label class='form-label' for='post-body'></label>
+      <textarea name='post-body' id='message_text' class='form-input'>
+    </textarea>
+      <button type='submit' id='send' class='btn'>Send</button>
+    </form>
+  </div>
+
+  <div class="message-container">
+    {{#each messages}}
+    <div class="message-card">
+      <h2 class='message-text'>{{message_text}}</h2>
+      <h2 class='user-id'>Sender: {{fromUser.first_name}} {{fromUser.last_name}} <br /> Recipient: {{toUser.first_name}} {{toUser.last_name}} <br /> Sent: {{sent}}</h2>
+      <button type='delete' id='message-delete' value='{{id}}' class='delete-btn'>Delete</button>
+    </div>
+    {{/each}}
+  </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>

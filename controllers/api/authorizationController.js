@@ -15,7 +15,7 @@ router.post(
 );
 
 router.get("/success", checkAuthenticated, async (req, res) => {
-  const userData = await User.findOne({ where: { email: req.user.email } });
+  // const userData = await User.findOne({ where: { email: req.user.email } });
   // Check if user is student or tutor
   const student = await Student.findOne({
     include: [
@@ -23,7 +23,7 @@ router.get("/success", checkAuthenticated, async (req, res) => {
         model: User,
       },
     ],
-    where: { user_id: userData.id },
+    where: { user_id: req.user.id },
   });
 
   let renderData = {};
