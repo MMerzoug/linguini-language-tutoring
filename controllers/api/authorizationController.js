@@ -1,42 +1,36 @@
-const router = require('express').Router();
-const { User, Student, Tutor, Language, LanguageLevel } = require('../../models');
-const passport = require('passport');
-const { checkAuthenticated, checkNotAuthenticated } = require('../../passport-config');
+const router = require("express").Router();
+const { User, Student, Tutor, Language, LanguageLevel } = require("../../models");
+const passport = require("passport");
+const { checkAuthenticated, checkNotAuthenticated } = require("../../passport-config");
 
 // endpoint for logging in
 router.post(
-  '/login',
+  "/login",
   checkNotAuthenticated,
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
     failureFlash: true,
   })
 );
 
-router.get('/success', checkAuthenticated, async (req, res) => {
-  const userData = await User.findOne({ where: { email: req.user.email } });
+router.get("/success", checkAuthenticated, async (req, res) => {
+  // const userData = await User.findOne({ where: { email: req.user.email } });
   // Check if user is student or tutor
   const student = await Student.findOne({
     include: [
       {
         model: User,
       },
-      // {
-      //   model: Language,
-      // },
-      // {
-      //   model: LanguageLevel,
-      // },
     ],
-    where: { user_id: userData.id },
+    where: { user_id: req.user.id },
   });
 
   let renderData = {};
-  let url = '';
+  let url = "";
 
   if (student) {
-    res.redirect('/studentProfile');
+    res.redirect("/studentProfile");
   } else {
     const tutor = await Tutor.findOne({
       include: [
@@ -46,18 +40,18 @@ router.get('/success', checkAuthenticated, async (req, res) => {
       ],
       where: { user_id: userData.id },
     });
-    res.redirect('/tutorProfile');
+    res.redirect("/tutorProfile");
   }
 
-  res.status(500).end()
+  res.status(500).end();
 });
 
-router.post('/logout', checkAuthenticated, (req, res) => {
+router.post("/logout", checkAuthenticated, (req, res) => {
   req.logout((err) => {
     if (err) {
       return next(err);
     }
-    res.redirect('/login');
+    res.redirect("/login");
   });
 });
 
