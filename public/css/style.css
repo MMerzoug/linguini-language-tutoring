@@ -304,8 +304,12 @@ body {
   width: 60%;
   padding: 50px 50px;
   background-color: #454847;
-  color: white;
+  color: white !important;
   border-radius: 8px;
+}
+
+label {
+  color: white !important;
 }
 
 .scheduledSessionWrapper {
