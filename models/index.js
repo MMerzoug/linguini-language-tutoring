@@ -40,8 +40,8 @@ Tutor.hasMany(TutorRating, {
 //   foreignKey: 'user_id',
 // });
 
-LanguageLevel.belongsTo(Student, {
-  foreignKey: 'language_level',
+Student.belongsTo(LanguageLevel, {
+  foreignKey: 'language_level_id',
 });
 
 
