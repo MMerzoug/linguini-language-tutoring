@@ -25,15 +25,15 @@ A link to delete a message
       <button type='submit' id='send' class='btn'>Send</button>
     </form>
   </div>
-  <div class="message-container">
-    {{#each messages}}
-    <div class="message-card">
-      <h2 class='message-text'>{{message_text}}</h2>
-      <h2 class='user-id'>Sender: {{fromUser.first_name}} {{fromUser.last_name}} <br /> Recipient: {{toUser.first_name}} {{toUser.last_name}} <br /> Sent: {{sent}}</h2>
-      <button type='delete' id='message-delete' value='{{id}}' class='delete-btn'>Delete</button>
+    <div class="messages-container">
+      {{#each messages}}
+      <div class="message-card">
+        <h2 class='message-text'>{{message_text}}</h2>
+        <h2 class='user-id'>Sender: {{fromUser.first_name}} {{fromUser.last_name}} <br /> Recipient: {{toUser.first_name}} {{toUser.last_name}} <br /> Sent: {{sent}}</h2>
+        <button type='delete' id='message-delete' value='{{id}}' class='delete-btn'>Delete</button>
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
-  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
