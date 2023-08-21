@@ -322,21 +322,39 @@ body {
 }
 
 /* Scheduled Sessions Page */
-.scheduled-session-form,
-.session-display {
-  display: inline-block;
+.scheduled-session-form {
+  display: flex;
   flex-direction: column;
-  align-items: left;
-  width: 60%;
-  padding: 50px 50px;
+  gap: .5rem;
+  width: 25%;
+  padding: 30px;
   background-color: #454847;
   color: white;
   border-radius: 8px;
+  max-height: 30rem;
+}
+
+.session-display {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 25%;
+  padding: 30px;
+  background-color: #454847;
+  color: white;
+  border-radius: 8px;
+  max-height: 30rem;
+  overflow-y: scroll;
 }
 
 .scheduledSessionWrapper {
   display: flex;
-  gap: 30px;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 35rem;
+  min-height: 35rem;
+  overflow: hidden;
 }
 
 /* FORM STYLES */
@@ -445,4 +463,14 @@ select {
 .form-input {
   width: 400px;
   height: 300px;
+}
+
+.session-field-label {
+  color: #fff;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
