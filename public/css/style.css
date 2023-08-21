@@ -478,3 +478,11 @@ select {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+/* added studentprofile wrapper class 8.21.23 */
+.studentProfileWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
