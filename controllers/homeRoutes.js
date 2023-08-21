@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const { User, Tutor, TutorRating, Student, Language, Message, ScheduledSession, LanguageLevel } = require('../models');
-const { checkAuthenticated, checkNotAuthenticated } = require('../passport-config');
+const router = require("express").Router();
+const { User, Tutor, TutorRating, Student, Language, Message, ScheduledSession, LanguageLevel } = require("../models");
+const { checkAuthenticated, checkNotAuthenticated } = require("../passport-config");
 
 // Render login page
 router.get("/login", checkNotAuthenticated, async (req, res) => {
@@ -111,6 +111,10 @@ router.get("/tutorProfile/", checkAuthenticated, async (req, res) => {
           model: Tutor,
           include: [{ model: User }],
         },
+        {
+          model: Student,
+          include: [{ model: User }],
+        },
       ],
       where: {
         tutor_id: tutor.id,
@@ -125,7 +129,7 @@ router.get("/tutorProfile/", checkAuthenticated, async (req, res) => {
 });
 
 // Render student profile on the studentProfile page
-router.get('/studentProfile/', checkAuthenticated, async (req, res) => {
+router.get("/studentProfile/", checkAuthenticated, async (req, res) => {
   try {
     // const userData = await User.findOne({ where: { email: req.user.email } });
     const studentData = await Student.findOne({
@@ -138,7 +142,7 @@ router.get('/studentProfile/', checkAuthenticated, async (req, res) => {
         },
         {
           model: LanguageLevel,
-        }
+        },
       ],
       where: {
         user_id: req.user.id,
@@ -158,14 +162,12 @@ router.get('/studentProfile/', checkAuthenticated, async (req, res) => {
     // });
     // // Athena this needs to be math average of all ratings (not .map)
     // const tutorRatings = tutorRatingData.map((tutorRating) => tutorRating.get({ plain: true }));
-    res.render('studentProfile', { student, logged_in: true, /* tutorRatings */ });
+    res.render("studentProfile", { student, logged_in: true /* tutorRatings */ });
   } catch (err) {
     console.error(err);
-    res.status(500).send('An error occurred');
+    res.status(500).send("An error occurred");
   }
 });
-
-
 
 // Add Messaging Get Routes
 // Call users.find all to send the user list to the messaging template
