@@ -1,34 +1,25 @@
 <h1 class="form-title">Tutor Profile Page</h1>
-<div class="tutorProfileWrapper">
-<section class="user-profile" id="deets-cards">
-     <div class="user-card">
+<div class="profile-container">
+    <div class="user-card">
         <img src="{{tutor.user.image_avatar}}" class="user-profile-avatar">
         <h5 class="user-name"> {{tutor.user.first_name}} {{tutor.user.last_name}}</h5>
         <h5 class="user-email"> {{tutor.user.email}}</h5>
-        <h5 class="user-language"> Proficient in: {{tutor.language.name}}</h5>
+        <h5 class="user-language"> Proficiency: {{tutor.language.name}}</h5>
         <h5 class="tutor-rating"> Rating: {{tutor.rating}} of 5 stars</h5>
     </div>
-</section>
     <div class="user-card">
-        <h2 class="session-calendar"> Session Calendar </h2>
-        <div class="session-display" id="session-display"></div>
-           {{#each scheduledSessions}}
-            <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
-            <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
-            <h2 class='session'>sent by user {{student_id}} to user {{tutor_id}} on {{sent}}</h2>
-            <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
-            <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
-            {{/each}} 
+        <h2 class="card-heading"> Session Calendar </h2>
+        <div class="session-card">
+            {{#each scheduledSessions}}
+            <h2 class="meet-with"> Meet with: {{student.user.first_name}} {{student.user.last_name}} </h2>
+            <h2 class="meeting-link"> Meeting Link: {{meeting_link}} </h2>
+            <button type="delete" value="{{id}}" class="delete-btn form-button clear-form">Cancel Session</button>
+            {{/each}}
         </div>
     </div>
+</div>
 </div>
 
 
 
 <script src="/js/tutorProfile.js"></script>
-
-
-
-
-
-

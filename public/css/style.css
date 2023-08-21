@@ -92,6 +92,7 @@ body {
 }
 
 .user-card {
+  width: 15vw;
   border-radius: 10px;
   padding: 1.5rem;
   background-color: #feefe8;
@@ -119,7 +120,6 @@ body {
   height: 12vh;
   background-color: transparent;
   padding: 0;
-  /* margin: 0; */
 }
 
 /* footer Icon Bar Styling */
@@ -131,8 +131,6 @@ body {
   text-align: center;
   margin: auto;
   gap: .6rem;
-  /* margin-top: 30px; */
-  /* margin-bottom: 5px; */
 }
 
 .icon-bar a {
@@ -158,10 +156,35 @@ body {
 
 .social-button {
   width: fit-content;
-  /* padding: 0 .6rem .5rem .6rem; */
   background-color: transparent;
   border-radius: .5rem;
   border: none;
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.session-card {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #454847;
+  color: white;
+  border-radius: 8px;
+  height: 15vh;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.meet-with {
+  font-size: large;
+  font-weight: bold;
 }
 
 .user-name {
@@ -176,7 +199,6 @@ body {
 .tutor-rating {
   font-size: 18px;
   margin-bottom: 10px;
-  /* Spacing between each line inside the card */
 }
 
 /* tutorList page styling  */
