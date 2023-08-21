@@ -123,6 +123,46 @@ router.get("/tutorProfile/", checkAuthenticated, async (req, res) => {
   }
 });
 
+// Render student profile on the studentProfile page
+router.get('/studentProfile/', checkAuthenticated, async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.user.email } });
+    const studentData = await Tutor.findOne({
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Language,
+        },
+      ],
+      where: {
+        user_id: userData.id,
+      },
+    });
+    const student = studentData.get({ plain: true });
+    const tutorRatingData = await tutorRating.findAll({
+      include: [
+        {
+          model: Student,
+          include: [{ model: User }],
+        },
+      ],
+      where: {
+        student_id: student.id,
+      },
+    });
+    // Athena this needs to be math average of all ratings (not .map)
+    const tutorRatings = tutorRatingData.map((tutorRating) => tutorRating.get({ plain: true }));
+    res.render('studentProfile', { student, logged_in: true, tutorRatings });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred');
+  }
+});
+
+
+
 // Add Messaging Get Routes
 // Call users.find all to send the user list to the messaging template
 router.get("/messages", checkAuthenticated, async (req, res) => {
