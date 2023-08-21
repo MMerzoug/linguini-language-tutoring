@@ -82,7 +82,10 @@ const deleteSession= async (event) => {
 };
 // This function listens for the submit event on the `scheduled-session-form` element.
 // When the form is submitted, the `postSession()` function is called.
-document.getElementById("scheduled-session-form").addEventListener("submit", postSession)
+const formElm= document.getElementById("scheduled-session-form");
+if (formElm) {
+  formElm.addEventListener("submit", postSession)
+}
 document.querySelectorAll(".delete-btn").forEach((button) => {
   button.addEventListener("click", deleteSession);
 });

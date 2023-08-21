@@ -270,4 +270,28 @@ body {
 .scheduledSessionWrapper {
   display: flex;
   gap: 30px;
+
+}
+
+/* Tutor Profile Page Styling */
+
+.tutor-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 0 auto;
+  width: 60%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  text-align: left;
+  background-color: #454847;
+  color: white;
+  padding: 50px 20px;
+  border-radius: 8px;
+}
+
+.tutorProfileWrapper {
+  display: flex;
+  gap: 30px;
+
 }
