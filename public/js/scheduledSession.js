@@ -47,7 +47,7 @@ const postSession = async (event) => {
   const sessionBegin = document.getElementById('session-begin').value;
   const sessionEnd = document.getElementById('session-end').value;
   const meetingLink = document.getElementById('meeting-link').value;
-
+console.log(sessionBegin, sessionEnd)
 // api fetch should align to the index.js in api folder
   // The `fetch()` function makes a request to the API endpoint `/api/scheduledSessions`.
   // The request method is `POST` and the body of the request is a JSON object that contains the student ID, tutor ID, session begin, session end, and meeting link.
@@ -61,7 +61,7 @@ const postSession = async (event) => {
   // If the request was successful, the function alerts the user that the session has been scheduled.
   if (response.ok) {
     alert ("Tutoring session scheduled successfully! Your tutor will provide an email with a link to the session");
-    document.location.replace('/scheduledSession');
+    //document.location.replace('/scheduledSession');
   } else {
     // If the request was not successful, the function alerts the user of the error.
     alert(response.statusText);

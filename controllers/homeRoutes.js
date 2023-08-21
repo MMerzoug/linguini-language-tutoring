@@ -221,7 +221,7 @@ router.get("/scheduledSession", checkAuthenticated, async (req, res) => {
       ],
     });
     const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
-    console.log(scheduledSessions);
+   // console.log(scheduledSessions);
     res.render("scheduledSession", { scheduledSessions, logged_in: true });
   } catch (err) {
     res.status(400).json(err);
