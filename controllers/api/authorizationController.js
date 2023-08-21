@@ -38,7 +38,7 @@ router.get("/success", checkAuthenticated, async (req, res) => {
           model: User,
         },
       ],
-      where: { user_id: userData.id },
+      where: { user_id: req.user.id },
     });
     res.redirect("/tutorProfile");
   }
