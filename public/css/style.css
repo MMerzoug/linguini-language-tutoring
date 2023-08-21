@@ -44,7 +44,8 @@ body {
   border: none;
 }
 
-.nav-link {
+.nav-link,
+.logout-btn {
   font-weight: bold;
   font-size: 1.5rem;
   color: white;
@@ -171,15 +172,15 @@ body {
 .session-card {
   padding: 1rem;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   background-color: #454847;
   color: white;
   border-radius: 8px;
-  height: 15vh;
+  height: 34vh;
   align-items: center;
-  justify-content: center;
+  justify-content: cente;
   gap: .6rem;
+  overflow: hidden;
 }
 
 .meet-with {
@@ -236,6 +237,12 @@ body {
 /* messaging page styling */
 .messages {
   background-color: aqua;
+  display: flex;
+}
+
+.send-message-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .message-container {
@@ -259,11 +266,10 @@ body {
   background-color: green;
 }
 
-.message-text,
-#to_id {
+.message-text {
   width: 400px;
   height: 50px;
-  font-size: 14pt;
+  font-size: 2rem;
   border-radius: 8px;
 }
 
@@ -289,10 +295,18 @@ body {
 }
 
 .form-label {
-  font-size: 34pt;
+  font-size: 2rem;
   font-weight: bold;
   margin-right: 10px;
   align-self: baseline;
+}
+
+.form-input {
+  width: 400px;
+  height: 50px;
+  font-size: 2rem;
+  border-radius: 8px;
+
 }
 
 /* Scheduled Sessions Page */
