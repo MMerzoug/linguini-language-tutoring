@@ -455,6 +455,10 @@ select {
   width: 12rem;
 }
 
+#defaultimg {
+  width: 12rem;
+}
+
 .card-heading {
   font-weight: bold;
   font-size: larger;
