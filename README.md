@@ -1,69 +1,127 @@
-# Online Language Tutoring
+# Linguini Language Tutoring
 
-## Setting up the MySQL Database and Access Controls
+## Table of Contents
 
-To run the "Online Language Tutoring" app, you need to set up a MySQL database and configure access controls. Follow these steps to get started:
+[About the Project](#About-the-Project)
+[Features](#Features)
+[Technologies](#Technologies)
+[Getting Started](#Getting-Started)
+[Installation](#Installation)
+[Usage](#Usage)
+[Contact](#Contact)
+[License](#License)
+[Acknowledgements](#Acknowledgements)
 
-### Step 1: Install MySQL
+### About the Project
 
-If you haven't already installed MySQL, you need to download and install it on your computer. Visit the official MySQL website (https://dev.mysql.com/downloads/installer/) and download the appropriate installer for your operating system.
+Linguini Language Tutoring is a full-stack web application that enables language students to schedule tutoring sessions with registered tutors. The application is built using Express, MySQL, Sequelize, Node, Handlebars, and Passport.
 
-### Step 2: Start MySQL Server
+### Features
 
-After installing MySQL, start the MySQL server on your machine. The process to start the server may vary depending on your operating system. Once the server is running, you can connect to it using a MySQL client.
+Students: Students can create an account choose from a drop down bar listing language tutors to schedule a tutoring session with. They can also send messages to their tutors.
 
-### Step 3: Connect to MySQL Server
+Tutors: Tutors can create an account and choose a language to provide class. They can also view a list of scheduled sessions on their Tutor Profile page and send messages to their students.
 
-You'll need a MySQL client to interact with the MySQL server. You can use the MySQL command-line client or a GUI-based client like MySQL Workbench.
+#### Home Page
 
-To connect using the MySQL command-line client, open your terminal or command prompt and type:
+The home page features a carousel showcasing top tutors and includes a header menu with Log In and Sign Up buttons.
 
-```bash
-mysql -u root -p
+#### Sign Up Page
 
-Replace 'root' with your MySQL username if you have a different username. You'll be prompted to enter your MySQL password.
+Users can create an account as a tutor or student. Students can specify their preferred language and skill level.
 
-### Step 4: Create a Database
+#### Log In Page
 
-Once you're connected to the MySQL server, you can create a new database for the "Online Language Tutoring" app. Let's call it online_language_tutoring. To create the database, run the following SQL command:
+Registered users can log in to access the website's features.
 
-> CREATE DATABASE online_language_tutoring;
+#### Tutor Profile Page
 
-Step 5: Create a MySQL User
-It's best practice to create a dedicated MySQL user for the "Online Language Tutoring" app with limited privileges. Replace 'your_username' and 'your_password' with your desired username and password:
+Tutors can view their photo, tutor rating, and a list of their current scheduled sessions.
 
-sql
-Copy code
-CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
-Step 6: Grant Privileges
-Next, grant the necessary privileges to the newly created user on the online_language_tutoring database:
+#### Student Profile Page
 
-sql
-Copy code
-GRANT ALL PRIVILEGES ON online_language_tutoring.* TO 'your_username'@'localhost';
-Step 7: Flush Privileges
-After granting the privileges, run the following command to apply the changes:
+Students can view their photo, personal details, and language of interest.
 
-sql
-Copy code
-FLUSH PRIVILEGES;
-Step 8: Exit MySQL
-Exit the MySQL command-line client by typing:
+#### Messages Page
 
-bash
-Copy code
-exit;
-Step 9: Update Database Configuration
-Now that you have set up the database and created a MySQL user, you need to update the database configuration in the database.js file (inside the config/ directory of the project). Replace 'your_username', 'your_password', and 'database_name' with your actual MySQL username, password, and the name of the database you created (online_language_tutoring):
+Both students and tutors can exchange text messages.
 
-javascript
-Copy code
-const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('database_name', 'your_username', 'your_password', {
-  host: 'localhost',
-  dialect: 'mysql',
-});
+#### Scheduled Sessions Page
 
-That's it! The MySQL database is now set up, and you've configured access controls for the "Online Language Tutoring" app. The app will be able to connect to the database using the specified MySQL username and password in the database.js file.
+Students can schedule multiple tutoring sessions with registered tutors.
 
-Feel free to modify the formatting or add any additional instructions or information to the `README.md` file as needed. The above content will guide users on how to set up the MySQL database and configure access controls for the app.
+### Technologies
+
+**Express**: Web application framework for Node.js
+**MySQL**: Relational database management system
+**Sequelize**: ORM for MySQL
+**Node**: JavaScript runtime environment
+**Passport**: Authentication library for Node
+**Handlebars**: Templating language for dynamically generating HTML content
+
+### Getting Started
+
+### Installation
+
+1. Clone the repository to your local machine:
+   ```sh
+   git clone https://github.com/MMerzoug/linguini-language-tutoring.git
+   ```
+
+2. Navigate to the project directory:
+   ```sh
+   cd linguini-language-tutoring
+   ```
+
+3. Install the required dependencies:
+   ```sh
+   npm install
+   ```
+
+### Usage
+
+To use Linguini Language Tutoring:
+
+1. Make sure you have completed the installation steps.
+2. Run the application:
+   ```sh
+   npm start
+   ```
+3. Open your web browser and navigate to `http://localhost:3001` to access the application.
+4. Sign up or log in to your account.
+5. Explore available language tutoring sessions and choose one that suits your preferences.
+6. Join a session, interact with your tutor, and engage in language learning activities.
+
+For more information about the project and its features, please refer to the [project repository](https://github.com/MMerzoug/linguini-language-tutoring) and the project website at [https://pasta-fagioli-b817a8e5488d.herokuapp.com](https://pasta-fagioli-b817a8e5488d.herokuapp.com).
+
+### Images
+![Screenshot](./public/images/linguini-homepage.png) 
+**Homepage**
+
+![Screenshot](./public/images/linguini-signup.png) 
+**Sign-up page**
+
+![Screenshot](./public/images/linguini-messages.png) 
+**Messages page**
+
+![Screenshot](./public/images/linguini-scheduled-sessions.png) 
+**Scheduled Sessions page**
+
+
+
+Linguini was created as part of the UC Berkeley Extension Coding Bootcamp curriculum by "Team #1", with members:
+
+- Athena Wallis (wallisathena@gmail.com)
+- Jesus Santos (jo_nez@hotmail.com)
+- Monique Merzoug (monique.merzoug@icloud.com)
+- Donahi Casas-Silva (donahi22@gmail.com)
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+### Acknowledgements
+
+With gratitude to the UC Berkeley Extension Bootcamp Teaching Assistants, Zoom video tutors, and engineer friends and relatives for their assistance and expertise throughout the course of the project. Special thanks to project consultant Robbert Wijtman and project tutor Robby Kurle.
+```
