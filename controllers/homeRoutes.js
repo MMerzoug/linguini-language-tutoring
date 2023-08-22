@@ -222,9 +222,17 @@ router.get("/scheduledSession", checkAuthenticated, async (req, res) => {
         },
       ],
     });
+    const tutors = await Tutor.findAll({
+      include: [{ model: User }],
+    });
+    const students = await Student.findAll({
+      include: [{ model: User }],
+    });
     const scheduledSessions = scheduledSessionData.map((scheduledSession) => scheduledSession.get({ plain: true }));
+    const tutorsPlain = tutors.map((tutor) => tutor.get({ plain: true }));
+    const studentsPlain = students.map((student) => student.get({ plain: true }));
     console.log(scheduledSessions);
-    res.render("scheduledSession", { scheduledSessions, logged_in: true });
+    res.render("scheduledSession", { scheduledSessions, tutorsPlain, studentsPlain, logged_in: true });
   } catch (err) {
     res.status(400).json(err);
   }

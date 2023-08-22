@@ -51,7 +51,7 @@ const postSession = async (event) => {
 // api fetch should align to the index.js in api folder
   // The `fetch()` function makes a request to the API endpoint `/api/scheduledSessions`.
   // The request method is `POST` and the body of the request is a JSON object that contains the student ID, tutor ID, session begin, session end, and meeting link.
-  const response = await fetch('/api/scheduledSessions', {
+  const response = await fetch('/api/scheduledSessions',{
     method: 'POST',
     body: JSON.stringify({ student_id:studentId, tutor_id:tutorId, session_begin: sessionBegin,  session_end:sessionEnd , meeting_link:meetingLink }),
     headers: { 'Content-Type': 'application/json' },
