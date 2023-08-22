@@ -270,6 +270,7 @@ body {
 }
 
 .messages-container {
+  min-width: 32rem;
   max-height: 30rem;
   border-radius: 1rem;
   padding: 20px;
