@@ -4,13 +4,22 @@
   <h1>Schedule a Tutoring Session</h1>
   <div class="form-group">
     <label for="student-id" class="session-field-label">Student Name</label>
-    <input type="text" class="form-control" id="student-id" name="student-id" />
+    {{!-- <input type="text" class="form-control" id="student-id" name="student-id" /> --}}
     {{!-- <p class="help-block">The student ID of the student who will be attending the session.</p> --}}
+    <select id="student-id" name="student-id">
+      {{#each studentsPlain}}
+        <option value="{{id}}">{{user.first_name}} {{user.last_name}}</option>
+      {{/each}}
+    </select>
   </div>
 
   <div class="form-group">
     <label for="tutor-id" class="session-field-label">Tutor Name</label>
-    <input type="text" class="form-control" id="tutor-id" name="tutor-id" />
+    <select id="tutor-id" name="tutor-id">
+      {{#each tutorsPlain}}
+        <option value="{{id}}">{{user.first_name}} {{user.last_name}}</option>
+      {{/each}}
+    </select>
     {{!-- <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p> --}}
   </div>
 

@@ -48,7 +48,7 @@ router.post('/', checkAuthenticated, async (req, res) => {
       from_id: req.user.id,
       to_id: req.body.to_id,
       message_text: req.body.message_text,
-      sent: dayjs()
+      sent: dayjs().format(),
       
     }, { transaction });
 
