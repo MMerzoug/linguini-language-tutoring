@@ -1,4 +1,4 @@
-<section>
+<section class="motto-container">
     <p class="motto">
         Speak Dreams into Reality.<br>
         Begin Your Language Journey with linguini!
@@ -7,14 +7,14 @@
 <section class="hero">
     {{!-- <img src="/images/hero.png"> --}}
 </section>
-<section>
+<section class="swiper-container">
     <div class="swiper">
-        <div class="swiper-wrapper tutor-cards">
+        <div class="swiper-wrapper">
             {{#each tutors}}
             <div class="swiper-slide">
-                <div class="user-card">
-                    <img src="{{user.image_avatar}}" class="user-avatar" />
-                    <h1 class="card-heading">
+                <div class="swiper-card">
+                    <img src="{{user.image_avatar}}" class="swiper-avatar" />
+                    <h1 class="swiper-heading">
                         {{user.first_name}} {{user.last_name}}
                     </h1>
                     <p>

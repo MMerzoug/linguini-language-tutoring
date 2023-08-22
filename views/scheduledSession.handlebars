@@ -3,26 +3,28 @@
 <form id="scheduled-session-form" class="scheduled-session-form">
   <h1>Schedule a Tutoring Session</h1>
   <div class="form-group">
-    <label for="student-id">Student Name</label>
+    <label for="student-id" class="session-field-label">Student Name</label>
     <input type="text" class="form-control" id="student-id" name="student-id" />
     {{!-- <p class="help-block">The student ID of the student who will be attending the session.</p> --}}
   </div>
 
   <div class="form-group">
-    <label for="tutor-id">Tutor Name</label>
+    <label for="tutor-id" class="session-field-label">Tutor Name</label>
     <input type="text" class="form-control" id="tutor-id" name="tutor-id" />
     {{!-- <p class="help-block">The tutor ID of the tutor who will be conducting the session.</p> --}}
   </div>
 
   <div class="form-group">
-    <label for="session-time">Session Time</label>
+    <p>Session Time</p>
+    <label for="session-time" class="session-field-label">Begin</label>
     <input type="datetime-local" class="form-control" id="session-begin" name="session-begin" />
+    <label for="session-time" class="session-field-label">End</label>
     <input type="datetime-local" class="form-control" id="session-end" name="session-end" />
     {{!-- <p class="help-block">The time and date of the tutoring session.</p> --}}
   </div>
 
   <div class="form-group">
-    <label for="meeting-link">Preferred Location</label>
+    <label for="meeting-link" class="session-field-label">Preferred Location</label>
     <input type="text" class="form-control" id="meeting-link" name="meeting-link" />
     {{!-- <p class="help-block">The topic of the tutoring session.</p> --}}
   </div>
