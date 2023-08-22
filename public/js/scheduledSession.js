@@ -48,6 +48,16 @@ const postSession = async (event) => {
   const sessionEnd = document.getElementById('session-end').value;
   const meetingLink = document.getElementById('meeting-link').value;
 
+  try {
+    const sessionBeginDate = new Date(sessionBegin);
+    const sessionEndDate = new Date(sessionEnd);
+    } catch (error) {
+    // The sessionBegin or sessionEnd variable is not a valid date.
+    alert("Please enter a valid date for both the session begin and session end fields.");
+    return;
+    }
+    
+    
 // api fetch should align to the index.js in api folder
   // The `fetch()` function makes a request to the API endpoint `/api/scheduledSessions`.
   // The request method is `POST` and the body of the request is a JSON object that contains the student ID, tutor ID, session begin, session end, and meeting link.
