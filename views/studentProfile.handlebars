@@ -1,9 +1,9 @@
-<h2>Student Profile Page</h2>
+<h2 id="studentHdr">Student Profile Page</h2>
 
 <div class="studentProfileWrapper">
   <section class="student-profile" id="deets-cards">
     <div class="student-card">
-      <img src="{{student.user.image_avatar}}" />
+      <img src="{{student.user.image_avatar}}" id="defaultimg" />
       <h5 class="studentName">
         {{student.user.first_name}}
         {{student.user.last_name}}</h5>
@@ -12,7 +12,7 @@
       <h5 class="student-language-level"> {{student.language_level_id}}</h5>
     </div>
   </section>
-  <div class="student-card">
+  {{! <div class="student-card">
     <select name="rating" id="rating">
       <i class="fa-solid fa-star">1 star</i>
       <i class="fa-solid fa-star">2 stars</i>
@@ -20,7 +20,7 @@
       <i class="fa-solid fa-star">4 stars</i>
       <i class="fa-solid fa-star">5 stars</i>
     </select>
-  </div>
+  </div> }}
 </div>
 
 <script src="/js/studentProfile.js"></script>
