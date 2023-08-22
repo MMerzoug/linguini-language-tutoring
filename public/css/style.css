@@ -346,10 +346,14 @@ body {
   width: 25%;
   padding: 30px;
   background-color: #454847;
-  color: white;
+  color: white !important;
   border-radius: 8px;
   max-height: 30rem;
   overflow-y: scroll;
+}
+
+label {
+  color: white !important;
 }
 
 .scheduledSessionWrapper {
