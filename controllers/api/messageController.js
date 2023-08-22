@@ -45,7 +45,7 @@ router.post('/', checkAuthenticated, async (req, res) => {
     const messageData = await Message.create({
       // from_id: req.session.user_id,
       // The following line is testing only. Once Auth is complete remove this line and uncomment the above line
-      from_id: req.session.user_id,
+      from_id: req.user.id,
       to_id: req.body.to_id,
       message_text: req.body.message_text,
       sent: dayjs()
