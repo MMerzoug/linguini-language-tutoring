@@ -484,6 +484,7 @@ select {
 
 /* added studentprofile wrapper class 8.21.23 */
 .studentProfileWrapper {
+  background-color: #feefe8;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
