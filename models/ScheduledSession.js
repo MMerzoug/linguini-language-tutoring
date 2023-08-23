@@ -47,10 +47,10 @@ ScheduledSession.init(
                 isDate: true,
             },
             get() {
-                return new Date(this.getDataValue('sent')).toDateString();
+                return new Date(this.getDataValue('session_begin')).toDateString();
             },
             set(value) {
-                this.setDataValue('sent', value);
+                this.setDataValue('session_begin', value);
             },
             
         },
@@ -62,10 +62,10 @@ ScheduledSession.init(
                 isDate: true,
             },
             get() {
-                return new Date(this.getDataValue('sent')).toDateString();
+                return new Date(this.getDataValue('session_end')).toDateString();
             },
             set(value) {
-                this.setDataValue('sent', value);
+                this.setDataValue('session_end', value);
             },
         },
         meeting_link: {

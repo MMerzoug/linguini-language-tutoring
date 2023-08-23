@@ -45,6 +45,8 @@
   {{#each scheduledSessions}}
   <h2 class='student-id'> Sent by: {{student.user.first_name}} {{student.user.last_name}} </h2>
   <h2 class='tutor-id'> To: {{tutor.user.first_name}} {{tutor.user.last_name}} </h2>
+  <h2 class='session-begin'> Session Begin: {{session_begin}} </h>
+  <h2 class='session-end'> Session End: {{session_end}} </h>
   <h2 class='meeting-link'> Meeting Link: {{meeting_link}} </h2>
   <button type="delete" value="{{id}}" class="delete-btn">Cancel Session</button>
   {{/each}}
@@ -53,5 +55,9 @@
 
 </div>
 
+{{!-- <script src="path/to/dayjs/dayjs.min.js"></script>
+<script>
+  dayjs().format()
+</script> --}}
 <script src="/js/scheduledSession.js"></script>
 
